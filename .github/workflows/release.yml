@@ -35,7 +35,7 @@ jobs:
           python -m venv .release-smoke
           .release-smoke/bin/python -m pip install dist/*.whl
           .release-smoke/bin/python scripts/release_smoke.py tests/data/01_single_series.xlsx --output-dir .release-smoke/output
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         with:
           name: python-package-distributions
           path: dist/

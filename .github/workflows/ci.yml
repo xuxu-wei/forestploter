@@ -95,7 +95,7 @@ jobs:
           python -m venv .sdist-smoke
           .sdist-smoke/bin/python -m pip install dist/*.tar.gz
           .sdist-smoke/bin/python scripts/release_smoke.py tests/data/01_single_series.xlsx --output-dir .sdist-smoke/output
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         with:
           name: checked-distributions
           path: dist/
