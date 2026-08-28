@@ -1,0 +1,11 @@
+label,n,estimate,lower,upper,effect_display,_plot_row,_series,_ci_column,_row_type,_indent,_is_summary
+Primary efficacy,,,,,,c01-r001,,,header,0,False
+Trial Aurora,148,-0.42,-0.7,-0.14,"-0.42 [-0.70, -0.14]",c01-r002-treatment,Treatment,ci,estimate,1,False
+Trial Beacon,212,-0.18,-0.41,0.05,"-0.18 [-0.41, 0.05]",c01-r003-treatment,Treatment,ci,estimate,1,False
+Trial Cedar,96,0.08,-0.28,0.44,"0.08 [-0.28, 0.44]",c01-r004-treatment,Treatment,ci,estimate,1,False
+Efficacy subtotal,456,-0.21,-0.38,-0.04,"-0.21 [-0.38, -0.04]",c01-r005-treatment,Treatment,ci,summary,0,True
+,,,,,,c01-r006,,,spacer,0,False
+Safety outcome,,,,,,c01-r007,,,header,0,False
+Trial Aurora,148,0.14,-0.11,0.39,"0.14 [-0.11, 0.39]",c01-r008-treatment,Treatment,ci,estimate,1,False
+Trial Beacon,212,-0.06,-0.29,0.17,"-0.06 [-0.29, 0.17]",c01-r009-treatment,Treatment,ci,estimate,1,False
+Safety subtotal,360,0.03,-0.13,0.19,"0.03 [-0.13, 0.19]",c01-r010-treatment,Treatment,ci,summary,0,True

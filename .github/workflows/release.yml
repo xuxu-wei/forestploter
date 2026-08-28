@@ -1,0 +1,59 @@
+name: Release to PyPI
+
+on:
+  push:
+    tags:
+      - "v[0-9]*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build release distributions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Confirm tag matches package version
+        run: >-
+          python -c "import os, pathlib, tomllib;
+          version=tomllib.loads(pathlib.Path('pyproject.toml').read_text(encoding='utf-8'))['project']['version'];
+          tag=os.environ['GITHUB_REF_NAME'];
+          assert tag == f'v{version}', f'{tag=} does not match v{version}'"
+      - run: python -m pip install build check-wheel-contents twine
+      - run: python -m build
+      - run: python -m twine check --strict dist/*
+      - run: check-wheel-contents dist
+      - name: Verify installed wheel
+        run: |
+          python -m venv .release-smoke
+          .release-smoke/bin/python -m pip install dist/*.whl
+          .release-smoke/bin/python scripts/release_smoke.py tests/data/01_single_series.xlsx --output-dir .release-smoke/output
+      - uses: actions/upload-artifact@v5
+        with:
+          name: python-package-distributions
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/forestploter
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v6
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish distributions
+        uses: pypa/gh-action-pypi-publish@release/v1

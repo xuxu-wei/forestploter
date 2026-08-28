@@ -1,0 +1,31 @@
+label,n,effect_display,estimate,lower,upper,_plot_row,_series,_ci_column,_row_type,_indent,_is_summary
+North America,,,,,,c09-r001,,,header,0,False
+United States overall,1420,"-0.32 [-0.48, -0.16]",-0.32,-0.48,-0.16,c09-r002-effect,Treatment,ci,estimate,1,False
+Urban centers,930,"-0.38 [-0.59, -0.17]",-0.38,-0.59,-0.17,c09-r003-effect,Treatment,ci,estimate,2,False
+Rural centers,490,"-0.21 [-0.49, 0.07]",-0.21,-0.49,0.07,c09-r004-effect,Treatment,ci,estimate,2,False
+Canada,618,"-0.18 [-0.39, 0.03]",-0.18,-0.39,0.03,c09-r005-effect,Treatment,ci,estimate,1,False
+North America subtotal,2038,"-0.27 [-0.39, -0.15]",-0.27,-0.39,-0.15,c09-r006-effect,Treatment,ci,summary,0,True
+,,,,,,c09-r007,,,spacer,0,False
+Europe,,,,,,c09-r008,,,header,0,False
+Germany,544,"-0.44 [-0.68, -0.20]",-0.44,-0.68,-0.2,c09-r009-effect,Treatment,ci,estimate,1,False
+France,487,"-0.29 [-0.55, -0.03]",-0.29,-0.55,-0.03,c09-r010-effect,Treatment,ci,estimate,1,False
+United Kingdom,612,"-0.10 [-0.32, 0.12]",-0.1,-0.32,0.12,c09-r011-effect,Treatment,ci,estimate,1,False
+Nordic countries,405,"-0.36 [-0.65, -0.07]",-0.36,-0.65,-0.07,c09-r012-effect,Treatment,ci,estimate,1,False
+Europe subtotal,2048,"-0.30 [-0.42, -0.18]",-0.3,-0.42,-0.18,c09-r013-effect,Treatment,ci,summary,0,True
+,,,,,,c09-r014,,,spacer,0,False
+Asia-Pacific,,,,,,c09-r015,,,header,0,False
+China,780,"-0.52 [-0.73, -0.31]",-0.52,-0.73,-0.31,c09-r016-effect,Treatment,ci,estimate,1,False
+Eastern provinces,462,"-0.58 [-0.85, -0.31]",-0.58,-0.85,-0.31,c09-r017-effect,Treatment,ci,estimate,2,False
+Western provinces,318,"-0.41 [-0.75, -0.07]",-0.41,-0.75,-0.07,c09-r018-effect,Treatment,ci,estimate,2,False
+Japan,366,"-0.24 [-0.54, 0.06]",-0.24,-0.54,0.06,c09-r019-effect,Treatment,ci,estimate,1,False
+South Korea,292,"-0.47 [-0.80, -0.14]",-0.47,-0.8,-0.14,c09-r020-effect,Treatment,ci,estimate,1,False
+Australia,338,"0.04 [-0.27, 0.35]",0.04,-0.27,0.35,c09-r021-effect,Treatment,ci,estimate,1,False
+Asia-Pacific subtotal,1776,"-0.36 [-0.49, -0.23]",-0.36,-0.49,-0.23,c09-r022-effect,Treatment,ci,summary,0,True
+,,,,,,c09-r023,,,spacer,0,False
+Latin America,,,,,,c09-r024,,,header,0,False
+Brazil,504,"-0.16 [-0.42, 0.10]",-0.16,-0.42,0.1,c09-r025-effect,Treatment,ci,estimate,1,False
+Mexico,418,"-0.33 [-0.62, -0.04]",-0.33,-0.62,-0.04,c09-r026-effect,Treatment,ci,estimate,1,False
+Argentina,276,"0.11 [-0.25, 0.47]",0.11,-0.25,0.47,c09-r027-effect,Treatment,ci,estimate,1,False
+Latin America subtotal,1198,"-0.15 [-0.32, 0.02]",-0.15,-0.32,0.02,c09-r028-effect,Treatment,ci,summary,0,True
+,,,,,,c09-r029,,,spacer,0,False
+Global pooled result,7060,"-0.28 [-0.35, -0.21]",-0.28,-0.35,-0.21,c09-r030-effect,Treatment,ci,summary,0,True

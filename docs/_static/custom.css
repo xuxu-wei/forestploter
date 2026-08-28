@@ -1,0 +1,95 @@
+:root {
+  --forest-ink: #202b33;
+  --forest-blue: #1f4e79;
+  --forest-pale-blue: #eaf0f6;
+}
+
+.wy-nav-content {
+  max-width: 1120px;
+}
+
+.wy-side-nav-search,
+.wy-nav-top {
+  background: var(--forest-blue);
+}
+
+.forest-language-switch {
+  display: inline-block;
+  margin-top: 0.65rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  color: #fff !important;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+.forest-language-switch:hover,
+.forest-language-switch:focus {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.rst-content h1,
+.rst-content h2,
+.rst-content h3 {
+  color: var(--forest-ink);
+}
+
+.rst-content table.docutils {
+  width: 100%;
+}
+
+.rst-content img {
+  height: auto;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+}
+
+.rst-content .admonition.note {
+  background: var(--forest-pale-blue);
+}
+
+.gallery-index img {
+  max-width: 360px;
+}
+
+@media screen and (max-width: 768px) {
+  .wy-nav-content {
+    padding: 1.25rem;
+  }
+
+  html.writer-html5 .rst-content dl.field-list {
+    display: block;
+  }
+
+  html.writer-html5 .rst-content dl.field-list > dt {
+    display: block;
+    width: auto;
+  }
+
+  html.writer-html5 .rst-content dl.field-list > dd {
+    width: auto;
+    margin-left: 0;
+    padding-left: 1rem;
+  }
+
+  .rst-content dl.field-list code.literal,
+  .rst-content dl.field-list a.reference {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .rst-content table.docutils {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .rst-content pre {
+    white-space: pre;
+    overflow-x: auto;
+  }
+
+  .gallery-index img {
+    max-width: 100%;
+  }
+}

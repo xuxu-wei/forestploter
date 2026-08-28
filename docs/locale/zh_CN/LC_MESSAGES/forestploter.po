@@ -1,0 +1,3719 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, forestploter contributors
+# This file is distributed under the same license as the forestploter
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: forestploter development\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-28 23:12+0800\n"
+"PO-Revision-Date: 2026-08-18 16:24+0000\n"
+"Last-Translator: forestploter documentation maintainers\n"
+"Language: zh_CN\n"
+"Language-Team: Simplified Chinese\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../api.rst:2
+msgid "API reference"
+msgstr "API 参考"
+
+#: ../../api.rst:4
+msgid ""
+"The 15 public objects are organized below in the order most users "
+"encounter them. ``autosummary`` regenerates the detail pages from current"
+" signatures and pandas/NumPy-style docstrings on every documentation "
+"build."
+msgstr ""
+"这 15 个公共对象按照大多数用户遇到的顺序排列如下。 ``autosummary`` 在每个文档构建上从当前签名和 pandas/NumPy "
+"样式文档字符串重新生成详细信息页面。"
+
+#: ../../api.rst:11
+msgid "Core workflow"
+msgstr "核心工作流"
+
+#: ../../api.rst:13
+msgid ""
+"Read data, render a plot, and work with the returned figure and "
+"diagnostics."
+msgstr "读取数据、渲染绘图并处理返回的图形和诊断。"
+
+#: ../../api.rst:22:<autosummary>:1
+msgid ":py:obj:`read_forest_data <forestploter.read_forest_data>`"
+msgstr ":py:obj:`read_forest_data <forestploter.read_forest_data>`"
+
+#: ../../api.rst:22:<autosummary>:1 forestploter.data.read_forest_data:2 of
+msgid "Read an XLSX or CSV file that follows the forest long-table contract."
+msgstr "读取符合森林图长表契约的 XLSX 或 CSV 文件。"
+
+#: ../../api.rst:22:<autosummary>:1
+msgid ":py:obj:`forest <forestploter.forest>`"
+msgstr ":py:obj:`forest <forestploter.forest>`"
+
+#: ../../api.rst:22:<autosummary>:1 forestploter.core.forest:2 of
+msgid "Render a table-style forest plot from an explicit long table."
+msgstr "根据显式长表绘制表格化森林图。"
+
+#: ../../api.rst:22:<autosummary>:1
+msgid ":py:obj:`ForestPlotResult <forestploter.ForestPlotResult>`"
+msgstr ":py:obj:`ForestPlotResult <forestploter.ForestPlotResult>`"
+
+#: ../../api.rst:22:<autosummary>:1 forestploter.core.ForestPlotResult:2 of
+msgid "Store rendered objects and auditable layout information."
+msgstr "保存渲染对象与可审计的布局信息。"
+
+#: ../../api.rst:24
+msgid "Data model"
+msgstr "数据模型"
+
+#: ../../api.rst:26
+msgid ""
+"Inspect normalized values, source-cell locations, field mappings, and "
+"XLSX merge spans."
+msgstr "检查标准化值、源单元格位置、字段映射和 XLSX 合并范围。"
+
+#: ../../api.rst:36:<autosummary>:1
+msgid ":py:obj:`ForestData <forestploter.ForestData>`"
+msgstr ":py:obj:`ForestData <forestploter.ForestData>`"
+
+#: ../../api.rst:36:<autosummary>:1 forestploter.data.ForestData:2 of
+msgid "Store a renderable long table and its source-cell structure."
+msgstr "存储可渲染的长表及其源单元格结构。"
+
+#: ../../api.rst:36:<autosummary>:1
+msgid ":py:obj:`ForestDataMapping <forestploter.ForestDataMapping>`"
+msgstr ":py:obj:`ForestDataMapping <forestploter.ForestDataMapping>`"
+
+#: ../../api.rst:36:<autosummary>:1 forestploter.data.ForestDataMapping:2 of
+msgid "Map the nine reserved long-table fields to source column names."
+msgstr "将九个长表技术字段映射到源列名。"
+
+#: ../../api.rst:36:<autosummary>:1
+msgid ":py:obj:`ForestCellSpan <forestploter.ForestCellSpan>`"
+msgstr ":py:obj:`ForestCellSpan <forestploter.ForestCellSpan>`"
+
+#: ../../api.rst:36:<autosummary>:1 forestploter.data.ForestCellSpan:2 of
+msgid "Describe one supported vertical merge in an XLSX display field."
+msgstr "描述 XLSX 显示字段中一个受支持的纵向合并区域。"
+
+#: ../../api.rst:38
+msgid "Configuration"
+msgstr "配置"
+
+#: ../../api.rst:40
+msgid ""
+"Define output columns, series styles, themes, automatic table layout, and"
+" series/reference legends."
+msgstr "定义输出列、系列样式、主题、自动表格布局和系列/参考图例。"
+
+#: ../../api.rst:53:<autosummary>:1
+msgid ":py:obj:`ForestColumn <forestploter.ForestColumn>`"
+msgstr ":py:obj:`ForestColumn <forestploter.ForestColumn>`"
+
+#: ../../api.rst:53:<autosummary>:1 forestploter.layout.ForestColumn:2 of
+msgid "Define a display column or a confidence-interval plotting area."
+msgstr "定义一个显示列或置信区间绘图区。"
+
+#: ../../api.rst:53:<autosummary>:1
+msgid ":py:obj:`ForestSeriesStyle <forestploter.ForestSeriesStyle>`"
+msgstr ":py:obj:`ForestSeriesStyle <forestploter.ForestSeriesStyle>`"
+
+#: ../../api.rst:53:<autosummary>:1 forestploter.layout.ForestSeriesStyle:2 of
+msgid "Define the color, marker, and legend label for one series."
+msgstr "定义一个系列的颜色、标记与图例标签。"
+
+#: ../../api.rst:53:<autosummary>:1
+msgid ":py:obj:`ForestTheme <forestploter.ForestTheme>`"
+msgstr ":py:obj:`ForestTheme <forestploter.ForestTheme>`"
+
+#: ../../api.rst:53:<autosummary>:1 forestploter.theme.ForestTheme:2 of
+msgid "Define visual styles for the table, text, intervals, and guide lines."
+msgstr "定义表格、文字、区间与辅助线的视觉样式。"
+
+#: ../../api.rst:53:<autosummary>:1
+msgid ":py:obj:`ForestTableLayoutSpec <forestploter.ForestTableLayoutSpec>`"
+msgstr ":py:obj:`ForestTableLayoutSpec <forestploter.ForestTableLayoutSpec>`"
+
+#: ../../api.rst:53:<autosummary>:1 forestploter.layout.ForestTableLayoutSpec:2
+#: of
+msgid "Configure automatic column widths, header wrapping, and margins."
+msgstr "配置自动列宽、表头换行与边距。"
+
+#: ../../api.rst:53:<autosummary>:1
+msgid ":py:obj:`ForestLegendSpec <forestploter.ForestLegendSpec>`"
+msgstr ":py:obj:`ForestLegendSpec <forestploter.ForestLegendSpec>`"
+
+#: ../../api.rst:53:<autosummary>:1 forestploter.layout.ForestLegendSpec:2 of
+msgid "Place and arrange the series legend."
+msgstr "放置并排列系列图例。"
+
+#: ../../api.rst:53:<autosummary>:1
+msgid ""
+":py:obj:`ForestReferenceLegendSpec "
+"<forestploter.ForestReferenceLegendSpec>`"
+msgstr ""
+":py:obj:`ForestReferenceLegendSpec "
+"<forestploter.ForestReferenceLegendSpec>`"
+
+#: ../../api.rst:53:<autosummary>:1
+#: forestploter.layout.ForestReferenceLegendSpec:2 of
+msgid "Place and label reference-line and ideal-line legend entries."
+msgstr "放置并标注参考线与理想值线的图例项。"
+
+#: ../../api.rst:55
+msgid "Diagnostics and geometry"
+msgstr "诊断与几何"
+
+#: ../../api.rst:57
+msgid ""
+"Audit visual rows, observation coordinates, merged spans, legend bounds, "
+"and normalized column boundaries."
+msgstr "审核可视行、观察坐标、合并跨度、图例边界和标准化列边界。"
+
+#: ../../api.rst:66:<autosummary>:1
+msgid ":py:obj:`ForestLayoutDiagnostics <forestploter.ForestLayoutDiagnostics>`"
+msgstr ":py:obj:`ForestLayoutDiagnostics <forestploter.ForestLayoutDiagnostics>`"
+
+#: ../../api.rst:66:<autosummary>:1
+#: forestploter.layout.ForestLayoutDiagnostics:2 of
+msgid "Store layout diagnostics suitable for automated acceptance checks."
+msgstr "保存适用于自动验收的布局诊断。"
+
+#: ../../api.rst:66:<autosummary>:1
+msgid ":py:obj:`ColumnGeometry <forestploter.ColumnGeometry>`"
+msgstr ":py:obj:`ColumnGeometry <forestploter.ColumnGeometry>`"
+
+#: ../../api.rst:66:<autosummary>:1 forestploter.layout.ColumnGeometry:2 of
+msgid "Store the normalized horizontal boundaries of one column."
+msgstr "保存一个列的归一化横向边界。"
+
+#: ../../api.rst:66:<autosummary>:1
+msgid ":py:obj:`compute_column_geometry <forestploter.compute_column_geometry>`"
+msgstr ":py:obj:`compute_column_geometry <forestploter.compute_column_geometry>`"
+
+#: ../../api.rst:66:<autosummary>:1
+#: forestploter.layout.compute_column_geometry:2 of
+msgid "Convert relative widths to contiguous boundaries within ``[0, 1]``."
+msgstr "将相对列宽转换为 ``[0, 1]`` 内连续的列边界。"
+
+#: ../../api/generated/forestploter.ColumnGeometry.rst:2
+msgid "forestploter.ColumnGeometry"
+msgstr "forestploter.ColumnGeometry"
+
+#: ../../api/generated/forestploter.ColumnGeometry.rst
+#: ../../api/generated/forestploter.ForestCellSpan.rst
+#: ../../api/generated/forestploter.ForestColumn.rst
+#: ../../api/generated/forestploter.ForestData.rst
+#: ../../api/generated/forestploter.ForestDataMapping.rst
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst
+#: ../../api/generated/forestploter.ForestLegendSpec.rst
+#: ../../api/generated/forestploter.ForestPlotResult.rst
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst
+#: ../../api/generated/forestploter.ForestTheme.rst
+#: ../../api/generated/forestploter.compute_column_geometry.rst
+#: ../../api/generated/forestploter.forest.rst
+#: ../../api/generated/forestploter.read_forest_data.rst
+#: forestploter.core.ForestPlotResult forestploter.core.forest
+#: forestploter.data.ForestCellSpan forestploter.data.ForestData
+#: forestploter.data.ForestDataMapping forestploter.data.read_forest_data
+#: forestploter.layout.ColumnGeometry forestploter.layout.ForestColumn
+#: forestploter.layout.ForestLayoutDiagnostics
+#: forestploter.layout.ForestLegendSpec
+#: forestploter.layout.ForestReferenceLegendSpec
+#: forestploter.layout.ForestSeriesStyle
+#: forestploter.layout.ForestTableLayoutSpec
+#: forestploter.layout.compute_column_geometry forestploter.theme.ForestTheme
+#: of
+msgid "Parameters"
+msgstr "参数"
+
+#: forestploter.layout.ColumnGeometry:7 forestploter.layout.ForestColumn:7 of
+msgid "**key**"
+msgstr "**key**"
+
+#: forestploter.data.ForestCellSpan:-1 forestploter.layout.ColumnGeometry:-1
+#: forestploter.layout.ForestColumn:-1 forestploter.layout.ForestSeriesStyle:-1
+#: of
+msgid "str"
+msgstr "str"
+
+#: forestploter.layout.ColumnGeometry:8 of
+msgid "Key of the corresponding :class:`ForestColumn`."
+msgstr "对应 :class:`ForestColumn` 的键。"
+
+#: forestploter.layout.ColumnGeometry:10 of
+msgid "**left**"
+msgstr "**left**"
+
+#: forestploter.layout.ColumnGeometry:-1 forestploter.layout.ForestColumn:-1
+#: forestploter.layout.ForestLayoutDiagnostics:-1 of
+msgid "float"
+msgstr "float"
+
+#: forestploter.layout.ColumnGeometry:11 of
+msgid "Left boundary."
+msgstr "左边界。"
+
+#: forestploter.layout.ColumnGeometry:13 of
+msgid "**right**"
+msgstr "**right**"
+
+#: forestploter.layout.ColumnGeometry:14 of
+msgid "Right boundary, which is greater than ``left``."
+msgstr "右边界，大于 ``left``。"
+
+#: ../../api/generated/forestploter.ColumnGeometry.rst
+#: ../../api/generated/forestploter.ForestCellSpan.rst
+#: ../../api/generated/forestploter.ForestColumn.rst
+#: ../../api/generated/forestploter.ForestData.rst
+#: ../../api/generated/forestploter.ForestDataMapping.rst
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst
+#: ../../api/generated/forestploter.ForestLegendSpec.rst
+#: ../../api/generated/forestploter.ForestPlotResult.rst
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst
+#: ../../api/generated/forestploter.ForestTheme.rst
+#: ../../api/generated/forestploter.compute_column_geometry.rst
+#: ../../api/generated/forestploter.forest.rst
+#: ../../api/generated/forestploter.read_forest_data.rst
+msgid "Return type"
+msgstr "返回类型"
+
+#: ../../api/generated/forestploter.ColumnGeometry.rst:13
+#: ../../api/generated/forestploter.ForestCellSpan.rst:13
+#: ../../api/generated/forestploter.ForestColumn.rst:13
+#: ../../api/generated/forestploter.ForestData.rst:13
+#: ../../api/generated/forestploter.ForestDataMapping.rst:13
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:13
+#: ../../api/generated/forestploter.ForestLegendSpec.rst:13
+#: ../../api/generated/forestploter.ForestPlotResult.rst:13
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst:13
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst:13
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:13
+#: ../../api/generated/forestploter.ForestTheme.rst:13
+msgid "Methods"
+msgstr "方法"
+
+#: ../../api/generated/forestploter.ColumnGeometry.rst:21:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ColumnGeometry.__init__>`\\ \\(key\\, "
+"left\\, right\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ColumnGeometry.__init__>`\\ \\(key\\, "
+"left\\, right\\)"
+
+#: ../../api/generated/forestploter.ColumnGeometry.rst:23
+#: ../../api/generated/forestploter.ForestCellSpan.rst:23
+#: ../../api/generated/forestploter.ForestColumn.rst:23
+#: ../../api/generated/forestploter.ForestData.rst:24
+#: ../../api/generated/forestploter.ForestDataMapping.rst:24
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:23
+#: ../../api/generated/forestploter.ForestLegendSpec.rst:23
+#: ../../api/generated/forestploter.ForestPlotResult.rst:24
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst:23
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst:23
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:23
+#: ../../api/generated/forestploter.ForestTheme.rst:23
+msgid "Attributes"
+msgstr "属性"
+
+#: ../../api/generated/forestploter.ColumnGeometry.rst:28:<autosummary>:1
+msgid ":py:obj:`key <forestploter.ColumnGeometry.key>`\\"
+msgstr ":py:obj:`key <forestploter.ColumnGeometry.key>`\\"
+
+#: ../../api/generated/forestploter.ColumnGeometry.rst:28:<autosummary>:1
+msgid ":py:obj:`left <forestploter.ColumnGeometry.left>`\\"
+msgstr ":py:obj:`left <forestploter.ColumnGeometry.left>`\\"
+
+#: ../../api/generated/forestploter.ColumnGeometry.rst:28:<autosummary>:1
+msgid ":py:obj:`right <forestploter.ColumnGeometry.right>`\\"
+msgstr ":py:obj:`right <forestploter.ColumnGeometry.right>`\\"
+
+#: ../../api/generated/forestploter.ForestCellSpan.rst:2
+msgid "forestploter.ForestCellSpan"
+msgstr "forestploter.ForestCellSpan"
+
+#: forestploter.data.ForestCellSpan:7 forestploter.layout.ForestLegendSpec:10
+#: forestploter.layout.ForestReferenceLegendSpec:16 of
+msgid "**column_key**"
+msgstr "**column_key**"
+
+#: forestploter.data.ForestCellSpan:8 of
+msgid "Display-field name containing the merge."
+msgstr "显示包含合并的字段名称。"
+
+#: forestploter.data.ForestCellSpan:10 of
+msgid "**start_record**"
+msgstr "**start_record**"
+
+#: forestploter.core.ForestPlotResult:-1 forestploter.data.ForestCellSpan:-1
+#: forestploter.layout.ForestLayoutDiagnostics:-1 of
+msgid "int"
+msgstr "int"
+
+#: forestploter.data.ForestCellSpan:11 of
+msgid "Zero-based index of the first source record in the merge."
+msgstr "合并中第一个源记录的零基索引。"
+
+#: forestploter.data.ForestCellSpan:13 of
+msgid "**end_record**"
+msgstr "**end_record**"
+
+#: forestploter.data.ForestCellSpan:14 of
+msgid "Zero-based inclusive index of the final source record in the merge."
+msgstr "合并中最终源记录的零基包含索引。"
+
+#: forestploter.core.forest:86 forestploter.data.ForestCellSpan:27
+#: forestploter.data.ForestData:43 forestploter.data.ForestDataMapping:49
+#: forestploter.data.read_forest_data:56 forestploter.layout.ForestColumn:36
+#: forestploter.layout.ForestSeriesStyle:31 forestploter.theme.ForestTheme:64
+#: of
+msgid "Notes"
+msgstr "说明"
+
+#: forestploter.data.ForestCellSpan:28 of
+msgid ""
+"Rendering also verifies that each merge covers complete ``_plot_row`` "
+"groups. Reserved fields, headers, horizontal merges, and two-dimensional "
+"merges are unsupported."
+msgstr "渲染还验证每个合并是否覆盖完整的 ``_plot_row`` 组。不支持技术字段、标题、水平合并和二维合并。"
+
+#: ../../api/generated/forestploter.ForestCellSpan.rst:21:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestCellSpan.__init__>`\\ "
+"\\(column\\_key\\, start\\_record\\, end\\_record\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestCellSpan.__init__>`\\ "
+"\\(column\\_key\\, start\\_record\\, end\\_record\\)"
+
+#: ../../api/generated/forestploter.ForestCellSpan.rst:28:<autosummary>:1
+msgid ":py:obj:`column_key <forestploter.ForestCellSpan.column_key>`\\"
+msgstr ":py:obj:`column_key <forestploter.ForestCellSpan.column_key>`\\"
+
+#: ../../api/generated/forestploter.ForestCellSpan.rst:28:<autosummary>:1
+msgid ":py:obj:`start_record <forestploter.ForestCellSpan.start_record>`\\"
+msgstr ":py:obj:`start_record <forestploter.ForestCellSpan.start_record>`\\"
+
+#: ../../api/generated/forestploter.ForestCellSpan.rst:28:<autosummary>:1
+msgid ":py:obj:`end_record <forestploter.ForestCellSpan.end_record>`\\"
+msgstr ":py:obj:`end_record <forestploter.ForestCellSpan.end_record>`\\"
+
+#: ../../api/generated/forestploter.ForestColumn.rst:2
+msgid "forestploter.ForestColumn"
+msgstr "forestploter.ForestColumn"
+
+#: forestploter.layout.ForestColumn:8 of
+msgid ""
+"Unique column identifier. For ``role=\"text\"`` or ``\"numeric\"``, it "
+"must name a display field in the long table. For ``role=\"ci\"``, it must"
+" match values in the record-level ``_ci_column`` field."
+msgstr ""
+"唯一的列标识符。对于 ``role=\"text\"`` 或 ``\"numeric\"``，必须在长表中命名一个显示字段。对于 "
+"``role=\"ci\"``，它必须与记录级 ``_ci_column`` 字段中的值匹配。"
+
+#: forestploter.layout.ForestColumn:12 of
+msgid "**header**"
+msgstr "**header**"
+
+#: forestploter.layout.ForestColumn:13 of
+msgid "Header text. Newline characters are allowed."
+msgstr "标题文本。允许使用换行符。"
+
+#: forestploter.layout.ForestColumn:15 of
+msgid "**role**"
+msgstr "**role**"
+
+#: forestploter.layout.ForestColumn:-1 of
+#, python-brace-format
+msgid "{\"text\", \"numeric\", \"ci\"}"
+msgstr "{\"text\", \"numeric\", \"ci\"}"
+
+#: forestploter.layout.ForestColumn:16 of
+msgid ""
+"Rendering role. The first two draw cell text; ``\"ci\"`` draws point "
+"estimates and intervals."
+msgstr "渲染角色。前两个绘制单元格文本； ``\"ci\"`` 绘制点估计和区间。"
+
+#: forestploter.layout.ForestColumn:19 of
+msgid "**width**"
+msgstr "**width**"
+
+#: forestploter.layout.ForestColumn:20 of
+msgid "Finite positive relative column width."
+msgstr "有限正相对列宽。"
+
+#: forestploter.layout.ForestColumn:22 of
+msgid "**alignment**"
+msgstr "**alignment**"
+
+#: forestploter.layout.ForestColumn:-1 of
+#, python-brace-format
+msgid "{\"left\", \"center\", \"right\"}, default \"left\""
+msgstr "{\"left\", \"center\", \"right\"}，默认值为 \"left\""
+
+#: forestploter.layout.ForestColumn:23 of
+msgid "Horizontal alignment for the header and body cells."
+msgstr "标题和正文单元格的水平对齐。"
+
+#: forestploter.layout.ForestColumn:37 of
+msgid ""
+"Display fields may use supported vertical XLSX merges. A CI column is a "
+"layout slot and does not need to be a physical file field; records target"
+" it through ``_ci_column``. The sequence passed as ``columns`` is the "
+"sole authority for final left-to-right order, so text columns can follow "
+"CI columns even when the input-file fields are arranged differently."
+msgstr ""
+"显示字段可以使用受支持的XLSX 纵向合并。 CI 列是一个布局占位，不需要是文件中的实体字段；记录通过 ``_ci_column`` "
+"来定位它。作为 ``columns`` 传递的序列是最终从左到右顺序的唯一权威，因此即使输入文件字段的排列方式不同，文本列也可以位于 CI "
+"列之后。"
+
+#: ../../api/generated/forestploter.ForestColumn.rst:21:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestColumn.__init__>`\\ \\(key\\, "
+"header\\, role\\, width\\[\\, alignment\\]\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestColumn.__init__>`\\ \\(key\\, "
+"header\\, role\\, width\\[\\, alignment\\]\\)"
+
+#: ../../api/generated/forestploter.ForestColumn.rst:30:<autosummary>:1
+msgid ":py:obj:`alignment <forestploter.ForestColumn.alignment>`\\"
+msgstr ":py:obj:`alignment <forestploter.ForestColumn.alignment>`\\"
+
+#: ../../api/generated/forestploter.ForestColumn.rst:30:<autosummary>:1
+msgid ":py:obj:`key <forestploter.ForestColumn.key>`\\"
+msgstr ":py:obj:`key <forestploter.ForestColumn.key>`\\"
+
+#: ../../api/generated/forestploter.ForestColumn.rst:30:<autosummary>:1
+msgid ":py:obj:`header <forestploter.ForestColumn.header>`\\"
+msgstr ":py:obj:`header <forestploter.ForestColumn.header>`\\"
+
+#: ../../api/generated/forestploter.ForestColumn.rst:30:<autosummary>:1
+msgid ":py:obj:`role <forestploter.ForestColumn.role>`\\"
+msgstr ":py:obj:`role <forestploter.ForestColumn.role>`\\"
+
+#: ../../api/generated/forestploter.ForestColumn.rst:30:<autosummary>:1
+msgid ":py:obj:`width <forestploter.ForestColumn.width>`\\"
+msgstr ":py:obj:`width <forestploter.ForestColumn.width>`\\"
+
+#: ../../api/generated/forestploter.ForestData.rst:2
+msgid "forestploter.ForestData"
+msgstr "forestploter.ForestData"
+
+#: forestploter.data.ForestData:7 of
+msgid "**frame**"
+msgstr "**frame**"
+
+#: forestploter.data.ForestData:-1 of
+msgid "pandas.DataFrame"
+msgstr "pandas.DataFrame"
+
+#: forestploter.data.ForestData:8 of
+msgid ""
+"Source long-table values. Each estimate record describes one series in "
+"one CI column with one statistical triple."
+msgstr "源长表值。每条估计记录用一个统计三元组描述一个 CI 列中的一个系列。"
+
+#: forestploter.data.ForestData:11 of
+msgid "**spans**"
+msgstr "**spans**"
+
+#: forestploter.data.ForestData:-1 of
+msgid "tuple of ForestCellSpan, default ()"
+msgstr "ForestCellSpan 元组，默认值为 ()"
+
+#: forestploter.data.ForestData:12 of
+msgid "Supported XLSX vertical merges. CSV input always produces an empty tuple."
+msgstr "支持 XLSX 纵向合并。 CSV 输入始终生成空元组。"
+
+#: forestploter.data.ForestData:15 forestploter.data.read_forest_data:18 of
+msgid "**mapping**"
+msgstr "**mapping**"
+
+#: forestploter.data.ForestData:-1 of
+msgid "ForestDataMapping, default ForestDataMapping()"
+msgstr "ForestDataMapping，默认值为 ForestDataMapping()"
+
+#: forestploter.data.ForestData:16 of
+msgid "Reserved-field mapping."
+msgstr "技术字段映射。"
+
+#: forestploter.data.ForestData:18 forestploter.data.read_forest_data:7 of
+msgid "**source**"
+msgstr "**source**"
+
+#: forestploter.data.ForestData:-1 of
+msgid "pathlib.Path or None, default None"
+msgstr "pathlib.Path 或 None，默认值为 None"
+
+#: forestploter.data.ForestData:19 of
+msgid ""
+"Absolute input path. It may be ``None`` when constructed directly from a "
+"DataFrame."
+msgstr "绝对输入路径。当直接从 DataFrame 构造时，它可能是 ``None``。"
+
+#: forestploter.data.ForestData:22 forestploter.data.read_forest_data:10 of
+msgid "**sheet_name**"
+msgstr "**sheet_name**"
+
+#: forestploter.data.ForestData:-1 forestploter.layout.ForestLegendSpec:-1
+#: forestploter.layout.ForestReferenceLegendSpec:-1 of
+msgid "str or None, default None"
+msgstr "str 或 None，默认值为 None"
+
+#: forestploter.data.ForestData:23 of
+msgid "XLSX worksheet name; ``None`` for CSV."
+msgstr "XLSX 工作表名称； ``None`` 用于 CSV。"
+
+#: forestploter.data.ForestData:25 of
+msgid "**source_rows**"
+msgstr "**source_rows**"
+
+#: forestploter.data.ForestData:-1 of
+msgid "tuple of int, default ()"
+msgstr "int 元组，默认值为 ()"
+
+#: forestploter.data.ForestData:26 of
+msgid "One-based source-file row number for every record."
+msgstr "每个记录的一基源文件行号。"
+
+#: forestploter.data.ForestData:28 of
+msgid "**cell_references**"
+msgstr "**cell_references**"
+
+#: forestploter.data.ForestData:-1 of
+msgid "tuple of tuple of str, default ()"
+msgstr "str 元组的元组，默认值为 ()"
+
+#: forestploter.data.ForestData:29 of
+msgid ""
+"Source references with the same shape as ``frame``, for example "
+"``\"Forest!D7\"`` or ``\"D7\"`` for CSV."
+msgstr "与 ``frame`` 形状相同的源参考，例如 CSV 的 ``\"Forest!D7\"`` 或 ``\"D7\"``。"
+
+#: forestploter.data.ForestData:44 of
+msgid ""
+"XLSX “what you see is what you enter” applies to values, record order, "
+"and supported vertical merges. The plot does not copy Excel fonts, fills,"
+" borders, column widths, or row heights. Give each series its own "
+"``_plot_row``. To show one series in several CI columns, duplicate its "
+"record, keep the same ``_plot_row``, and change ``_ci_column``; all CI "
+"columns then share the same vertical coordinate."
+msgstr ""
+"XLSX“所见即所输入”适用于值、记录顺序和支持的纵向合并。该图不会复制 Excel 字体、填充、边框、列宽或行高。给每个系列一个自己的 "
+"``_plot_row``。要在多个 CI 列中显示一个系列，请复制其记录，保留相同的 ``_plot_row``，并更改 "
+"``_ci_column``；所有 CI 列共享相同的垂直坐标。"
+
+#: ../../api/generated/forestploter.ForestData.rst:22:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestData.__init__>`\\ \\(frame\\[\\, "
+"spans\\, mapping\\, source\\, ...\\]\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestData.__init__>`\\ \\(frame\\[\\, "
+"spans\\, mapping\\, source\\, ...\\]\\)"
+
+#: ../../api/generated/forestploter.ForestData.rst:22:<autosummary>:1
+msgid ""
+":py:obj:`cell_reference <forestploter.ForestData.cell_reference>`\\ "
+"\\(record\\, column\\)"
+msgstr ""
+":py:obj:`cell_reference <forestploter.ForestData.cell_reference>`\\ "
+"\\(record\\, column\\)"
+
+#: ../../api/generated/forestploter.ForestData.rst:22:<autosummary>:1
+msgid "Return the source-cell reference for one record and field."
+msgstr "返回一条记录和字段的源单元格引用。"
+
+#: ../../api/generated/forestploter.ForestData.rst:33:<autosummary>:1
+msgid ":py:obj:`cell_references <forestploter.ForestData.cell_references>`\\"
+msgstr ":py:obj:`cell_references <forestploter.ForestData.cell_references>`\\"
+
+#: ../../api/generated/forestploter.ForestData.rst:33:<autosummary>:1
+msgid ":py:obj:`sheet_name <forestploter.ForestData.sheet_name>`\\"
+msgstr ":py:obj:`sheet_name <forestploter.ForestData.sheet_name>`\\"
+
+#: ../../api/generated/forestploter.ForestData.rst:33:<autosummary>:1
+msgid ":py:obj:`source <forestploter.ForestData.source>`\\"
+msgstr ":py:obj:`source <forestploter.ForestData.source>`\\"
+
+#: ../../api/generated/forestploter.ForestData.rst:33:<autosummary>:1
+msgid ":py:obj:`source_rows <forestploter.ForestData.source_rows>`\\"
+msgstr ":py:obj:`source_rows <forestploter.ForestData.source_rows>`\\"
+
+#: ../../api/generated/forestploter.ForestData.rst:33:<autosummary>:1
+msgid ":py:obj:`spans <forestploter.ForestData.spans>`\\"
+msgstr ":py:obj:`spans <forestploter.ForestData.spans>`\\"
+
+#: ../../api/generated/forestploter.ForestData.rst:33:<autosummary>:1
+msgid ":py:obj:`frame <forestploter.ForestData.frame>`\\"
+msgstr ":py:obj:`frame <forestploter.ForestData.frame>`\\"
+
+#: ../../api/generated/forestploter.ForestData.rst:33:<autosummary>:1
+msgid ":py:obj:`mapping <forestploter.ForestData.mapping>`\\"
+msgstr ":py:obj:`mapping <forestploter.ForestData.mapping>`\\"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:2
+msgid "forestploter.ForestDataMapping"
+msgstr "forestploter.ForestDataMapping"
+
+#: forestploter.data.ForestDataMapping:7 of
+msgid "**plot_row**"
+msgstr "**plot_row**"
+
+#: forestploter.data.ForestDataMapping:-1 of
+msgid "str, default \"_plot_row\""
+msgstr "str，默认值为 \"_plot_row\""
+
+#: forestploter.data.ForestDataMapping:8 of
+msgid ""
+"Visual-row identifier. Records with the same value use exactly the same "
+"vertical coordinate."
+msgstr "视觉行标识符。具有相同值的记录使用完全相同的垂直坐标。"
+
+#: forestploter.data.ForestDataMapping:11 of
+msgid "**series**"
+msgstr "**series**"
+
+#: forestploter.data.ForestDataMapping:-1 of
+msgid "str, default \"_series\""
+msgstr "str，默认值为 \"_series\""
+
+#: forestploter.data.ForestDataMapping:12 of
+msgid "Series identifier used for style lookup and legend entries."
+msgstr "用于样式查找和图例条目的系列标识符。"
+
+#: forestploter.data.ForestDataMapping:14 of
+msgid "**ci_column**"
+msgstr "**ci_column**"
+
+#: forestploter.data.ForestDataMapping:-1 of
+msgid "str, default \"_ci_column\""
+msgstr "str，默认值为 \"_ci_column\""
+
+#: forestploter.data.ForestDataMapping:15 of
+msgid ""
+"Target CI-column identifier. It must match the ``key`` of a "
+":class:`forestploter.ForestColumn` whose ``role`` is ``\"ci\"``."
+msgstr ""
+"目标 CI 列标识符。它必须与 :class:`forestploter.ForestColumn`（其 ``role`` 为 "
+"``\"ci\"``）的 ``key`` 匹配。"
+
+#: forestploter.data.ForestDataMapping:18 of
+msgid "**estimate**"
+msgstr "**estimate**"
+
+#: forestploter.data.ForestDataMapping:-1 of
+msgid "str, default \"estimate\""
+msgstr "str，默认值为 \"estimate\""
+
+#: forestploter.data.ForestDataMapping:19 of
+msgid "Point-estimate field."
+msgstr "点估计字段。"
+
+#: forestploter.data.ForestDataMapping:21 of
+msgid "**lower**"
+msgstr "**lower**"
+
+#: forestploter.data.ForestDataMapping:-1 of
+msgid "str, default \"lower\""
+msgstr "str，默认值为 \"lower\""
+
+#: forestploter.data.ForestDataMapping:22 of
+msgid "Confidence-interval lower-bound field."
+msgstr "置信区间下界字段。"
+
+#: forestploter.data.ForestDataMapping:24 of
+msgid "**upper**"
+msgstr "**upper**"
+
+#: forestploter.data.ForestDataMapping:-1 of
+msgid "str, default \"upper\""
+msgstr "str，默认值为 \"upper\""
+
+#: forestploter.data.ForestDataMapping:25 of
+msgid "Confidence-interval upper-bound field."
+msgstr "置信区间上限字段。"
+
+#: forestploter.data.ForestDataMapping:27 of
+msgid "**row_type**"
+msgstr "**row_type**"
+
+#: forestploter.data.ForestDataMapping:-1 of
+msgid "str, default \"_row_type\""
+msgstr "str，默认值为 \"_row_type\""
+
+#: forestploter.data.ForestDataMapping:28 of
+msgid ""
+"Row-semantic field. Accepted values are ``\"header\"``, ``\"estimate\"``,"
+" ``\"summary\"``, and ``\"spacer\"``."
+msgstr ""
+"行语义字段。接受的值为 ``\"header\"``、``\"estimate\"``、``\"summary\"`` 和 "
+"``\"spacer\"``。"
+
+#: forestploter.data.ForestDataMapping:31 of
+msgid "**indent**"
+msgstr "**indent**"
+
+#: forestploter.data.ForestDataMapping:-1 of
+msgid "str, default \"_indent\""
+msgstr "str，默认值为 \"_indent\""
+
+#: forestploter.data.ForestDataMapping:32 of
+msgid "Non-negative indentation-level field."
+msgstr "非负缩进级别字段。"
+
+#: forestploter.data.ForestDataMapping:34 of
+msgid "**is_summary**"
+msgstr "**is_summary**"
+
+#: forestploter.data.ForestDataMapping:-1 of
+msgid "str, default \"_is_summary\""
+msgstr "str，默认值为 \"_is_summary\""
+
+#: forestploter.data.ForestDataMapping:35 of
+msgid ""
+"Strict boolean field that controls whether the observation uses the "
+"summary marker."
+msgstr "控制观察是否使用汇总标记的严格布尔字段。"
+
+#: forestploter.data.ForestDataMapping:50 of
+msgid ""
+"Prefer the default names. A mapping only renames fields; it does not "
+"change the long-table semantics. In particular, it cannot map several "
+"wide-form triples to several series. One source record always contains at"
+" most one ``estimate/lower/upper`` triple."
+msgstr ""
+"首选默认名称。映射仅重命名字段；它不会改变长表语义。特别是，它无法将多个宽格式三元组映射到多个系列。一条源记录始终最多包含一个 "
+"``estimate/lower/upper`` 三元组。"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:22:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestDataMapping.__init__>`\\ "
+"\\(\\[plot\\_row\\, series\\, ci\\_column\\, ...\\]\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestDataMapping.__init__>`\\ "
+"\\(\\[plot\\_row\\, series\\, ci\\_column\\, ...\\]\\)"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:22:<autosummary>:1
+msgid ""
+":py:obj:`technical_fields "
+"<forestploter.ForestDataMapping.technical_fields>`\\ \\(\\)"
+msgstr ""
+":py:obj:`technical_fields "
+"<forestploter.ForestDataMapping.technical_fields>`\\ \\(\\)"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:22:<autosummary>:1
+msgid "Return reserved fields in the recommended physical-file order."
+msgstr "按建议的物理文件顺序返回技术字段。"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:35:<autosummary>:1
+msgid ":py:obj:`ci_column <forestploter.ForestDataMapping.ci_column>`\\"
+msgstr ":py:obj:`ci_column <forestploter.ForestDataMapping.ci_column>`\\"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:35:<autosummary>:1
+msgid ":py:obj:`estimate <forestploter.ForestDataMapping.estimate>`\\"
+msgstr ":py:obj:`estimate <forestploter.ForestDataMapping.estimate>`\\"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:35:<autosummary>:1
+msgid ":py:obj:`indent <forestploter.ForestDataMapping.indent>`\\"
+msgstr ":py:obj:`indent <forestploter.ForestDataMapping.indent>`\\"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:35:<autosummary>:1
+msgid ":py:obj:`is_summary <forestploter.ForestDataMapping.is_summary>`\\"
+msgstr ":py:obj:`is_summary <forestploter.ForestDataMapping.is_summary>`\\"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:35:<autosummary>:1
+msgid ":py:obj:`lower <forestploter.ForestDataMapping.lower>`\\"
+msgstr ":py:obj:`lower <forestploter.ForestDataMapping.lower>`\\"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:35:<autosummary>:1
+msgid ":py:obj:`plot_row <forestploter.ForestDataMapping.plot_row>`\\"
+msgstr ":py:obj:`plot_row <forestploter.ForestDataMapping.plot_row>`\\"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:35:<autosummary>:1
+msgid ":py:obj:`row_type <forestploter.ForestDataMapping.row_type>`\\"
+msgstr ":py:obj:`row_type <forestploter.ForestDataMapping.row_type>`\\"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:35:<autosummary>:1
+msgid ":py:obj:`series <forestploter.ForestDataMapping.series>`\\"
+msgstr ":py:obj:`series <forestploter.ForestDataMapping.series>`\\"
+
+#: ../../api/generated/forestploter.ForestDataMapping.rst:35:<autosummary>:1
+msgid ":py:obj:`upper <forestploter.ForestDataMapping.upper>`\\"
+msgstr ":py:obj:`upper <forestploter.ForestDataMapping.upper>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:2
+msgid "forestploter.ForestLayoutDiagnostics"
+msgstr "forestploter.ForestLayoutDiagnostics"
+
+#: forestploter.layout.ForestLayoutDiagnostics:7 of
+msgid "**series_gap_used**"
+msgstr "**series_gap_used**"
+
+#: forestploter.layout.ForestLayoutDiagnostics:8 of
+msgid ""
+"Always ``0.0`` because the explicit long-table model never offsets series"
+" implicitly."
+msgstr "始终为 ``0.0``，因为显式长表模型从不隐式错开系列。"
+
+#: forestploter.layout.ForestLayoutDiagnostics:11 of
+msgid "**row_bounds**"
+msgstr "**row_bounds**"
+
+#: forestploter.layout.ForestLayoutDiagnostics:-1 of
+msgid "tuple of tuple of float"
+msgstr "float 元组的元组"
+
+#: forestploter.layout.ForestLayoutDiagnostics:12 of
+msgid "``(bottom, top)`` pairs in unique ``_plot_row`` order."
+msgstr "``(bottom, top)`` 以唯一的 ``_plot_row`` 顺序配对。"
+
+#: forestploter.layout.ForestLayoutDiagnostics:14 of
+msgid "**row_scales**"
+msgstr "**row_scales**"
+
+#: forestploter.core.ForestPlotResult:-1
+#: forestploter.layout.ForestLayoutDiagnostics:-1 of
+msgid "tuple of float"
+msgstr "float 元组"
+
+#: forestploter.layout.ForestLayoutDiagnostics:15 of
+msgid "Relative height multiplier for every visual row."
+msgstr "每个视觉行的相对高度乘数。"
+
+#: forestploter.layout.ForestLayoutDiagnostics:17 of
+msgid "**wrapped_headers**"
+msgstr "**wrapped_headers**"
+
+#: forestploter.layout.ForestLayoutDiagnostics:-1 of
+msgid "tuple of tuple of str"
+msgstr "str 元组的元组"
+
+#: forestploter.layout.ForestLayoutDiagnostics:18 of
+msgid "``(column_key, final_header)`` pairs."
+msgstr "``(column_key, final_header)`` 对。"
+
+#: forestploter.layout.ForestLayoutDiagnostics:20 of
+msgid "**final_figure_width**"
+msgstr "**final_figure_width**"
+
+#: forestploter.layout.ForestLayoutDiagnostics:21 of
+msgid "Final Figure width in inches."
+msgstr "最终图形宽度（以英寸为单位）。"
+
+#: forestploter.layout.ForestLayoutDiagnostics:23 of
+msgid "**header_overflow_count**"
+msgstr "**header_overflow_count**"
+
+#: forestploter.layout.ForestLayoutDiagnostics:24 of
+msgid "Number of headers overflowing their column or Figure boundary."
+msgstr "溢出其列或图边界的标题数量。"
+
+#: forestploter.layout.ForestLayoutDiagnostics:26 of
+msgid "**plot_row_ids**"
+msgstr "**plot_row_ids**"
+
+#: forestploter.layout.ForestLayoutDiagnostics:-1 of
+msgid "tuple"
+msgstr "元组"
+
+#: forestploter.layout.ForestLayoutDiagnostics:27 of
+msgid ""
+"Visual-row identifiers in the same order as ``row_bounds`` and the "
+"result's ``row_centers``."
+msgstr "视觉行标识符的顺序与 ``row_bounds`` 和结果的 ``row_centers`` 相同。"
+
+#: forestploter.layout.ForestLayoutDiagnostics:30 of
+msgid "**observation_positions**"
+msgstr "**observation_positions**"
+
+#: forestploter.layout.ForestLayoutDiagnostics:-1 of
+msgid "tuple of tuple"
+msgstr "元组的元组"
+
+#: forestploter.layout.ForestLayoutDiagnostics:31 of
+msgid "``(plot_row, series, ci_column, y)`` for every drawable observation."
+msgstr ""
+"``(plot_row, series, ci_column, y)`` 适用于每个可绘制观察值。\n"
+"每个已解析的合并单元格范围的"
+
+#: forestploter.layout.ForestLayoutDiagnostics:33 of
+msgid "**resolved_spans**"
+msgstr "**resolved_spans**"
+
+#: forestploter.layout.ForestLayoutDiagnostics:34 of
+msgid ""
+"``(column_key, start_plot_row, end_plot_row, bottom, top)`` for each "
+"resolved merged-cell span."
+msgstr "``(column_key, start_plot_row, end_plot_row, bottom, top)``。"
+
+#: forestploter.layout.ForestLayoutDiagnostics:37 of
+msgid "**legend_bounds**"
+msgstr "**legend_bounds**"
+
+#: forestploter.layout.ForestLayoutDiagnostics:38 of
+msgid ""
+"``(kind, left, bottom, right, top)`` bounds for every legend in data "
+"coordinates."
+msgstr "``(kind, left, bottom, right, top)`` 数据坐标中每个图例的界限。"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:21:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestLayoutDiagnostics.__init__>`\\ "
+"\\(series\\_gap\\_used\\, row\\_bounds\\, ...\\[\\, ...\\]\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestLayoutDiagnostics.__init__>`\\ "
+"\\(series\\_gap\\_used\\, row\\_bounds\\, ...\\[\\, ...\\]\\)"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`legend_bounds "
+"<forestploter.ForestLayoutDiagnostics.legend_bounds>`\\"
+msgstr ""
+":py:obj:`legend_bounds "
+"<forestploter.ForestLayoutDiagnostics.legend_bounds>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`observation_positions "
+"<forestploter.ForestLayoutDiagnostics.observation_positions>`\\"
+msgstr ""
+":py:obj:`observation_positions "
+"<forestploter.ForestLayoutDiagnostics.observation_positions>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`plot_row_ids "
+"<forestploter.ForestLayoutDiagnostics.plot_row_ids>`\\"
+msgstr ""
+":py:obj:`plot_row_ids "
+"<forestploter.ForestLayoutDiagnostics.plot_row_ids>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`resolved_spans "
+"<forestploter.ForestLayoutDiagnostics.resolved_spans>`\\"
+msgstr ""
+":py:obj:`resolved_spans "
+"<forestploter.ForestLayoutDiagnostics.resolved_spans>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`series_gap_used "
+"<forestploter.ForestLayoutDiagnostics.series_gap_used>`\\"
+msgstr ""
+":py:obj:`series_gap_used "
+"<forestploter.ForestLayoutDiagnostics.series_gap_used>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ":py:obj:`row_bounds <forestploter.ForestLayoutDiagnostics.row_bounds>`\\"
+msgstr ":py:obj:`row_bounds <forestploter.ForestLayoutDiagnostics.row_bounds>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ":py:obj:`row_scales <forestploter.ForestLayoutDiagnostics.row_scales>`\\"
+msgstr ":py:obj:`row_scales <forestploter.ForestLayoutDiagnostics.row_scales>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`wrapped_headers "
+"<forestploter.ForestLayoutDiagnostics.wrapped_headers>`\\"
+msgstr ""
+":py:obj:`wrapped_headers "
+"<forestploter.ForestLayoutDiagnostics.wrapped_headers>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`final_figure_width "
+"<forestploter.ForestLayoutDiagnostics.final_figure_width>`\\"
+msgstr ""
+":py:obj:`final_figure_width "
+"<forestploter.ForestLayoutDiagnostics.final_figure_width>`\\"
+
+#: ../../api/generated/forestploter.ForestLayoutDiagnostics.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`header_overflow_count "
+"<forestploter.ForestLayoutDiagnostics.header_overflow_count>`\\"
+msgstr ""
+":py:obj:`header_overflow_count "
+"<forestploter.ForestLayoutDiagnostics.header_overflow_count>`\\"
+
+#: ../../api/generated/forestploter.ForestLegendSpec.rst:2
+msgid "forestploter.ForestLegendSpec"
+msgstr "forestploter.ForestLegendSpec"
+
+#: forestploter.layout.ForestLegendSpec:7
+#: forestploter.layout.ForestReferenceLegendSpec:13 of
+msgid "**location**"
+msgstr "**location**"
+
+#: forestploter.layout.ForestLegendSpec:-1 of
+#, python-brace-format
+msgid "{\"header\", \"bottom\"}, default \"header\""
+msgstr "{\"header\", \"bottom\"}，默认值为 \"header\""
+
+#: forestploter.layout.ForestLegendSpec:8
+#: forestploter.layout.ForestReferenceLegendSpec:14 of
+msgid "Place the legend in a column-header region or below the table."
+msgstr "将图例放置在列标题区域或表格下方。"
+
+#: forestploter.layout.ForestLegendSpec:11 of
+msgid ""
+"Required for ``location=\"header\"`` and may point to any display or CI "
+"column. For ``location=\"bottom\"``, omit it to center the legend below "
+"all active CI columns, or provide it to center below one column."
+msgstr ""
+"对于 ``location=\"header\"`` 是必需的，并且可以指向任何显示或 CI 列。对于 "
+"``location=\"bottom\"``，省略它以使图例在所有活动 CI 列下方居中，或将其设置在一列下方居中。"
+
+#: forestploter.layout.ForestLegendSpec:15
+#: forestploter.layout.ForestReferenceLegendSpec:19 of
+msgid "**ncol**"
+msgstr "**ncol**"
+
+#: forestploter.layout.ForestLegendSpec:-1
+#: forestploter.layout.ForestReferenceLegendSpec:-1 of
+msgid "int, default 2"
+msgstr "int，默认值为 2"
+
+#: forestploter.layout.ForestLegendSpec:16
+#: forestploter.layout.ForestReferenceLegendSpec:20 of
+msgid "Number of legend columns; must be a positive integer."
+msgstr "图例列数；必须是正整数。"
+
+#: ../../api/generated/forestploter.ForestLegendSpec.rst:21:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestLegendSpec.__init__>`\\ "
+"\\(\\[location\\, column\\_key\\, ncol\\]\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestLegendSpec.__init__>`\\ "
+"\\(\\[location\\, column\\_key\\, ncol\\]\\)"
+
+#: ../../api/generated/forestploter.ForestLegendSpec.rst:28:<autosummary>:1
+msgid ":py:obj:`column_key <forestploter.ForestLegendSpec.column_key>`\\"
+msgstr ":py:obj:`column_key <forestploter.ForestLegendSpec.column_key>`\\"
+
+#: ../../api/generated/forestploter.ForestLegendSpec.rst:28:<autosummary>:1
+msgid ":py:obj:`location <forestploter.ForestLegendSpec.location>`\\"
+msgstr ":py:obj:`location <forestploter.ForestLegendSpec.location>`\\"
+
+#: ../../api/generated/forestploter.ForestLegendSpec.rst:28:<autosummary>:1
+msgid ":py:obj:`ncol <forestploter.ForestLegendSpec.ncol>`\\"
+msgstr ":py:obj:`ncol <forestploter.ForestLegendSpec.ncol>`\\"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:2
+msgid "forestploter.ForestPlotResult"
+msgstr "forestploter.ForestPlotResult"
+
+#: forestploter.core.ForestPlotResult:7 of
+msgid "**figure**"
+msgstr "**figure**"
+
+#: forestploter.core.ForestPlotResult:-1 of
+msgid "matplotlib.figure.Figure"
+msgstr "matplotlib.figure.图"
+
+#: forestploter.core.ForestPlotResult:8 of
+msgid "Complete Matplotlib Figure."
+msgstr "完整的 Matplotlib 图。"
+
+#: forestploter.core.ForestPlotResult:10 of
+msgid "**axes**"
+msgstr "**axes**"
+
+#: forestploter.core.ForestPlotResult:-1 of
+msgid "matplotlib.axes.Axes"
+msgstr "matplotlib.axes.Axes"
+
+#: forestploter.core.ForestPlotResult:11 of
+msgid "Axes shared by the table and confidence intervals."
+msgstr "表和置信区间共享的轴。"
+
+#: forestploter.core.ForestPlotResult:13 of
+msgid "**geometry**"
+msgstr "**geometry**"
+
+#: forestploter.core.ForestPlotResult:-1
+#: forestploter.layout.compute_column_geometry:14 of
+msgid "tuple of ColumnGeometry"
+msgstr "ColumnGeometry 元组"
+
+#: forestploter.core.ForestPlotResult:14 of
+msgid "Normalized horizontal boundaries for every output column."
+msgstr "每个输出列的标准化水平边界。"
+
+#: forestploter.core.ForestPlotResult:16 of
+msgid "**row_centers**"
+msgstr "**row_centers**"
+
+#: forestploter.core.ForestPlotResult:17 of
+msgid "Visual-row centers in unique ``_plot_row`` order."
+msgstr "视觉行以唯一的 ``_plot_row`` 顺序居中。"
+
+#: forestploter.core.ForestPlotResult:19 of
+msgid "**clipped_intervals**"
+msgstr "**clipped_intervals**"
+
+#: forestploter.core.ForestPlotResult:20 of
+msgid ""
+"Number of intervals with at least one endpoint outside ``xlim``; each "
+"interval is counted at most once."
+msgstr "至少有一个端点在 ``xlim`` 之外的区间数；每个区间最多计算一次。"
+
+#: forestploter.core.ForestPlotResult:23 of
+msgid "**layout_diagnostics**"
+msgstr "**layout_diagnostics**"
+
+#: forestploter.core.ForestPlotResult:-1 of
+msgid "ForestLayoutDiagnostics"
+msgstr "ForestLayoutDiagnostics"
+
+#: forestploter.core.ForestPlotResult:24 of
+msgid ""
+"Diagnostics for rows, observation positions, merged spans, legends, and "
+"headers."
+msgstr "行、观察位置、合并范围、图例和标题的诊断。"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:22:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestPlotResult.__init__>`\\ "
+"\\(figure\\, axes\\, geometry\\, ...\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestPlotResult.__init__>`\\ "
+"\\(figure\\, axes\\, geometry\\, ...\\)"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:22:<autosummary>:1
+msgid ""
+":py:obj:`save <forestploter.ForestPlotResult.save>`\\ \\(path\\, "
+"\\*\\[\\, dpi\\]\\)"
+msgstr ""
+":py:obj:`save <forestploter.ForestPlotResult.save>`\\ \\(path\\, "
+"\\*\\[\\, dpi\\]\\)"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:22:<autosummary>:1
+msgid "Save PNG, SVG, or another Matplotlib-supported format."
+msgstr "保存 PNG、SVG 或其他 Matplotlib 支持的格式。"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:32:<autosummary>:1
+msgid ":py:obj:`figure <forestploter.ForestPlotResult.figure>`\\"
+msgstr ":py:obj:`figure <forestploter.ForestPlotResult.figure>`\\"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:32:<autosummary>:1
+msgid ":py:obj:`axes <forestploter.ForestPlotResult.axes>`\\"
+msgstr ":py:obj:`axes <forestploter.ForestPlotResult.axes>`\\"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:32:<autosummary>:1
+msgid ":py:obj:`geometry <forestploter.ForestPlotResult.geometry>`\\"
+msgstr ":py:obj:`geometry <forestploter.ForestPlotResult.geometry>`\\"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:32:<autosummary>:1
+msgid ":py:obj:`row_centers <forestploter.ForestPlotResult.row_centers>`\\"
+msgstr ":py:obj:`row_centers <forestploter.ForestPlotResult.row_centers>`\\"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:32:<autosummary>:1
+msgid ""
+":py:obj:`clipped_intervals "
+"<forestploter.ForestPlotResult.clipped_intervals>`\\"
+msgstr ""
+":py:obj:`clipped_intervals "
+"<forestploter.ForestPlotResult.clipped_intervals>`\\"
+
+#: ../../api/generated/forestploter.ForestPlotResult.rst:32:<autosummary>:1
+msgid ""
+":py:obj:`layout_diagnostics "
+"<forestploter.ForestPlotResult.layout_diagnostics>`\\"
+msgstr ""
+":py:obj:`layout_diagnostics "
+"<forestploter.ForestPlotResult.layout_diagnostics>`\\"
+
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst:2
+msgid "forestploter.ForestReferenceLegendSpec"
+msgstr "forestploter.ForestReferenceLegendSpec"
+
+#: forestploter.layout.ForestReferenceLegendSpec:7 of
+msgid "**reference_label**"
+msgstr "**reference_label**"
+
+#: forestploter.layout.ForestReferenceLegendSpec:8 of
+msgid "Legend label for ``ref_line``."
+msgstr "``ref_line`` 的图例标签。"
+
+#: forestploter.layout.ForestReferenceLegendSpec:10 of
+msgid "**ideal_label**"
+msgstr "**ideal_label**"
+
+#: forestploter.layout.ForestReferenceLegendSpec:11 of
+msgid "Legend label for ``ideal_line``."
+msgstr "``ideal_line`` 的图例标签。"
+
+#: forestploter.layout.ForestReferenceLegendSpec:-1 of
+#, python-brace-format
+msgid "{\"header\", \"bottom\"}, default \"bottom\""
+msgstr "{\"header\", \"bottom\"}，默认值为 \"bottom\""
+
+#: forestploter.layout.ForestReferenceLegendSpec:17 of
+msgid "Uses the same placement rules as :class:`ForestLegendSpec`."
+msgstr "使用与 :class:`ForestLegendSpec` 相同的放置规则。"
+
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst:21:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestReferenceLegendSpec.__init__>`\\ "
+"\\(\\[reference\\_label\\, ideal\\_label\\, ...\\]\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestReferenceLegendSpec.__init__>`\\ "
+"\\(\\[reference\\_label\\, ideal\\_label\\, ...\\]\\)"
+
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst:30:<autosummary>:1
+msgid ":py:obj:`column_key <forestploter.ForestReferenceLegendSpec.column_key>`\\"
+msgstr ":py:obj:`column_key <forestploter.ForestReferenceLegendSpec.column_key>`\\"
+
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst:30:<autosummary>:1
+msgid ""
+":py:obj:`ideal_label "
+"<forestploter.ForestReferenceLegendSpec.ideal_label>`\\"
+msgstr ""
+":py:obj:`ideal_label "
+"<forestploter.ForestReferenceLegendSpec.ideal_label>`\\"
+
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst:30:<autosummary>:1
+msgid ":py:obj:`location <forestploter.ForestReferenceLegendSpec.location>`\\"
+msgstr ":py:obj:`location <forestploter.ForestReferenceLegendSpec.location>`\\"
+
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst:30:<autosummary>:1
+msgid ":py:obj:`ncol <forestploter.ForestReferenceLegendSpec.ncol>`\\"
+msgstr ":py:obj:`ncol <forestploter.ForestReferenceLegendSpec.ncol>`\\"
+
+#: ../../api/generated/forestploter.ForestReferenceLegendSpec.rst:30:<autosummary>:1
+msgid ""
+":py:obj:`reference_label "
+"<forestploter.ForestReferenceLegendSpec.reference_label>`\\"
+msgstr ""
+":py:obj:`reference_label "
+"<forestploter.ForestReferenceLegendSpec.reference_label>`\\"
+
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst:2
+msgid "forestploter.ForestSeriesStyle"
+msgstr "forestploter.ForestSeriesStyle"
+
+#: forestploter.layout.ForestSeriesStyle:7 of
+msgid "**label**"
+msgstr "**label**"
+
+#: forestploter.layout.ForestSeriesStyle:8 of
+msgid "Display label used in the legend."
+msgstr "图例中使用的显示标签。"
+
+#: forestploter.layout.ForestSeriesStyle:10 of
+msgid "**color**"
+msgstr "**color**"
+
+#: forestploter.layout.ForestSeriesStyle:11 of
+msgid "Matplotlib color specification."
+msgstr "Matplotlib 颜色规范。"
+
+#: forestploter.layout.ForestSeriesStyle:13 of
+msgid "**marker**"
+msgstr "**marker**"
+
+#: forestploter.layout.ForestSeriesStyle:-1 of
+msgid "str, default \"s\""
+msgstr "str，默认值为 \"s\""
+
+#: forestploter.layout.ForestSeriesStyle:14 of
+msgid "Matplotlib marker for ordinary estimates."
+msgstr "用于普通估计的 Matplotlib 标记。"
+
+#: forestploter.layout.ForestSeriesStyle:16 of
+msgid "**summary_marker**"
+msgstr "**summary_marker**"
+
+#: forestploter.layout.ForestSeriesStyle:-1 of
+#, python-brace-format
+msgid "{\"diamond\", \"same\"}, default \"diamond\""
+msgstr "{\"diamond\", \"same\"}，默认值为 \"diamond\""
+
+#: forestploter.layout.ForestSeriesStyle:17 of
+msgid ""
+"Summary marker. ``\"diamond\"`` draws a diamond; ``\"same\"`` reuses "
+"``marker``."
+msgstr "汇总标记。 ``\"diamond\"`` 绘制菱形； ``\"same\"`` 复用 ``marker``。"
+
+#: forestploter.layout.ForestSeriesStyle:32 of
+msgid ""
+"In :func:`forestploter.forest`, ``series_styles`` is keyed by ``_series``"
+" values, so styling is independent of source-record order."
+msgstr ""
+"在 :func:`forestploter.forest` 中，``series_styles`` 由 ``_series`` "
+"值作为键控，因此样式独立于源记录顺序。"
+
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst:21:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestSeriesStyle.__init__>`\\ "
+"\\(label\\, color\\[\\, marker\\, summary\\_marker\\]\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestSeriesStyle.__init__>`\\ "
+"\\(label\\, color\\[\\, marker\\, summary\\_marker\\]\\)"
+
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst:29:<autosummary>:1
+msgid ":py:obj:`marker <forestploter.ForestSeriesStyle.marker>`\\"
+msgstr ":py:obj:`marker <forestploter.ForestSeriesStyle.marker>`\\"
+
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst:29:<autosummary>:1
+msgid ":py:obj:`summary_marker <forestploter.ForestSeriesStyle.summary_marker>`\\"
+msgstr ":py:obj:`summary_marker <forestploter.ForestSeriesStyle.summary_marker>`\\"
+
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst:29:<autosummary>:1
+msgid ":py:obj:`label <forestploter.ForestSeriesStyle.label>`\\"
+msgstr ":py:obj:`label <forestploter.ForestSeriesStyle.label>`\\"
+
+#: ../../api/generated/forestploter.ForestSeriesStyle.rst:29:<autosummary>:1
+msgid ":py:obj:`color <forestploter.ForestSeriesStyle.color>`\\"
+msgstr ":py:obj:`color <forestploter.ForestSeriesStyle.color>`\\"
+
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:2
+msgid "forestploter.ForestTableLayoutSpec"
+msgstr "forestploter.ForestTableLayoutSpec"
+
+#: forestploter.layout.ForestTableLayoutSpec:7 of
+msgid "**auto_width**"
+msgstr "**auto_width**"
+
+#: forestploter.layout.ForestTableLayoutSpec:-1 of
+msgid "bool, default True"
+msgstr "bool，默认值为 True"
+
+#: forestploter.layout.ForestTableLayoutSpec:8 of
+msgid "Whether to measure visible text and adjust column widths."
+msgstr "是否测量可见文本并调整列宽。"
+
+#: forestploter.layout.ForestTableLayoutSpec:10 of
+msgid "**auto_wrap_headers**"
+msgstr "**auto_wrap_headers**"
+
+#: forestploter.layout.ForestTableLayoutSpec:11 of
+msgid "Whether to wrap headers automatically at word boundaries."
+msgstr "是否在字边界自动换行。"
+
+#: forestploter.layout.ForestTableLayoutSpec:13 of
+msgid "**column_padding_pt**"
+msgstr "**column_padding_pt**"
+
+#: forestploter.layout.ForestTableLayoutSpec:-1 of
+msgid "float, default 6"
+msgstr "float，默认值为 6"
+
+#: forestploter.layout.ForestTableLayoutSpec:14 of
+msgid "Left and right cell padding in points."
+msgstr "左侧和右侧单元格填充（以点为单位）。"
+
+#: forestploter.layout.ForestTableLayoutSpec:16 of
+msgid "**edge_padding_pt**"
+msgstr "**edge_padding_pt**"
+
+#: forestploter.layout.ForestTableLayoutSpec:-1 of
+msgid "float, default 4"
+msgstr "float，默认值为 4"
+
+#: forestploter.layout.ForestTableLayoutSpec:17 of
+msgid "Left and right figure-edge padding in points."
+msgstr "左右图形边缘填充（以磅为单位）。"
+
+#: forestploter.layout.ForestTableLayoutSpec:19 of
+msgid "**max_header_lines**"
+msgstr "**max_header_lines**"
+
+#: forestploter.layout.ForestTableLayoutSpec:-1 of
+msgid "int, default 3"
+msgstr "int，默认值为 3"
+
+#: forestploter.layout.ForestTableLayoutSpec:20 of
+msgid "Maximum line count for one header."
+msgstr "一个标头的最大行数。"
+
+#: forestploter.layout.ForestTableLayoutSpec:22 of
+msgid "**max_figure_width**"
+msgstr "**max_figure_width**"
+
+#: forestploter.layout.ForestTableLayoutSpec:-1 of
+msgid "float, default 16"
+msgstr "float，默认值为 16"
+
+#: forestploter.layout.ForestTableLayoutSpec:23 of
+msgid "Maximum automatically expanded Figure width in inches."
+msgstr "自动扩展的最大图形宽度（以英寸为单位）。"
+
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:21:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestTableLayoutSpec.__init__>`\\ "
+"\\(\\[auto\\_width\\, auto\\_wrap\\_headers\\, ...\\]\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestTableLayoutSpec.__init__>`\\ "
+"\\(\\[auto\\_width\\, auto\\_wrap\\_headers\\, ...\\]\\)"
+
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+msgid ":py:obj:`auto_width <forestploter.ForestTableLayoutSpec.auto_width>`\\"
+msgstr ":py:obj:`auto_width <forestploter.ForestTableLayoutSpec.auto_width>`\\"
+
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`auto_wrap_headers "
+"<forestploter.ForestTableLayoutSpec.auto_wrap_headers>`\\"
+msgstr ""
+":py:obj:`auto_wrap_headers "
+"<forestploter.ForestTableLayoutSpec.auto_wrap_headers>`\\"
+
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`column_padding_pt "
+"<forestploter.ForestTableLayoutSpec.column_padding_pt>`\\"
+msgstr ""
+":py:obj:`column_padding_pt "
+"<forestploter.ForestTableLayoutSpec.column_padding_pt>`\\"
+
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`edge_padding_pt "
+"<forestploter.ForestTableLayoutSpec.edge_padding_pt>`\\"
+msgstr ""
+":py:obj:`edge_padding_pt "
+"<forestploter.ForestTableLayoutSpec.edge_padding_pt>`\\"
+
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`max_figure_width "
+"<forestploter.ForestTableLayoutSpec.max_figure_width>`\\"
+msgstr ""
+":py:obj:`max_figure_width "
+"<forestploter.ForestTableLayoutSpec.max_figure_width>`\\"
+
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+msgid ""
+":py:obj:`max_header_lines "
+"<forestploter.ForestTableLayoutSpec.max_header_lines>`\\"
+msgstr ""
+":py:obj:`max_header_lines "
+"<forestploter.ForestTableLayoutSpec.max_header_lines>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:2
+msgid "forestploter.ForestTheme"
+msgstr "forestploter.ForestTheme"
+
+#: forestploter.theme.ForestTheme:7 of
+msgid "**base_font_size**"
+msgstr "**base_font_size**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "float, default 8.5"
+msgstr "float，默认值为 8.5"
+
+#: forestploter.theme.ForestTheme:8 of
+msgid "Base font size for headers, body text, ticks, and legends, in points."
+msgstr "标题、正文、刻度和图例的基本字体大小（以磅为单位）。"
+
+#: forestploter.theme.ForestTheme:10 of
+msgid "**header_fill**"
+msgstr "**header_fill**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"#EAF0F6\""
+msgstr "str，默认值为 \"#EAF0F6\""
+
+#: forestploter.theme.ForestTheme:11 of
+msgid "Header background color."
+msgstr "标题背景颜色。"
+
+#: forestploter.theme.ForestTheme:13 of
+msgid "**alternate_fill**"
+msgstr "**alternate_fill**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"#F7F9FC\""
+msgstr "str，默认值为 \"#F7F9FC\""
+
+#: forestploter.theme.ForestTheme:14 of
+msgid ""
+"Alternating fill used for odd-indexed rows that are neither spacers nor "
+"group headers."
+msgstr "用于既不是空白行也不是组标题的奇数索引行的交替填充。"
+
+#: forestploter.theme.ForestTheme:17 of
+msgid "**group_fill**"
+msgstr "**group_fill**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"#F0F4F8\""
+msgstr "str，默认值为 \"#F0F4F8\""
+
+#: forestploter.theme.ForestTheme:18 of
+msgid "Background color for ``\"header\"`` group rows."
+msgstr "``\"header\"`` 组行的背景颜色。"
+
+#: forestploter.theme.ForestTheme:20 of
+msgid "**text_color**"
+msgstr "**text_color**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"#202B33\""
+msgstr "str，默认值为 \"#202B33\""
+
+#: forestploter.theme.ForestTheme:21 of
+msgid "Header, body, tick, and default series-text color."
+msgstr "标题、正文、勾号和默认系列文本颜色。"
+
+#: forestploter.theme.ForestTheme:23 of
+msgid "**muted_color**"
+msgstr "**muted_color**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"#667085\""
+msgstr "str，默认值为 \"#667085\""
+
+#: forestploter.theme.ForestTheme:24 of
+msgid "Color for secondary text such as bottom direction labels."
+msgstr "辅助文本（例如底部方向标签）的颜色。"
+
+#: forestploter.theme.ForestTheme:26 of
+msgid "**ci_colors**"
+msgstr "**ci_colors**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "tuple of str, default (\"#1F4E79\", \"#D97706\", \"#4472C4\")"
+msgstr "str 元组，默认值为 (\"#1F4E79\", \"#D97706\", \"#4472C4\")"
+
+#: forestploter.theme.ForestTheme:27 of
+msgid ""
+"Colors cycled across series when ``series_styles`` is omitted. The tuple "
+"must contain at least one color when default styles are used."
+msgstr "当省略 ``series_styles`` 时，颜色在系列之间循环。使用默认样式时，元组必须至少包含一种颜色。"
+
+#: forestploter.theme.ForestTheme:30 of
+msgid "**summary_fill**"
+msgstr "**summary_fill**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"#1F4E79\""
+msgstr "str，默认值为 \"#1F4E79\""
+
+#: forestploter.theme.ForestTheme:31 of
+msgid ""
+"Reserved summary-diamond fill. The current renderer uses the matching "
+"series ``color`` and does not yet read this field."
+msgstr "保留汇总-菱形填充。当前渲染器使用匹配系列 ``color``，尚未读取该字段。"
+
+#: forestploter.theme.ForestTheme:34 of
+msgid "**grid_color**"
+msgstr "**grid_color**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"#D0D5DD\""
+msgstr "str，默认值为 \"#D0D5DD\""
+
+#: forestploter.theme.ForestTheme:35 of
+msgid "Color for horizontal rules, optional vertical rules, and borders."
+msgstr "水平标线、可选垂直标线和边框的颜色。"
+
+#: forestploter.theme.ForestTheme:37 of
+msgid "**reference_color**"
+msgstr "**reference_color**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"#344054\""
+msgstr "str，默认值为 \"#344054\""
+
+#: forestploter.theme.ForestTheme:38 of
+msgid "Color for ``ref_line`` and its legend entry."
+msgstr "``ref_line`` 的颜色及其图例条目。"
+
+#: forestploter.theme.ForestTheme:40 of
+msgid "**ideal_color**"
+msgstr "**ideal_color**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"#C69C3C\""
+msgstr "str，默认值为 \"#C69C3C\""
+
+#: forestploter.theme.ForestTheme:41 of
+msgid "Color for ``ideal_line`` and its legend entry."
+msgstr "``ideal_line`` 的颜色及其图例条目。"
+
+#: forestploter.theme.ForestTheme:43 of
+msgid "**show_vertical_grid**"
+msgstr "**show_vertical_grid**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "bool, default False"
+msgstr "bool，默认值为 False"
+
+#: forestploter.theme.ForestTheme:44 of
+msgid ""
+"Whether to draw each column's left boundary and the table's right "
+"boundary."
+msgstr "是否绘制每列的左边界和表格的右边界。"
+
+#: forestploter.theme.ForestTheme:47 of
+msgid "**reference_line_style**"
+msgstr "**reference_line_style**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \"--\""
+msgstr "str，默认值为 \"--\""
+
+#: forestploter.theme.ForestTheme:48 of
+msgid "Matplotlib line style for the reference line."
+msgstr "Matplotlib 参考线的线型。"
+
+#: forestploter.theme.ForestTheme:50 of
+msgid "**ideal_line_style**"
+msgstr "**ideal_line_style**"
+
+#: forestploter.theme.ForestTheme:-1 of
+msgid "str, default \":\""
+msgstr "str，默认值为 \":\""
+
+#: forestploter.theme.ForestTheme:51 of
+msgid "Matplotlib line style for the ideal line."
+msgstr "Matplotlib 理想线条的线条样式。"
+
+#: forestploter.theme.ForestTheme:65 of
+msgid ""
+"Theme objects are frozen data classes and can be reused safely. Create a "
+"new instance for per-call changes instead of mutating during rendering."
+msgstr "主题对象是冻结数据类，可以安全地重用。为每次调用更改创建一个新实例，而不是在渲染期间进行变异。"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:21:<autosummary>:1
+msgid ""
+":py:obj:`__init__ <forestploter.ForestTheme.__init__>`\\ "
+"\\(\\[base\\_font\\_size\\, header\\_fill\\, ...\\]\\)"
+msgstr ""
+":py:obj:`__init__ <forestploter.ForestTheme.__init__>`\\ "
+"\\(\\[base\\_font\\_size\\, header\\_fill\\, ...\\]\\)"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`alternate_fill <forestploter.ForestTheme.alternate_fill>`\\"
+msgstr ":py:obj:`alternate_fill <forestploter.ForestTheme.alternate_fill>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`base_font_size <forestploter.ForestTheme.base_font_size>`\\"
+msgstr ":py:obj:`base_font_size <forestploter.ForestTheme.base_font_size>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`ci_colors <forestploter.ForestTheme.ci_colors>`\\"
+msgstr ":py:obj:`ci_colors <forestploter.ForestTheme.ci_colors>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`grid_color <forestploter.ForestTheme.grid_color>`\\"
+msgstr ":py:obj:`grid_color <forestploter.ForestTheme.grid_color>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`group_fill <forestploter.ForestTheme.group_fill>`\\"
+msgstr ":py:obj:`group_fill <forestploter.ForestTheme.group_fill>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`header_fill <forestploter.ForestTheme.header_fill>`\\"
+msgstr ":py:obj:`header_fill <forestploter.ForestTheme.header_fill>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`ideal_color <forestploter.ForestTheme.ideal_color>`\\"
+msgstr ":py:obj:`ideal_color <forestploter.ForestTheme.ideal_color>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`ideal_line_style <forestploter.ForestTheme.ideal_line_style>`\\"
+msgstr ":py:obj:`ideal_line_style <forestploter.ForestTheme.ideal_line_style>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`muted_color <forestploter.ForestTheme.muted_color>`\\"
+msgstr ":py:obj:`muted_color <forestploter.ForestTheme.muted_color>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`reference_color <forestploter.ForestTheme.reference_color>`\\"
+msgstr ":py:obj:`reference_color <forestploter.ForestTheme.reference_color>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ""
+":py:obj:`reference_line_style "
+"<forestploter.ForestTheme.reference_line_style>`\\"
+msgstr ""
+":py:obj:`reference_line_style "
+"<forestploter.ForestTheme.reference_line_style>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ""
+":py:obj:`show_vertical_grid "
+"<forestploter.ForestTheme.show_vertical_grid>`\\"
+msgstr ""
+":py:obj:`show_vertical_grid "
+"<forestploter.ForestTheme.show_vertical_grid>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`summary_fill <forestploter.ForestTheme.summary_fill>`\\"
+msgstr ":py:obj:`summary_fill <forestploter.ForestTheme.summary_fill>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+msgid ":py:obj:`text_color <forestploter.ForestTheme.text_color>`\\"
+msgstr ":py:obj:`text_color <forestploter.ForestTheme.text_color>`\\"
+
+#: ../../api/generated/forestploter.compute_column_geometry.rst:2
+msgid "forestploter.compute\\_column\\_geometry"
+msgstr "forestploter.compute\\_column\\_geometry"
+
+#: forestploter.core.forest:12 forestploter.layout.compute_column_geometry:7 of
+msgid "**columns**"
+msgstr "**columns**"
+
+#: forestploter.core.forest:-1 forestploter.layout.compute_column_geometry:-1
+#: of
+msgid "sequence of ForestColumn"
+msgstr "ForestColumn 序列"
+
+#: forestploter.layout.compute_column_geometry:8 of
+msgid "Column definitions in final left-to-right plot order."
+msgstr "最终从左到右绘图顺序的列定义。"
+
+#: forestploter.core.forest forestploter.data.read_forest_data
+#: forestploter.layout.compute_column_geometry of
+msgid "Returns"
+msgstr "返回值"
+
+#: forestploter.layout.compute_column_geometry:15 of
+msgid "Boundaries corresponding one-to-one with the input sequence."
+msgstr "边界与输入序列一一对应。"
+
+#: forestploter.core.forest forestploter.data.read_forest_data
+#: forestploter.layout.compute_column_geometry of
+msgid "Raises"
+msgstr "异常"
+
+#: forestploter.core.forest:78 forestploter.data.read_forest_data:45
+#: forestploter.layout.compute_column_geometry:22 of
+msgid "ValueError"
+msgstr "ValueError"
+
+#: forestploter.layout.compute_column_geometry:23 of
+msgid ""
+"Raised for an empty sequence, duplicate keys, unsupported roles or "
+"alignments, or non-finite/non-positive widths."
+msgstr "因空序列、重复键、不支持的角色或对齐或非有限/非正宽度而引发。"
+
+#: ../../api/generated/forestploter.forest.rst:2
+msgid "forestploter.forest"
+msgstr "forestploter.forest"
+
+#: forestploter.core.forest:7 of
+msgid "**data**"
+msgstr "**data**"
+
+#: forestploter.core.forest:-1 of
+msgid "ForestData or pandas.DataFrame"
+msgstr "ForestData 或 pandas.DataFrame"
+
+#: forestploter.core.forest:8 of
+msgid ""
+"Result of :func:`read_forest_data`, or a long-form DataFrame using the "
+"default reserved field names. One source record may describe only one "
+"series in one CI column with one ``estimate/lower/upper`` triple."
+msgstr ""
+":func:`read_forest_data` 的结果，或使用默认技术字段名称的长格式 DataFrame。一条源记录只能用一个 "
+"``estimate/lower/upper`` 三元组描述一个 CI 列中的一个系列。"
+
+#: forestploter.core.forest:13 of
+msgid ""
+"Display and CI columns in final left-to-right plot order. This sequence "
+"is the sole authority for visual order: text may appear before or after "
+"any CI column regardless of XLSX/CSV header order. Display keys must be "
+"source fields; CI keys are targeted by ``_ci_column`` records."
+msgstr ""
+"按最终从左到右的顺序列出显示列与 CI 列。该序列是视觉顺序的唯一依据：无论 XLSX/CSV 表头如何排列，文本都可出现在任意 CI "
+"列之前或之后。显示列的 key 必须对应源字段；CI 列的 key 由记录中的 ``_ci_column`` 指定。"
+
+#: forestploter.core.forest:18 of
+msgid "**ref_line**"
+msgstr "**ref_line**"
+
+#: forestploter.core.forest:-1 of
+msgid "float, default 0"
+msgstr "float，默认值为 0"
+
+#: forestploter.core.forest:19 of
+msgid "Reference line shared by all CI columns."
+msgstr "所有 CI 列共享的参考线。"
+
+#: forestploter.core.forest:21 of
+msgid "**ideal_line**"
+msgstr "**ideal_line**"
+
+#: forestploter.core.forest:-1 of
+msgid "float, optional"
+msgstr "float，可选"
+
+#: forestploter.core.forest:22 of
+msgid "Optional ideal-value line shared by all CI columns."
+msgstr "所有 CI 列共享的可选理想值线。"
+
+#: forestploter.core.forest:24 of
+msgid "**xlim**"
+msgstr "**xlim**"
+
+#: forestploter.core.forest:-1 of
+msgid "tuple of float, optional"
+msgstr "float 元组，可选"
+
+#: forestploter.core.forest:25 of
+msgid ""
+"Shared linear range ``(minimum, maximum)``. When omitted, it is derived "
+"from all nonblank intervals."
+msgstr "共享线性范围 ``(minimum, maximum)``。当省略时，它是从所有非空白区间导出的。"
+
+#: forestploter.core.forest:28 of
+msgid "**ticks_at**"
+msgstr "**ticks_at**"
+
+#: forestploter.core.forest:-1 of
+msgid "sequence of float, optional"
+msgstr "float 序列，可选"
+
+#: forestploter.core.forest:29 of
+msgid "Shared tick values. Five ticks are generated within ``xlim`` when omitted."
+msgstr "共享刻度值。省略时，``xlim`` 内会生成五个刻度。"
+
+#: forestploter.core.forest:32 of
+msgid "**arrow_lab**"
+msgstr "**arrow_lab**"
+
+#: forestploter.core.forest:-1 of
+msgid "tuple of str, optional"
+msgstr "str 元组，可选"
+
+#: forestploter.core.forest:33 of
+msgid "Left and right direction labels below the first active CI column."
+msgstr "第一个活动 CI 列下方的左右方向标签。"
+
+#: forestploter.core.forest:35 of
+msgid "**theme**"
+msgstr "**theme**"
+
+#: forestploter.core.forest:-1 of
+msgid "ForestTheme, optional"
+msgstr "ForestTheme，可选"
+
+#: forestploter.core.forest:36 of
+msgid "Colors, font size, grid, and guide-line styles."
+msgstr "颜色、字体大小、网格和引导线样式。"
+
+#: forestploter.core.forest:38 of
+msgid "**title**"
+msgstr "**title**"
+
+#: forestploter.core.forest:-1 of
+msgid "str, optional"
+msgstr "str，可选"
+
+#: forestploter.core.forest:39 of
+msgid "In-figure title."
+msgstr "图标题。"
+
+#: forestploter.core.forest:41 of
+msgid "**figure_width**"
+msgstr "**figure_width**"
+
+#: forestploter.core.forest:-1 of
+msgid "float, default 12"
+msgstr "float，默认值为 12"
+
+#: forestploter.core.forest:42 of
+msgid "Minimum Figure width in inches."
+msgstr "最小图形宽度（以英寸为单位）。"
+
+#: forestploter.core.forest:44 of
+msgid "**row_height**"
+msgstr "**row_height**"
+
+#: forestploter.core.forest:-1 of
+msgid "float, default 0.36"
+msgstr "float，默认值为 0.36"
+
+#: forestploter.core.forest:45 of
+msgid "Physical height of each unique ``_plot_row`` in inches."
+msgstr "每个唯一 ``_plot_row`` 的物理高度（以英寸为单位）。"
+
+#: forestploter.core.forest:47 of
+msgid "**series_styles**"
+msgstr "**series_styles**"
+
+#: forestploter.core.forest:-1 of
+msgid "mapping of str to ForestSeriesStyle, optional"
+msgstr "从 str 到 ForestSeriesStyle 的映射，可选"
+
+#: forestploter.core.forest:48 of
+msgid ""
+"Mapping keyed by ``_series`` values. Supplied keys must exactly match "
+"observed series. Defaults follow first-appearance order."
+msgstr "以 ``_series`` 值为键的映射。提供的键必须与数据中出现的系列完全匹配。默认样式按系列首次出现的顺序分配。"
+
+#: forestploter.core.forest:51 of
+msgid "**legend**"
+msgstr "**legend**"
+
+#: forestploter.core.forest:-1 of
+msgid "ForestLegendSpec, optional"
+msgstr "ForestLegendSpec，可选"
+
+#: forestploter.core.forest:52 of
+msgid "Series legend placed in one column header or in the bottom region."
+msgstr "将系列图例放在某一列的表头或图像底部区域。"
+
+#: forestploter.core.forest:54 of
+msgid "**table_layout**"
+msgstr "**table_layout**"
+
+#: forestploter.core.forest:-1 of
+msgid "ForestTableLayoutSpec, optional"
+msgstr "ForestTableLayoutSpec，可选"
+
+#: forestploter.core.forest:55 of
+msgid "Automatic column width, header wrapping, and edge-padding rules."
+msgstr "自动列宽、表头换行和边缘留白规则。"
+
+#: forestploter.core.forest:57 of
+msgid "**reference_legend**"
+msgstr "**reference_legend**"
+
+#: forestploter.core.forest:-1 of
+msgid "ForestReferenceLegendSpec, optional"
+msgstr "ForestReferenceLegendSpec，可选"
+
+#: forestploter.core.forest:58 of
+msgid ""
+"Reference/ideal-line legend. It uses the same placement semantics as the "
+"series legend. When both exist, they stack with the series legend first."
+msgstr "参考线与理想值线的图例。其放置规则与系列图例相同；两者同时存在时，系列图例排在前面。"
+
+#: forestploter.core.forest:66 of
+msgid "ForestPlotResult"
+msgstr "ForestPlotResult"
+
+#: forestploter.core.forest:67 of
+msgid ""
+"Figure, Axes, column boundaries, visual-row centers, clipping count, and "
+"layout diagnostics."
+msgstr "图形、轴、列边界、视觉行中心、截断计数和布局诊断。"
+
+#: forestploter.core.forest:75 forestploter.data.read_forest_data:41 of
+msgid "TypeError"
+msgstr "TypeError"
+
+#: forestploter.core.forest:76 of
+msgid "Raised for invalid ``data`` or series-style types."
+msgstr "由于无效的 ``data`` 或系列样式类型而引发。"
+
+#: forestploter.core.forest:79 of
+msgid ""
+"Raised when the long table, intervals, styles, coordinates, legends, "
+"columns, or layout settings are invalid."
+msgstr "当长表、区间、样式、坐标、图例、列或布局设置无效时引发。"
+
+#: forestploter.core.forest:87 of
+msgid ""
+"Prefer :func:`read_forest_data` for XLSX. For three series under one "
+"outcome, use three records and three ``_plot_row`` values. The outcome "
+"cell may be vertically merged while an unmerged effect-text field "
+"contains one value per series, so every text row is naturally aligned "
+"with its interval. To show one series in several CI columns, duplicate "
+"the record, retain the same ``_plot_row``, and change only "
+"``_ci_column``. CSV uses the same logical fields but has no merge "
+"metadata; blanks are never inferred or forward-filled."
+msgstr ""
+"XLSX 输入推荐使用 :func:`read_forest_data`。一个结局下若有三个系列，请使用三条记录和三个 ``_plot_row``"
+" 值。结局单元格可以纵向合并；未合并的效应文本字段则每个系列填写一个值，使每行文本自然与对应区间对齐。若要在多个 CI "
+"列中显示同一系列，请复制记录，保留相同的 ``_plot_row``，只更改 ``_ci_column``。CSV "
+"使用相同的逻辑字段，但不包含合并信息；空白值不会被推断或向前填充。"
+
+#: forestploter.core.forest:96 of
+msgid ""
+"A readable file-header order is recommended but does not control output. "
+"Place display fields before the first CI, then ``estimate/lower/upper`` "
+"as the first CI's physical representation, then trailing display fields, "
+"and finally the six controls ``_plot_row``, ``_series``, ``_ci_column``, "
+"``_row_type``, ``_indent``, and ``_is_summary``. The ``columns`` sequence"
+" remains authoritative for the actual rendered order."
+msgstr ""
+"推荐采用便于阅读的文件表头顺序，但它不控制输出。先放第一个 CI 之前的显示字段，再用 ``estimate/lower/upper`` "
+"表示物理文件中的第一个 CI，随后放置 CI 后的显示字段，最后按顺序放置六个控制字段 "
+"``_plot_row``、``_series``、``_ci_column``、``_row_type``、``_indent`` 和 "
+"``_is_summary``。实际渲染顺序仍仅由 ``columns`` 决定。"
+
+#: forestploter.core.forest:103 of
+msgid ""
+"``_row_type`` controls row semantics. ``_is_summary`` must be boolean and"
+" controls marker shape only. A fully blank triple skips an interval; a "
+"partially blank triple is invalid. At an axis overflow, an arrow replaces"
+" the cap on that side. A fully off-scale interval shows only the nearest "
+"outward arrow."
+msgstr ""
+"``_row_type`` 控制行语义。``_is_summary`` "
+"必须是布尔值，且只控制标记形态。三元组全部留空时跳过该区间，部分留空则无效。区间越过坐标范围时，箭头取代相应一侧的竖向端帽；完全越界的区间只显示最近的向外箭头。"
+
+#: forestploter.core.forest:109 of
+msgid ""
+"This function uses one global linear axis configuration. It performs no "
+"logarithmic transformation and computes no effect size, confidence "
+"interval, or meta-analysis statistic."
+msgstr "本函数使用一套全局线性坐标配置，不执行对数变换，也不计算效应量、置信区间或荟萃分析统计量。"
+
+#: forestploter.core.forest:115 forestploter.data.read_forest_data:94 of
+msgid "Examples"
+msgstr "示例"
+
+#: ../../api/generated/forestploter.read_forest_data.rst:2
+msgid "forestploter.read\\_forest\\_data"
+msgstr "forestploter.read\\_forest\\_data"
+
+#: forestploter.data.read_forest_data:-1 of
+msgid "str or pathlib.Path"
+msgstr "str 或 pathlib.Path"
+
+#: forestploter.data.read_forest_data:8 of
+msgid "Path to an ``.xlsx`` or ``.csv`` file. Other suffixes are not guessed."
+msgstr "``.xlsx`` 或 ``.csv`` 文件的路径；不会推测其他扩展名。"
+
+#: forestploter.data.read_forest_data:-1 of
+msgid "str or int, default 0"
+msgstr "str 或 int，默认值为 0"
+
+#: forestploter.data.read_forest_data:11 of
+msgid ""
+"XLSX worksheet name or zero-based index. CSV has no worksheets and "
+"rejects any value other than the default ``0``."
+msgstr "XLSX 工作表名称或从 0 开始计数的索引。CSV 没有工作表，因此除默认值 ``0`` 外均会被拒绝。"
+
+#: forestploter.data.read_forest_data:14 of
+msgid "**header_row**"
+msgstr "**header_row**"
+
+#: forestploter.data.read_forest_data:-1 of
+msgid "int, default 1"
+msgstr "int，默认值为 1"
+
+#: forestploter.data.read_forest_data:15 of
+msgid ""
+"One-based physical row containing field names. Every non-empty physical "
+"row below it is one source record."
+msgstr "包含字段名的物理行，行号从 1 开始计数。其下方每个非空物理行均为一条源记录。"
+
+#: forestploter.data.read_forest_data:-1 of
+msgid "ForestDataMapping, optional"
+msgstr "ForestDataMapping，可选"
+
+#: forestploter.data.read_forest_data:19 of
+msgid "Reserved-field name mapping. The nine standard names are used by default."
+msgstr "技术字段名称映射。默认情况下使用九个标准名称。"
+
+#: forestploter.data.read_forest_data:22 of
+msgid "**encoding**"
+msgstr "**encoding**"
+
+#: forestploter.data.read_forest_data:-1 of
+msgid "str, default \"utf-8-sig\""
+msgstr "str，默认值为 \"utf-8-sig\""
+
+#: forestploter.data.read_forest_data:23 of
+msgid "CSV text encoding. Ignored for XLSX."
+msgstr "CSV 文本编码；XLSX 输入时忽略。"
+
+#: forestploter.data.read_forest_data:29 of
+msgid "ForestData"
+msgstr "ForestData"
+
+#: forestploter.data.read_forest_data:30 of
+msgid ""
+"Long-table values, supported XLSX merges, and traceable source-cell "
+"references."
+msgstr "长表值、支持的 XLSX 合并以及可追踪的源单元格引用。"
+
+#: forestploter.data.read_forest_data:38 of
+msgid "FileNotFoundError"
+msgstr "FileNotFoundError"
+
+#: forestploter.data.read_forest_data:39 of
+msgid "Raised when ``source`` does not exist."
+msgstr "当 ``source`` 不存在时引发。"
+
+#: forestploter.data.read_forest_data:42 of
+msgid "Raised for invalid ``header_row``, ``sheet_name``, or ``mapping`` types."
+msgstr "由于无效的 ``header_row``、``sheet_name`` 或 ``mapping`` 类型而引发。"
+
+#: forestploter.data.read_forest_data:46 of
+msgid ""
+"Raised when the file type, header, worksheet, merge, or cached formula "
+"result violates the contract."
+msgstr "当文件类型、表头、工作表、合并区域或公式缓存结果违反数据契约时引发。"
+
+#: forestploter.data.read_forest_data:49 of
+msgid "ImportError"
+msgstr "ImportError"
+
+#: forestploter.data.read_forest_data:50 of
+msgid "Raised when XLSX support is requested without ``openpyxl``."
+msgstr "在没有 ``openpyxl`` 的情况下请求 XLSX 支持时引发。"
+
+#: forestploter.data.read_forest_data:57 of
+msgid ""
+"Use a first worksheet named ``Forest`` and one row of unique field names."
+" Two orders are deliberately independent:"
+msgstr "请将第一个工作表命名为 ``Forest``，并使用一行不重复的字段名。以下两个顺序彼此独立："
+
+#: forestploter.data.read_forest_data:60 of
+msgid ""
+"The ``columns`` argument of :func:`forestploter.forest` is the only thing"
+" that determines the final left-to-right plot order. Display columns may "
+"appear before or after any CI column."
+msgstr ""
+":func:`forestploter.forest` 的 ``columns`` 参数是唯一决定最终从左到右绘图顺序的参数。显示列可以出现在任何"
+" CI 列之前或之后。"
+
+#: forestploter.data.read_forest_data:63 of
+msgid ""
+"The XLSX/CSV header order exists for readable data entry and does not "
+"determine plot order. A recommended file places display fields that "
+"precede the first CI first, then ``estimate/lower/upper`` as the physical"
+" representation of that CI, then trailing display fields, and finally the"
+" six controls ``_plot_row``, ``_series``, ``_ci_column``, ``_row_type``, "
+"``_indent``, and ``_is_summary``."
+msgstr ""
+"XLSX/CSV 表头顺序只用于提高录入可读性，并不决定绘图顺序。推荐先放第一个 CI 之前的显示字段，再以 "
+"``estimate/lower/upper`` 作为该 CI 在物理文件中的表示，随后放置 CI 后的显示字段，最后按顺序放置六个控制字段 "
+"``_plot_row``、``_series``、``_ci_column``、``_row_type``、``_indent`` 和 "
+"``_is_summary``。"
+
+#: forestploter.data.read_forest_data:70 of
+msgid ""
+"Enter only one statistical triple per estimate record. For three series, "
+"use three records and normally three different ``_plot_row`` values. A "
+"shared outcome cell may be vertically merged across those records, while "
+"an unmerged effect-text field can contain one value per series; every "
+"text row is then exactly aligned with its CI. To show the same series in "
+"two CI columns, duplicate its record, use a different ``_ci_column``, and"
+" retain the same ``_plot_row``. The two plotted intervals will share one "
+"y position."
+msgstr ""
+"每条 ``estimate`` 记录只填写一个统计三元组。若有三个系列，请使用三条记录，并通常分配三个不同的 ``_plot_row`` "
+"值。共享的结局单元格可以跨这些记录纵向合并；未合并的效应文本字段则可为每个系列各填一个值，使每行文本与其 CI 精确对齐。若要在两个 CI "
+"列中显示同一系列，请复制记录，使用不同的 ``_ci_column``，并保留相同的 ``_plot_row``；两个区间将共享同一 y 位置。"
+
+#: forestploter.data.read_forest_data:78 of
+msgid ""
+"Merges are accepted only in display fields and must be single-column, "
+"vertical ranges below the header. Merges in reserved fields, horizontal "
+"or rectangular merges, and merges crossing the header are rejected. Blank"
+" values are never forward-filled. All three of ``estimate/lower/upper`` "
+"may be blank to skip an interval; a partially blank triple fails "
+"validation in :func:`forestploter.forest`."
+msgstr ""
+"仅显示字段允许合并，且必须是表头下方、局限于单列的纵向区域。技术字段中的合并、横向或矩形合并以及跨越表头的合并都会被拒绝。空白值不会向前填充。 "
+"``estimate/lower/upper`` 可以全部留空以跳过一个区间；三元组仅部分留空会在 "
+":func:`forestploter.forest` 中验证失败。"
+
+#: forestploter.data.read_forest_data:85 of
+msgid ""
+"The package does not evaluate Excel formulas. It uses cached results "
+"saved in the workbook and asks the user to recalculate and save when a "
+"required formula has no cache. CSV follows the same record and "
+"``_plot_row`` rules, but cannot represent merges. Excel fonts, fills, "
+"borders, row heights, and column widths do not override "
+":class:`forestploter.ForestTheme` or :class:`forestploter.ForestColumn` "
+"settings."
+msgstr ""
+"本包不计算 Excel 公式，而是读取工作簿中保存的缓存结果；若必需公式没有缓存，会提示用户重新计算并保存。CSV 遵循相同的记录和 "
+"``_plot_row`` 规则，但无法表示合并区域。Excel 中的字体、填充、边框、行高和列宽不会覆盖 "
+":class:`forestploter.ForestTheme` 或 :class:`forestploter.ForestColumn` "
+"设置。"
+
+#: ../../data_contract.rst:2
+msgid "Data contract"
+msgstr "数据契约"
+
+#: ../../data_contract.rst:4
+msgid ""
+"``forestploter`` does not calculate effect sizes, confidence intervals, "
+"or meta-analysis models. Store already calculated values in the input "
+"file; the package reads, validates, lays out, and renders them."
+msgstr "``forestploter`` 不计算效应量、置信区间或荟萃分析模型。请将已计算的值存入输入文件；本包负责读取、验证、布局和渲染。"
+
+#: ../../data_contract.rst:9
+msgid "Two independent column orders"
+msgstr "两个相互独立的列顺序"
+
+#: ../../data_contract.rst:11
+msgid "Do not confuse the plot order with the physical file order:"
+msgstr "不要将绘图顺序与物理文件顺序混淆："
+
+#: ../../data_contract.rst:13
+msgid "``columns`` sequence"
+msgstr "``columns`` 序列"
+
+#: ../../data_contract.rst:14
+msgid ""
+"The only authority for the final left-to-right image order. A CI plotting"
+" column may be first, last, or between display columns. Text can "
+"therefore be appended after a CI without changing the reader or the "
+"source-field names."
+msgstr "唯一决定最终图像从左到右顺序的配置。CI 绘图列可以位于最前、最后或显示列之间。因此，可以在 CI 后追加文本，而无需更改读取器或源字段名。"
+
+#: ../../data_contract.rst:18
+msgid "XLSX/CSV header order"
+msgstr "XLSX/CSV 标头顺序"
+
+#: ../../data_contract.rst:19
+msgid ""
+"An entry-time convention for human readability. It never controls the "
+"plot layout. The recommended order is:"
+msgstr "为提高人工录入可读性而采用的约定，不控制绘图布局。推荐顺序如下："
+
+#: ../../data_contract.rst:22
+msgid "display fields that appear before the first CI;"
+msgstr "出现在第一个 CI 之前的显示字段；"
+
+#: ../../data_contract.rst:23
+msgid ""
+"the shared ``estimate``, ``lower``, ``upper`` triple, representing the "
+"first CI position in a physical file;"
+msgstr "共享的 ``estimate``、``lower``、``upper`` 三元组，代表物理文件中的第一个 CI 位置；"
+
+#: ../../data_contract.rst:25
+msgid "display fields that appear after the first CI;"
+msgstr "出现在第一个 CI 之后的显示字段；"
+
+#: ../../data_contract.rst:26
+msgid ""
+"the six controls, always last and in this exact order: ``_plot_row``, "
+"``_series``, ``_ci_column``, ``_row_type``, ``_indent``, ``_is_summary``."
+msgstr "六个控件，始终位于最后并按以下顺序排列：``_plot_row``、``_series``、``_ci_column``、``_row_type``、``_indent``、``_is_summary``。"
+
+#: ../../data_contract.rst:30
+msgid ""
+"For example, this file order supports a rendered “study → CI → effect "
+"text” layout:"
+msgstr "例如，以下物理文件顺序可支持“研究 → CI → 效应文本”的图形布局："
+
+#: ../../data_contract.rst:38
+msgid "The matching plot order is explicit:"
+msgstr "匹配的绘图顺序是明确的："
+
+#: ../../data_contract.rst:49
+msgid "Field dictionary"
+msgstr "字段字典"
+
+#: ../../data_contract.rst:51
+msgid ""
+"One source record means “one series in one target CI column”. The "
+"following rules use the default :class:`forestploter.ForestDataMapping` "
+"names."
+msgstr ""
+"一条源记录表示“某个目标 CI 列中的一个系列”。以下规则使用 :class:`forestploter.ForestDataMapping` "
+"的默认字段名。"
+
+#: ../../data_contract.rst:58
+msgid "Field"
+msgstr "字段"
+
+#: ../../data_contract.rst:59
+msgid "Accepted type"
+msgstr "接受的类型"
+
+#: ../../data_contract.rst:60
+msgid "Allowed values"
+msgstr "允许值"
+
+#: ../../data_contract.rst:61
+msgid "Required and blank rules"
+msgstr "必填条件与空值规则"
+
+#: ../../data_contract.rst:62
+msgid "display fields"
+msgstr "显示字段"
+
+#: ../../data_contract.rst:63
+msgid "Any scalar suitable for ``str()``"
+msgstr "任何适合 ``str()`` 的标量"
+
+#: ../../data_contract.rst:64
+msgid "Text, number, boolean, date-like value, or blank"
+msgstr "文本、数字、布尔值、类似日期的值或空白"
+
+#: ../../data_contract.rst:65
+msgid ""
+"Required only when referenced by a ``text`` or ``numeric`` "
+":class:`forestploter.ForestColumn`. All nonblank values within one "
+"``_plot_row`` must agree. Blanks are not forward-filled."
+msgstr ""
+"仅当被 ``text`` 或 ``numeric`` :class:`forestploter.ForestColumn` 引用时才需要。一个 "
+"``_plot_row`` 内的所有非空值必须一致。空值不会被前向填充。"
+
+#: ../../data_contract.rst:68 ../../data_contract.rst:136
+msgid "``estimate``"
+msgstr "``estimate``"
+
+#: ../../data_contract.rst:69 ../../data_contract.rst:74
+#: ../../data_contract.rst:78
+msgid "Finite number"
+msgstr "有限数值"
+
+#: ../../data_contract.rst:70
+msgid "Any finite numeric value"
+msgstr "任意有限数值"
+
+#: ../../data_contract.rst:71
+msgid ""
+"On ``estimate`` and ``summary`` records, the three statistics must be all"
+" present or all blank. A fully blank triple explicitly skips drawing."
+msgstr "在 ``estimate`` 和 ``summary`` 记录上，这三个统计信息必须全部存在或全部为空。完全空白的三元组明确跳过绘制。"
+
+#: ../../data_contract.rst:73
+msgid "``lower``"
+msgstr "``lower``"
+
+#: ../../data_contract.rst:75
+msgid "``lower <= estimate``"
+msgstr "``lower <= estimate``"
+
+#: ../../data_contract.rst:76 ../../data_contract.rst:80
+msgid "Uses the same all-present/all-blank rule as ``estimate``."
+msgstr "使用与 ``estimate`` 相同的全填/全空规则。"
+
+#: ../../data_contract.rst:77
+msgid "``upper``"
+msgstr "``upper``"
+
+#: ../../data_contract.rst:79
+msgid "``estimate <= upper``"
+msgstr "``estimate <= upper``"
+
+#: ../../data_contract.rst:81 ../../data_contract.rst:172
+#: ../../data_contract.rst:216 ../../data_contract.rst:261
+#: ../../data_contract.rst:313
+msgid "``_plot_row``"
+msgstr "``_plot_row``"
+
+#: ../../data_contract.rst:82
+msgid "Nonblank hashable scalar"
+msgstr "非空且可哈希的标量"
+
+#: ../../data_contract.rst:83
+msgid "Any stable identifier"
+msgstr "任意稳定标识符"
+
+#: ../../data_contract.rst:84
+msgid ""
+"Required on every record. Equal values share exactly one y coordinate, "
+"and all records for one value must be contiguous. Stable strings are "
+"recommended."
+msgstr "每条记录均为必填。相同值恰好共享一个 y 坐标，同一值的所有记录必须连续排列。推荐使用稳定的字符串。"
+
+#: ../../data_contract.rst:87 ../../data_contract.rst:125
+#: ../../data_contract.rst:173 ../../data_contract.rst:217
+#: ../../data_contract.rst:262 ../../data_contract.rst:314
+msgid "``_series``"
+msgstr "``_series``"
+
+#: ../../data_contract.rst:88 ../../data_contract.rst:93
+msgid "String-like scalar"
+msgstr "字符串型标量"
+
+#: ../../data_contract.rst:89
+msgid "A key used by ``series_styles``"
+msgstr "``series_styles`` 使用的键"
+
+#: ../../data_contract.rst:90
+msgid ""
+"Required and nonblank for ``estimate`` and ``summary``; blank for "
+"``header`` and ``spacer``. Records sharing ``_plot_row`` must agree."
+msgstr ""
+"``estimate`` 和 ``summary`` 必需且非空白； ``header`` 和 ``spacer`` 为空白。记录共享 "
+"``_plot_row`` 必须一致。"
+
+#: ../../data_contract.rst:92 ../../data_contract.rst:126
+#: ../../data_contract.rst:174 ../../data_contract.rst:218
+#: ../../data_contract.rst:263 ../../data_contract.rst:315
+msgid "``_ci_column``"
+msgstr "``_ci_column``"
+
+#: ../../data_contract.rst:94
+msgid "The ``key`` of a ``ForestColumn(role=\"ci\")``"
+msgstr "``ForestColumn(role=\"ci\")`` 的 ``key``"
+
+#: ../../data_contract.rst:95
+msgid ""
+"Required and nonblank for ``estimate`` and ``summary``; blank for "
+"``header`` and ``spacer``. A ``(_plot_row, _ci_column)`` target may occur"
+" only once."
+msgstr ""
+"``estimate`` 和 ``summary`` 必需且非空白； ``header`` 和 ``spacer`` 为空白。 "
+"``(_plot_row, _ci_column)`` 目标只能出现一次。"
+
+#: ../../data_contract.rst:98 ../../data_contract.rst:124
+#: ../../data_contract.rst:175 ../../data_contract.rst:264
+msgid "``_row_type``"
+msgstr "``_row_type``"
+
+#: ../../data_contract.rst:99
+msgid "String enum"
+msgstr "字符串枚举值"
+
+#: ../../data_contract.rst:100
+msgid "``header``, ``estimate``, ``summary``, ``spacer``"
+msgstr "``header``、``estimate``、``summary``、``spacer``"
+
+#: ../../data_contract.rst:101
+msgid "Required on every record and identical within one ``_plot_row``."
+msgstr "每条记录都需要，并且在一个 ``_plot_row`` 中相同。"
+
+#: ../../data_contract.rst:102 ../../data_contract.rst:128
+#: ../../data_contract.rst:176 ../../data_contract.rst:265
+#: ../../data_contract.rst:393
+msgid "``_indent``"
+msgstr "``_indent``"
+
+#: ../../data_contract.rst:103
+msgid "Finite non-negative number"
+msgstr "有限非负数"
+
+#: ../../data_contract.rst:104
+msgid "``>= 0``"
+msgstr "``>= 0``"
+
+#: ../../data_contract.rst:105
+msgid ""
+"Required on every record and identical within one ``_plot_row``. Integer "
+"levels are recommended, although decimals are currently accepted."
+msgstr "每条记录都需要，并且在一个 ``_plot_row`` 中相同。尽管目前接受小数，但建议使用整数级别。"
+
+#: ../../data_contract.rst:108 ../../data_contract.rst:129
+#: ../../data_contract.rst:177 ../../data_contract.rst:266
+msgid "``_is_summary``"
+msgstr "``_is_summary``"
+
+#: ../../data_contract.rst:109
+msgid "Actual boolean"
+msgstr "真正的布尔值"
+
+#: ../../data_contract.rst:110
+msgid "``TRUE``/``FALSE`` in XLSX; ``True``/``False`` in CSV"
+msgstr "XLSX 中为 ``TRUE``/``FALSE``；CSV 中为 ``True``/``False``"
+
+#: ../../data_contract.rst:111
+msgid ""
+"Required on every record and identical within one ``_plot_row``. It "
+"controls marker shape only. Strings and numeric ``0``/``1`` are rejected."
+msgstr "每条记录都需要，并且在一个 ``_plot_row`` 中相同。它仅控制标记形态。字符串和数字 ``0``/``1`` 被拒绝。"
+
+#: ../../data_contract.rst:114
+msgid ""
+"``text`` and ``numeric`` display roles currently both render text; the "
+"role communicates intent and default alignment rather than coercing "
+"source values."
+msgstr "``text`` 和 ``numeric`` 显示角色当前均渲染文本；该角色传达意图和默认对齐方式，而不是强制源值。"
+
+#: ../../data_contract.rst:118
+msgid "Row-type recipes"
+msgstr "行类型填写模板"
+
+#: ../../data_contract.rst:127
+msgid "Statistics"
+msgstr "统计"
+
+#: ../../data_contract.rst:130
+msgid "``header``"
+msgstr "``header``"
+
+#: ../../data_contract.rst:131 ../../data_contract.rst:132
+#: ../../data_contract.rst:149 ../../data_contract.rst:150
+msgid "blank"
+msgstr "空白"
+
+#: ../../data_contract.rst:133 ../../data_contract.rst:151
+msgid "all blank"
+msgstr "全部留空"
+
+#: ../../data_contract.rst:134 ../../data_contract.rst:146
+#: ../../data_contract.rst:152
+msgid "usually 0"
+msgstr "通常为 0"
+
+#: ../../data_contract.rst:135 ../../data_contract.rst:153
+msgid "``FALSE``"
+msgstr "``FALSE``"
+
+#: ../../data_contract.rst:137 ../../data_contract.rst:138
+#: ../../data_contract.rst:143 ../../data_contract.rst:144
+msgid "required"
+msgstr "必填"
+
+#: ../../data_contract.rst:139 ../../data_contract.rst:145
+msgid "all present, or all blank to skip"
+msgstr "全部存在，或全部空白以跳过"
+
+#: ../../data_contract.rst:140
+msgid ">= 0"
+msgstr ">= 0"
+
+#: ../../data_contract.rst:141
+msgid "normally ``FALSE``"
+msgstr "通常为 ``FALSE``"
+
+#: ../../data_contract.rst:142
+msgid "``summary``"
+msgstr "``summary``"
+
+#: ../../data_contract.rst:147
+msgid "normally ``TRUE``"
+msgstr "通常为 ``TRUE``"
+
+#: ../../data_contract.rst:148
+msgid "``spacer``"
+msgstr "``spacer``"
+
+#: ../../data_contract.rst:155
+msgid ""
+"``_row_type`` determines row semantics, while ``_is_summary`` determines "
+"only the marker form. They are intentionally separate fields."
+msgstr "``_row_type`` 确定行语义，而 ``_is_summary`` 仅确定标记形式。它们是有意分开的字段。"
+
+#: ../../data_contract.rst:159
+msgid "Complete single-CI example"
+msgstr "完整的单 CI 示例"
+
+#: ../../data_contract.rst:161
+msgid ""
+"The displayed effect text follows the CI in the image even though the CI "
+"itself has no physical source field."
+msgstr "即使 CI 本身没有物理源字段，显示的效应文本也会跟随图像中的 CI。"
+
+#: ../../data_contract.rst:167
+msgid "study"
+msgstr "study"
+
+#: ../../data_contract.rst:168 ../../data_contract.rst:186
+#: ../../data_contract.rst:212 ../../data_contract.rst:258
+#: ../../data_contract.rst:274 ../../data_contract.rst:284
+#: ../../data_contract.rst:309
+msgid "estimate"
+msgstr "estimate"
+
+#: ../../data_contract.rst:169 ../../data_contract.rst:213
+#: ../../data_contract.rst:259 ../../data_contract.rst:310
+msgid "lower"
+msgstr "lower"
+
+#: ../../data_contract.rst:170 ../../data_contract.rst:214
+#: ../../data_contract.rst:260 ../../data_contract.rst:311
+msgid "upper"
+msgstr "upper"
+
+#: ../../data_contract.rst:171
+msgid "effect_text"
+msgstr "effect_text"
+
+#: ../../data_contract.rst:178
+msgid "Study A"
+msgstr "Study A"
+
+#: ../../data_contract.rst:179 ../../data_contract.rst:220
+msgid "0.72"
+msgstr "0.72"
+
+#: ../../data_contract.rst:180 ../../data_contract.rst:221
+msgid "0.58"
+msgstr "0.58"
+
+#: ../../data_contract.rst:181 ../../data_contract.rst:222
+msgid "0.90"
+msgstr "0.90"
+
+#: ../../data_contract.rst:182
+msgid "0.72 [0.58, 0.90]"
+msgstr "0.72 [0.58, 0.90]"
+
+#: ../../data_contract.rst:183 ../../data_contract.rst:224
+msgid "os-a"
+msgstr "os-a"
+
+#: ../../data_contract.rst:184 ../../data_contract.rst:195
+msgid "Treatment"
+msgstr "治疗"
+
+#: ../../data_contract.rst:185 ../../data_contract.rst:196
+#: ../../data_contract.rst:226 ../../data_contract.rst:234
+#: ../../data_contract.rst:242
+msgid "ci"
+msgstr "ci"
+
+#: ../../data_contract.rst:187 ../../data_contract.rst:198
+#: ../../data_contract.rst:275 ../../data_contract.rst:285
+msgid "0"
+msgstr "0"
+
+#: ../../data_contract.rst:188 ../../data_contract.rst:276
+#: ../../data_contract.rst:286
+msgid "FALSE"
+msgstr "FALSE"
+
+#: ../../data_contract.rst:189
+msgid "Pooled result"
+msgstr "Pooled result"
+
+#: ../../data_contract.rst:190 ../../data_contract.rst:237
+#: ../../data_contract.rst:278 ../../data_contract.rst:325
+msgid "0.79"
+msgstr "0.79"
+
+#: ../../data_contract.rst:191
+msgid "0.71"
+msgstr "0.71"
+
+#: ../../data_contract.rst:192
+msgid "0.88"
+msgstr "0.88"
+
+#: ../../data_contract.rst:193
+msgid "0.79 [0.71, 0.88]"
+msgstr "0.79 [0.71, 0.88]"
+
+#: ../../data_contract.rst:194
+msgid "pooled"
+msgstr "pooled"
+
+#: ../../data_contract.rst:197
+msgid "summary"
+msgstr "summary"
+
+#: ../../data_contract.rst:199
+msgid "TRUE"
+msgstr "TRUE"
+
+#: ../../data_contract.rst:202
+msgid "Multiple series: one visual row per series"
+msgstr "多系列：每个系列一个视觉行"
+
+#: ../../data_contract.rst:204
+msgid ""
+"Use one record and one ``_plot_row`` for each series. In XLSX, merge the "
+"outcome and participant cells vertically across the three records; leave "
+"the CI-text cells unmerged so each line remains aligned with its series."
+msgstr ""
+"每个系列使用一条记录和一个 ``_plot_row``。在 XLSX 中，纵向合并三个记录中的结果和参与者单元格；保留 CI "
+"文本单元格不合并，以便每行与其系列保持对齐。"
+
+#: ../../data_contract.rst:211 ../../data_contract.rst:257
+#: ../../data_contract.rst:308
+msgid "outcome"
+msgstr "outcome"
+
+#: ../../data_contract.rst:215
+msgid "series_ci_text"
+msgstr "series_ci_text"
+
+#: ../../data_contract.rst:219
+msgid "Overall survival (merge 3 rows)"
+msgstr "Overall survival (merge 3 rows)"
+
+#: ../../data_contract.rst:223
+msgid "A 0.72 [0.58, 0.90]"
+msgstr "A 0.72 [0.58, 0.90]"
+
+#: ../../data_contract.rst:225
+msgid "Series A"
+msgstr "Series A"
+
+#: ../../data_contract.rst:228
+msgid "0.81"
+msgstr "0.81"
+
+#: ../../data_contract.rst:229 ../../data_contract.rst:279
+#: ../../data_contract.rst:326
+msgid "0.67"
+msgstr "0.67"
+
+#: ../../data_contract.rst:230
+msgid "0.98"
+msgstr "0.98"
+
+#: ../../data_contract.rst:231
+msgid "B 0.81 [0.67, 0.98]"
+msgstr "B 0.81 [0.67, 0.98]"
+
+#: ../../data_contract.rst:232
+msgid "os-b"
+msgstr "os-b"
+
+#: ../../data_contract.rst:233
+msgid "Series B"
+msgstr "Series B"
+
+#: ../../data_contract.rst:236
+msgid "0.95"
+msgstr "0.95"
+
+#: ../../data_contract.rst:238
+msgid "1.14"
+msgstr "1.14"
+
+#: ../../data_contract.rst:239
+msgid "C 0.95 [0.79, 1.14]"
+msgstr "C 0.95 [0.79, 1.14]"
+
+#: ../../data_contract.rst:240
+msgid "os-c"
+msgstr "os-c"
+
+#: ../../data_contract.rst:241
+msgid "Series C"
+msgstr "Series C"
+
+#: ../../data_contract.rst:244
+msgid ""
+"Do not create ``estimate_a/lower_a/upper_a`` and similar ``3*k`` wide-"
+"form fields. Do not combine several series' CI text into one multiline "
+"cell."
+msgstr ""
+"不要创建 ``estimate_a/lower_a/upper_a`` 和类似的 ``3*k`` 宽格式字段。不要将多个系列的 CI "
+"文本合并到一个多行单元格中。"
+
+#: ../../data_contract.rst:248
+msgid "Multiple CI columns: duplicate records, share a visual row"
+msgstr "多 CI 列：复制记录并共享视觉行"
+
+#: ../../data_contract.rst:250
+msgid ""
+"One series shown in crude and adjusted CI columns uses two records. The "
+"records share ``_plot_row`` and ``_series`` but have different "
+"``_ci_column`` values. They therefore share the exact same y coordinate."
+msgstr ""
+"同一系列若同时显示在未调整和调整后 CI 列中，需要使用两条记录。这两条记录共享 ``_plot_row`` 和 ``_series``，但 "
+"``_ci_column`` 值不同，因此会使用完全相同的 y 坐标。"
+
+#: ../../data_contract.rst:267 ../../data_contract.rst:277
+msgid "Readmission"
+msgstr "再入院"
+
+#: ../../data_contract.rst:268 ../../data_contract.rst:317
+msgid "0.74"
+msgstr "0.74"
+
+#: ../../data_contract.rst:269 ../../data_contract.rst:318
+msgid "0.63"
+msgstr "0.63"
+
+#: ../../data_contract.rst:270 ../../data_contract.rst:319
+msgid "0.87"
+msgstr "0.87"
+
+#: ../../data_contract.rst:271 ../../data_contract.rst:281
+#: ../../data_contract.rst:321 ../../data_contract.rst:329
+msgid "readmit-a"
+msgstr "readmit-a"
+
+#: ../../data_contract.rst:272 ../../data_contract.rst:282
+#: ../../data_contract.rst:322 ../../data_contract.rst:330
+msgid "Cohort A"
+msgstr "Cohort A"
+
+#: ../../data_contract.rst:273 ../../data_contract.rst:323
+#: ../../data_contract.rst:339
+msgid "ci_crude"
+msgstr "ci_crude"
+
+#: ../../data_contract.rst:280 ../../data_contract.rst:327
+msgid "0.93"
+msgstr "0.93"
+
+#: ../../data_contract.rst:283 ../../data_contract.rst:331
+#: ../../data_contract.rst:347
+msgid "ci_adjusted"
+msgstr "ci_adjusted"
+
+#: ../../data_contract.rst:289
+msgid "Multiple series, multiple CI columns, and trailing text"
+msgstr "多系列、多 CI 列与尾部文本"
+
+#: ../../data_contract.rst:291
+msgid ""
+"Repeat the two-record pattern for each series, giving each series a "
+"different ``_plot_row``. A trailing display field such as ``cohort`` may "
+"be merged over the two records for that visual row. It is rendered after "
+"both CI columns when listed last in ``columns``:"
+msgstr ""
+"对每个系列重复两个记录模式，为每个系列提供不同的 ``_plot_row``。诸如 ``cohort`` "
+"之类的尾随显示字段可以合并到该可视行的两个记录上。当 ``columns`` 最后列出时，它在两个 CI 列之后呈现："
+
+#: ../../data_contract.rst:312
+msgid "cohort"
+msgstr "cohort"
+
+#: ../../data_contract.rst:316
+msgid "Readmission (merge 4 rows)"
+msgstr "Readmission (merge 4 rows)"
+
+#: ../../data_contract.rst:320
+msgid "Cohort A (merge 2 rows)"
+msgstr "Cohort A (merge 2 rows)"
+
+#: ../../data_contract.rst:333
+msgid "0.86"
+msgstr "0.86"
+
+#: ../../data_contract.rst:334
+msgid "0.73"
+msgstr "0.73"
+
+#: ../../data_contract.rst:335
+msgid "1.01"
+msgstr "1.01"
+
+#: ../../data_contract.rst:336
+msgid "Cohort B (merge 2 rows)"
+msgstr "Cohort B (merge 2 rows)"
+
+#: ../../data_contract.rst:337 ../../data_contract.rst:345
+msgid "readmit-b"
+msgstr "readmit-b"
+
+#: ../../data_contract.rst:338 ../../data_contract.rst:346
+msgid "Cohort B"
+msgstr "Cohort B"
+
+#: ../../data_contract.rst:341
+msgid "0.89"
+msgstr "0.89"
+
+#: ../../data_contract.rst:342
+msgid "0.75"
+msgstr "0.75"
+
+#: ../../data_contract.rst:343
+msgid "1.05"
+msgstr "1.05"
+
+#: ../../data_contract.rst:349
+msgid ""
+"This structure prevents independent per-CI series offsets: alignment is "
+"stated directly by ``(_plot_row, _series)`` in the data."
+msgstr "该结构可防止独立的每 CI 系列偏移：对齐由数据中的 ``(_plot_row, _series)`` 直接说明。"
+
+#: ../../data_contract.rst:353
+msgid "XLSX merge rules"
+msgstr "XLSX 合并规则"
+
+#: ../../data_contract.rst:355
+msgid ":func:`forestploter.read_forest_data` accepts a merge only when it is:"
+msgstr ":func:`forestploter.read_forest_data` 仅接受同时满足以下条件的合并："
+
+#: ../../data_contract.rst:357
+msgid "below the header;"
+msgstr "位于表头下方；"
+
+#: ../../data_contract.rst:358
+msgid "vertical and confined to one display-field column;"
+msgstr "纵向合并，且仅限于单个显示字段列；"
+
+#: ../../data_contract.rst:359
+msgid "at least two physical records tall; and"
+msgstr "纵向至少跨两条物理记录；并且"
+
+#: ../../data_contract.rst:360
+msgid "aligned with complete ``_plot_row`` record groups."
+msgstr "与完整的 ``_plot_row`` 记录组对齐。"
+
+#: ../../data_contract.rst:362
+msgid ""
+"Merges in statistics or controls, horizontal merges, rectangles, header "
+"crossings, and partial visual-row groups raise an error. Merged text is "
+"drawn once at the span center, with internal horizontal rules suppressed "
+"in that column."
+msgstr "统计字段或控制字段中的合并、横向合并、矩形区域、跨越表头以及仅覆盖部分视觉行组的合并都会引发错误。合并文本只在跨度中心绘制一次，并抑制该列内部的水平分隔线。"
+
+#: ../../data_contract.rst:368
+msgid "CSV compatibility"
+msgstr "CSV 兼容性"
+
+#: ../../data_contract.rst:370
+msgid ""
+"CSV uses exactly the same fields and record ordering. It cannot store "
+"merge ranges, so repeat shared display values explicitly. Normalized plot"
+" rows, observations, clipping counts, and y positions should remain "
+"equivalent between the two formats."
+msgstr ""
+"CSV 使用完全相同的字段和记录排序。它无法存储合并范围，因此明确重复共享显示值。标准化绘图行、观测值、截断计数和 y "
+"位置在两种格式之间应保持相同。"
+
+#: ../../data_contract.rst:376
+msgid "Accepted versus recommended input"
+msgstr "当前接受范围与推荐格式"
+
+#: ../../data_contract.rst:378
+msgid "The validator intentionally accepts more than the template recommends:"
+msgstr "验证器有意接受超出模板建议的内容："
+
+#: ../../data_contract.rst:384
+msgid "Topic"
+msgstr "主题"
+
+#: ../../data_contract.rst:385
+msgid "Currently accepted"
+msgstr "当前接受范围"
+
+#: ../../data_contract.rst:386
+msgid "Recommended for maintainability"
+msgstr "为便于维护而推荐"
+
+#: ../../data_contract.rst:387
+msgid "Physical field order"
+msgstr "物理字段顺序"
+
+#: ../../data_contract.rst:388
+msgid "Any unique header order"
+msgstr "任意不重复的表头顺序"
+
+#: ../../data_contract.rst:389
+msgid "Display-before-CI, triple, trailing display, then six controls"
+msgstr "CI 前显示字段、三元组、CI 后显示字段，再加六个控制字段"
+
+#: ../../data_contract.rst:390
+msgid "``_plot_row`` type"
+msgstr "``_plot_row`` 型"
+
+#: ../../data_contract.rst:391
+msgid "Any nonblank hashable scalar"
+msgstr "任意非空且可哈希的标量"
+
+#: ../../data_contract.rst:392
+msgid "Stable descriptive string"
+msgstr "稳定且含义明确的字符串"
+
+#: ../../data_contract.rst:394
+msgid "Any finite number >= 0"
+msgstr "任意有限数 >= 0"
+
+#: ../../data_contract.rst:395
+msgid "Small non-negative integer"
+msgstr "较小的非负整数"
+
+#: ../../data_contract.rst:396
+msgid "Display value type"
+msgstr "显示值类型"
+
+#: ../../data_contract.rst:397
+msgid "Any scalar with a useful string representation"
+msgstr "具有有用字符串表示形式的任何标量"
+
+#: ../../data_contract.rst:398
+msgid "Text for ``text``; numbers or formatted effect text for ``numeric``"
+msgstr "``text`` 的文本； ``numeric`` 的数字或格式化效应文本"
+
+#: ../../data_contract.rst:399
+msgid "Estimate-row triple"
+msgstr "估计行三元组"
+
+#: ../../data_contract.rst:400
+msgid "All present or all blank"
+msgstr "全部填写或全部留空"
+
+#: ../../data_contract.rst:401
+msgid "All present unless intentionally suppressing that interval"
+msgstr "全部存在，除非故意抑制该区间"
+
+#: ../../data_contract.rst:402
+msgid "File style"
+msgstr "文件样式"
+
+#: ../../data_contract.rst:403
+msgid "Styling is ignored"
+msgstr "样式会被忽略"
+
+#: ../../data_contract.rst:404
+msgid ""
+"Use the supplied template colors, widths, and validation only as data "
+"entry aids"
+msgstr "仅使用提供的模板颜色、宽度和验证作为数据输入辅助工具"
+
+#: ../../data_contract.rst:408
+msgid "Clipping semantics"
+msgstr "截断语义"
+
+#: ../../data_contract.rst:410
+msgid ""
+"An arrow replaces the vertical cap on every clipped side. An interval "
+"spanning both limits shows its visible line and two arrows, with no "
+"endpoint caps. An interval entirely left or right of the range shows only"
+" the nearest outward arrow and no line, cap, or fabricated marker. "
+"``clipped_intervals`` counts affected intervals, so each interval "
+"contributes at most one."
+msgstr ""
+"箭头取代了每个发生截断的竖直端帽。跨越两个限制的区间显示其可见线和两个箭头，没有端点端帽。完全位于范围左侧或右侧的区间仅显示最近的向外箭头，而不显示线条、端帽或伪造的标记。"
+" ``clipped_intervals`` 对受影响的区间进行计数，因此每个区间最多贡献 1 个。"
+
+#: ../../gallery.rst:2
+msgid "Example gallery"
+msgstr "示例图库"
+
+#: ../../gallery.rst:4
+msgid ""
+"Each case has one XLSX primary file, one semantically equivalent CSV "
+"companion, one PNG with the same filename stem, and the exact plotting "
+"function used by the renderer and regression tests. On every detail page,"
+" ``df`` means the :class:`forestploter.ForestData` returned by "
+":func:`forestploter.read_forest_data`."
+msgstr ""
+"每个案例都有一个 XLSX 主文件、一个语义等效的 CSV 配套文件、一个具有相同文件名主干的 PNG "
+"以及渲染器和回归测试使用的精确绘图函数。在每个详情页面，``df`` 表示 "
+":func:`forestploter.read_forest_data` 返回的 "
+":class:`forestploter.ForestData`。"
+
+#: ../../gallery.rst:10
+msgid ""
+":download:`Download the general XLSX long-table template "
+"<../tests/data/forest_data_template.xlsx>`"
+msgstr ":download:`下载通用 XLSX 长表模板 <../tests/data/forest_data_template.xlsx>`"
+
+#: ../../gallery.rst:14
+msgid ":doc:`gallery/01_single_series`"
+msgstr ":doc:`gallery/01_single_series`"
+
+#: ../../gallery.rst:15
+msgid ""
+"Display text on both sides of one CI column, group rows, summary "
+"diamonds, reference and ideal lines."
+msgstr "一个 CI 列两侧均有显示文本，并包含分组行、汇总菱形、参考线和理想值线。"
+
+#: ../../gallery.rst:18
+msgid ":doc:`gallery/02_multi_series`"
+msgstr ":doc:`gallery/02_multi_series`"
+
+#: ../../gallery.rst:19
+msgid "Three series in one CI column with one explicit visual row per series."
+msgstr "一个 CI 列中包含三个系列，每个系列有一个显式视觉行。"
+
+#: ../../gallery.rst:21
+msgid ":doc:`gallery/03_dual_ci_columns`"
+msgstr ":doc:`gallery/03_dual_ci_columns`"
+
+#: ../../gallery.rst:22
+msgid "One series aligned across two follow-up CI columns."
+msgstr "一个系列跨两个后续 CI 列对齐。"
+
+#: ../../gallery.rst:24
+msgid ":doc:`gallery/04_clipping_stress`"
+msgstr ":doc:`gallery/04_clipping_stress`"
+
+#: ../../gallery.rst:25
+msgid "Single-sided, two-sided, and fully off-scale clipping behavior."
+msgstr "单面、双面和完全超出比例的截断行为。"
+
+#: ../../gallery.rst:27
+msgid ":doc:`gallery/05_long_layout`"
+msgstr ":doc:`gallery/05_long_layout`"
+
+#: ../../gallery.rst:28
+msgid "Long headers, long cells, multilingual content, wrapping, and auto width."
+msgstr "长标题、长单元格、多语言内容、换行和自动宽度。"
+
+#: ../../gallery.rst:30
+msgid ":doc:`gallery/06_auto_scale_mixed_effects`"
+msgstr ":doc:`gallery/06_auto_scale_mixed_effects`"
+
+#: ../../gallery.rst:31
+msgid "Automatic limits and ticks across heterogeneous effects."
+msgstr "跨异构效应的自动限制和刻度。"
+
+#: ../../gallery.rst:33
+msgid ":doc:`gallery/07_four_series_dense`"
+msgstr ":doc:`gallery/07_four_series_dense`"
+
+#: ../../gallery.rst:34
+msgid "Four series, four markers, summary rows, and a bottom legend."
+msgstr "四个系列、四个标记、汇总行和底部图例。"
+
+#: ../../gallery.rst:36
+msgid ":doc:`gallery/08_two_by_two_ci_columns`"
+msgstr ":doc:`gallery/08_two_by_two_ci_columns`"
+
+#: ../../gallery.rst:37
+msgid ""
+"Two series aligned across two CI columns, followed by a text column whose"
+" header contains the legend."
+msgstr "两个系列跨两个 CI 列对齐，后跟标题包含图例的文本列。"
+
+#: ../../gallery.rst:40
+msgid ":doc:`gallery/09_deep_hierarchy_many_rows`"
+msgstr ":doc:`gallery/09_deep_hierarchy_many_rows`"
+
+#: ../../gallery.rst:41
+msgid "Thirty visual rows, two indentation levels, subtotals, and spacers."
+msgstr "三十个可视行、两个缩进级别、小计和空白行。"
+
+#: ../../gallery.rst:43
+msgid ":doc:`gallery/10_unicode_custom_theme`"
+msgstr ":doc:`gallery/10_unicode_custom_theme`"
+
+#: ../../gallery.rst:44
+msgid "Chinese, English, Greek, mathematical symbols, and a custom theme."
+msgstr "中文、英文、希腊语、数学符号以及自定义主题。"
+
+#: ../../gallery.rst:46
+msgid ":doc:`gallery/11_boundary_precision`"
+msgstr ":doc:`gallery/11_boundary_precision`"
+
+#: ../../gallery.rst:47
+msgid "Exact limits, zero-width intervals, narrow intervals, and tiny overflows."
+msgstr "精确限制、零宽度区间、窄区间和微小溢出。"
+
+#: ../../gallery.rst:49
+msgid ":doc:`gallery/12_multi_series_ci_text_rows`"
+msgstr ":doc:`gallery/12_multi_series_ci_text_rows`"
+
+#: ../../gallery.rst:50
+msgid ""
+"Three independent CI-text rows placed after the CI column and aligned "
+"one-to-one with the corresponding series graphics."
+msgstr "三个独立的 CI 文本行放置在 CI 列之后，并与相应的系列图形一对一对齐。"
+
+#: ../../gallery/01_single_series.rst:2
+msgid "01 · Single series with trailing effect text"
+msgstr "01 · 单系列及 CI 后效应文本"
+
+#: ../../gallery/01_single_series.rst:4
+msgid ""
+"This is the formal “text → CI → text” regression case. The physical file "
+"places ``estimate/lower/upper`` before ``effect_display``; the "
+"``columns`` sequence places the CI between the study fields and the "
+"formatted effect text."
+msgstr ""
+"这是正式的“文本→CI→文本”回归用例。物理文件将 ``estimate/lower/upper`` 放在 ``effect_display`` "
+"之前； ``columns`` 序列将 CI 放置在研究字段和格式化效应文本之间。"
+
+#: ../../gallery/01_single_series.rst:8
+msgid ""
+":download:`XLSX <../../tests/data/01_single_series.xlsx>` · "
+":download:`CSV <../../tests/data/01_single_series.csv>` · :download:`PNG "
+"<../../tests/artifacts/01_single_series.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/01_single_series.xlsx>` · "
+":download:`CSV <../../tests/data/01_single_series.csv>` · :download:`PNG "
+"<../../tests/artifacts/01_single_series.png>`"
+
+#: ../../gallery/01_single_series.rst:12
+msgid "Single-series forest plot with effect text after the CI column"
+msgstr "单系列森林图，CI 列后带有效应文本"
+
+#: ../../gallery/01_single_series.rst:17 ../../gallery/02_multi_series.rst:17
+#: ../../gallery/03_dual_ci_columns.rst:17
+#: ../../gallery/04_clipping_stress.rst:17 ../../gallery/05_long_layout.rst:16
+#: ../../gallery/06_auto_scale_mixed_effects.rst:16
+#: ../../gallery/07_four_series_dense.rst:16
+#: ../../gallery/08_two_by_two_ci_columns.rst:18
+#: ../../gallery/09_deep_hierarchy_many_rows.rst:16
+#: ../../gallery/10_unicode_custom_theme.rst:16
+#: ../../gallery/11_boundary_precision.rst:16
+#: ../../gallery/12_multi_series_ci_text_rows.rst:17
+msgid "Run the example"
+msgstr "运行示例"
+
+#: ../../gallery/01_single_series.rst:29 ../../gallery/02_multi_series.rst:29
+#: ../../gallery/03_dual_ci_columns.rst:29
+#: ../../gallery/04_clipping_stress.rst:29 ../../gallery/05_long_layout.rst:28
+#: ../../gallery/06_auto_scale_mixed_effects.rst:28
+#: ../../gallery/07_four_series_dense.rst:28
+#: ../../gallery/08_two_by_two_ci_columns.rst:30
+#: ../../gallery/09_deep_hierarchy_many_rows.rst:28
+#: ../../gallery/10_unicode_custom_theme.rst:28
+#: ../../gallery/11_boundary_precision.rst:28
+#: ../../gallery/12_multi_series_ci_text_rows.rst:29
+msgid "Plot function used by the gallery and tests"
+msgstr "图库与测试共用的绘图函数"
+
+#: ../../gallery/02_multi_series.rst:2
+msgid "02 · Three series in one CI column"
+msgstr "02 · 单个 CI 列中的三个系列"
+
+#: ../../gallery/02_multi_series.rst:4
+msgid ""
+"Three treatment series use three source records and three explicit visual"
+" rows per outcome. Shared outcome and participant cells are vertically "
+"merged in the XLSX file."
+msgstr "每个结局的三个治疗系列分别使用一条源记录和一个明确的视觉行。共享的结局与参与者单元格在 XLSX 中纵向合并。"
+
+#: ../../gallery/02_multi_series.rst:8
+msgid ""
+":download:`XLSX <../../tests/data/02_multi_series.xlsx>` · :download:`CSV"
+" <../../tests/data/02_multi_series.csv>` · :download:`PNG "
+"<../../tests/artifacts/02_multi_series.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/02_multi_series.xlsx>` · :download:`CSV"
+" <../../tests/data/02_multi_series.csv>` · :download:`PNG "
+"<../../tests/artifacts/02_multi_series.png>`"
+
+#: ../../gallery/02_multi_series.rst:12
+msgid "Three series in one confidence-interval column"
+msgstr "单个置信区间列中的三个系列"
+
+#: ../../gallery/03_dual_ci_columns.rst:2
+msgid "03 · One series across two CI columns"
+msgstr "03 · 跨两个 CI 列的单系列"
+
+#: ../../gallery/03_dual_ci_columns.rst:4
+msgid ""
+"Each endpoint has two records with the same ``_plot_row`` and different "
+"``_ci_column`` values. The 30-day and 90-day intervals therefore share "
+"exactly one vertical coordinate."
+msgstr ""
+"每个端点有两条具有相同 ``_plot_row`` 和不同 ``_ci_column`` 值的记录。因此，30 天和 90 "
+"天的区间恰好共享一个垂直坐标。"
+
+#: ../../gallery/03_dual_ci_columns.rst:8
+msgid ""
+":download:`XLSX <../../tests/data/03_dual_ci_columns.xlsx>` · "
+":download:`CSV <../../tests/data/03_dual_ci_columns.csv>` · "
+":download:`PNG <../../tests/artifacts/03_dual_ci_columns.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/03_dual_ci_columns.xlsx>` · "
+":download:`CSV <../../tests/data/03_dual_ci_columns.csv>` · "
+":download:`PNG <../../tests/artifacts/03_dual_ci_columns.png>`"
+
+#: ../../gallery/03_dual_ci_columns.rst:12
+msgid "One series aligned across two confidence-interval columns"
+msgstr "跨两个置信区间列对齐的一个系列"
+
+#: ../../gallery/04_clipping_stress.rst:2
+msgid "04 · Clipping stress test"
+msgstr "04 · 截断压力测试"
+
+#: ../../gallery/04_clipping_stress.rst:4
+msgid ""
+"This case covers intervals inside the axis, clipped on either side, "
+"spanning both sides, and entirely outside the displayed range. An arrow "
+"replaces the cap on each clipped side."
+msgstr "此用例覆盖完全位于坐标轴范围内、左侧截断、右侧截断、跨越两侧以及完全越界的区间。每个截断侧均以箭头替代竖向端帽。"
+
+#: ../../gallery/04_clipping_stress.rst:8
+msgid ""
+":download:`XLSX <../../tests/data/04_clipping_stress.xlsx>` · "
+":download:`CSV <../../tests/data/04_clipping_stress.csv>` · "
+":download:`PNG <../../tests/artifacts/04_clipping_stress.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/04_clipping_stress.xlsx>` · "
+":download:`CSV <../../tests/data/04_clipping_stress.csv>` · "
+":download:`PNG <../../tests/artifacts/04_clipping_stress.png>`"
+
+#: ../../gallery/04_clipping_stress.rst:12
+msgid "Confidence-interval clipping stress test"
+msgstr "置信区间截断压力测试"
+
+#: ../../gallery/05_long_layout.rst:2
+msgid "05 · Long text and multilingual layout"
+msgstr "05 · 长文本和多语言布局"
+
+#: ../../gallery/05_long_layout.rst:4
+msgid ""
+"Long headers, long subgroup labels, Chinese/English content, automatic "
+"header wrapping, and automatic Figure-width growth are exercised "
+"together."
+msgstr "同时测试长标题、长亚组标签、中英文内容、表头自动换行和图宽自动扩展。"
+
+#: ../../gallery/05_long_layout.rst:7
+msgid ""
+":download:`XLSX <../../tests/data/05_long_layout.xlsx>` · :download:`CSV "
+"<../../tests/data/05_long_layout.csv>` · :download:`PNG "
+"<../../tests/artifacts/05_long_layout.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/05_long_layout.xlsx>` · :download:`CSV "
+"<../../tests/data/05_long_layout.csv>` · :download:`PNG "
+"<../../tests/artifacts/05_long_layout.png>`"
+
+#: ../../gallery/05_long_layout.rst:11
+msgid "Long-text and multilingual forest-plot layout"
+msgstr "长文本与多语言森林图布局"
+
+#: ../../gallery/06_auto_scale_mixed_effects.rst:2
+msgid "06 · Automatic axis range"
+msgstr "06 · 自动轴范围"
+
+#: ../../gallery/06_auto_scale_mixed_effects.rst:4
+msgid ""
+"Large positive and negative effects exercise automatic limits, automatic "
+"ticks, a reference line, and an ideal-value line."
+msgstr "以幅度较大的正负效应同时测试自动坐标范围、自动刻度、参考线和理想值线。"
+
+#: ../../gallery/06_auto_scale_mixed_effects.rst:7
+msgid ""
+":download:`XLSX <../../tests/data/06_auto_scale_mixed_effects.xlsx>` · "
+":download:`CSV <../../tests/data/06_auto_scale_mixed_effects.csv>` · "
+":download:`PNG <../../tests/artifacts/06_auto_scale_mixed_effects.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/06_auto_scale_mixed_effects.xlsx>` · "
+":download:`CSV <../../tests/data/06_auto_scale_mixed_effects.csv>` · "
+":download:`PNG <../../tests/artifacts/06_auto_scale_mixed_effects.png>`"
+
+#: ../../gallery/06_auto_scale_mixed_effects.rst:11
+msgid "Forest plot with automatically derived axis limits"
+msgstr "具有自动推导坐标范围的森林图"
+
+#: ../../gallery/07_four_series_dense.rst:2
+msgid "07 · Four dense series"
+msgstr "07 · 四个密集系列"
+
+#: ../../gallery/07_four_series_dense.rst:4
+msgid ""
+"Four marker shapes, four explicit visual rows per endpoint, summary rows,"
+" a bottom legend, and a clipped upper interval form a dense regression "
+"case."
+msgstr "四种标记形态、每个结局四个明确的视觉行、汇总行、底部图例和上端截断区间共同构成密集回归用例。"
+
+#: ../../gallery/07_four_series_dense.rst:7
+msgid ""
+":download:`XLSX <../../tests/data/07_four_series_dense.xlsx>` · "
+":download:`CSV <../../tests/data/07_four_series_dense.csv>` · "
+":download:`PNG <../../tests/artifacts/07_four_series_dense.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/07_four_series_dense.xlsx>` · "
+":download:`CSV <../../tests/data/07_four_series_dense.csv>` · "
+":download:`PNG <../../tests/artifacts/07_four_series_dense.png>`"
+
+#: ../../gallery/07_four_series_dense.rst:11
+msgid "Four dense series in one confidence-interval column"
+msgstr "一个置信区间列中的四个密集系列"
+
+#: ../../gallery/08_two_by_two_ci_columns.rst:2
+msgid "08 · Two series across two CI columns, then text"
+msgstr "08 · 两个系列跨两个 CI 列对齐，后接文本"
+
+#: ../../gallery/08_two_by_two_ci_columns.rst:4
+msgid ""
+"Each cohort has one visual row and two source records, one per CI column."
+" The ``cohort`` display field is physically placed after the shared "
+"statistical triple and rendered after both CI columns. The series legend "
+"is placed in that trailing column's header."
+msgstr ""
+"每个队列对应一个视觉行和两条源记录（每个 CI 列一条）。``cohort`` 显示字段在物理文件中位于共享统计三元组之后，并渲染在两个 CI "
+"列之后；系列图例放在该尾部文本列的表头中。"
+
+#: ../../gallery/08_two_by_two_ci_columns.rst:9
+msgid ""
+":download:`XLSX <../../tests/data/08_two_by_two_ci_columns.xlsx>` · "
+":download:`CSV <../../tests/data/08_two_by_two_ci_columns.csv>` · "
+":download:`PNG <../../tests/artifacts/08_two_by_two_ci_columns.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/08_two_by_two_ci_columns.xlsx>` · "
+":download:`CSV <../../tests/data/08_two_by_two_ci_columns.csv>` · "
+":download:`PNG <../../tests/artifacts/08_two_by_two_ci_columns.png>`"
+
+#: ../../gallery/08_two_by_two_ci_columns.rst:13
+msgid "Two series aligned across two CI columns with trailing cohort text"
+msgstr "两个系列跨两个 CI 列对齐，并在其后显示队列文本"
+
+#: ../../gallery/09_deep_hierarchy_many_rows.rst:2
+msgid "09 · Deep hierarchy and many rows"
+msgstr "09 · 层次深、行数多"
+
+#: ../../gallery/09_deep_hierarchy_many_rows.rst:4
+msgid ""
+"Several regions, two indentation levels, subtotals, spacer rows, and "
+"thirty visual rows exercise vertical scaling and hierarchy readability."
+msgstr "多个区域、两个缩进级别、小计、空白行和三十个视觉行，用于检验垂直缩放和层次结构可读性。"
+
+#: ../../gallery/09_deep_hierarchy_many_rows.rst:7
+msgid ""
+":download:`XLSX <../../tests/data/09_deep_hierarchy_many_rows.xlsx>` · "
+":download:`CSV <../../tests/data/09_deep_hierarchy_many_rows.csv>` · "
+":download:`PNG <../../tests/artifacts/09_deep_hierarchy_many_rows.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/09_deep_hierarchy_many_rows.xlsx>` · "
+":download:`CSV <../../tests/data/09_deep_hierarchy_many_rows.csv>` · "
+":download:`PNG <../../tests/artifacts/09_deep_hierarchy_many_rows.png>`"
+
+#: ../../gallery/09_deep_hierarchy_many_rows.rst:11
+msgid "Deeply indented long-table forest plot"
+msgstr "具有深层缩进的长表森林图"
+
+#: ../../gallery/10_unicode_custom_theme.rst:2
+msgid "10 · Unicode labels and a custom theme"
+msgstr "10 · Unicode 标签和自定义主题"
+
+#: ../../gallery/10_unicode_custom_theme.rst:4
+msgid ""
+"Chinese, English, Greek, mathematical symbols, custom fills, guide "
+"colors, and font fallback behavior are exercised together."
+msgstr "同时测试中文、英文、希腊语、数学符号、自定义填充、辅助线颜色和字体回退行为。"
+
+#: ../../gallery/10_unicode_custom_theme.rst:7
+msgid ""
+":download:`XLSX <../../tests/data/10_unicode_custom_theme.xlsx>` · "
+":download:`CSV <../../tests/data/10_unicode_custom_theme.csv>` · "
+":download:`PNG <../../tests/artifacts/10_unicode_custom_theme.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/10_unicode_custom_theme.xlsx>` · "
+":download:`CSV <../../tests/data/10_unicode_custom_theme.csv>` · "
+":download:`PNG <../../tests/artifacts/10_unicode_custom_theme.png>`"
+
+#: ../../gallery/10_unicode_custom_theme.rst:11
+msgid "Unicode forest plot with a custom theme"
+msgstr "带有自定义主题的 Unicode 森林图"
+
+#: ../../gallery/11_boundary_precision.rst:2
+msgid "11 · Boundaries and floating-point precision"
+msgstr "11 · 边界和浮点精度"
+
+#: ../../gallery/11_boundary_precision.rst:4
+msgid ""
+"Exact endpoints, zero-width intervals, very narrow intervals, and one-"
+"micro-unit overflows verify clipping decisions at numerical boundaries."
+msgstr "精确端点、零宽度区间、非常窄的区间和一个微单位溢出验证数字边界处的截断决策。"
+
+#: ../../gallery/11_boundary_precision.rst:7
+msgid ""
+":download:`XLSX <../../tests/data/11_boundary_precision.xlsx>` · "
+":download:`CSV <../../tests/data/11_boundary_precision.csv>` · "
+":download:`PNG <../../tests/artifacts/11_boundary_precision.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/11_boundary_precision.xlsx>` · "
+":download:`CSV <../../tests/data/11_boundary_precision.csv>` · "
+":download:`PNG <../../tests/artifacts/11_boundary_precision.png>`"
+
+#: ../../gallery/11_boundary_precision.rst:11
+msgid "Numerical boundary and floating-point precision forest plot"
+msgstr "数值边界和浮点精度森林图"
+
+#: ../../gallery/12_multi_series_ci_text_rows.rst:2
+msgid "12 · Per-series CI text rows after the plot"
+msgstr "12 · 绘图区后的逐系列 CI 文本行"
+
+#: ../../gallery/12_multi_series_ci_text_rows.rst:4
+msgid ""
+"Each of three series has its own formatted CI text cell and its own "
+"``_plot_row``. The text column follows the CI plotting column, and every "
+"text artist shares the exact y coordinate of its corresponding point and "
+"interval."
+msgstr ""
+"三个系列中的每一个都有自己的格式化 CI 文本单元和自己的 ``_plot_row``。文本列位于 CI "
+"绘图列之后，每个文本对象共享其对应点和区间的精确 y 坐标。"
+
+#: ../../gallery/12_multi_series_ci_text_rows.rst:8
+msgid ""
+":download:`XLSX <../../tests/data/12_multi_series_ci_text_rows.xlsx>` · "
+":download:`CSV <../../tests/data/12_multi_series_ci_text_rows.csv>` · "
+":download:`PNG <../../tests/artifacts/12_multi_series_ci_text_rows.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/12_multi_series_ci_text_rows.xlsx>` · "
+":download:`CSV <../../tests/data/12_multi_series_ci_text_rows.csv>` · "
+":download:`PNG <../../tests/artifacts/12_multi_series_ci_text_rows.png>`"
+
+#: ../../gallery/12_multi_series_ci_text_rows.rst:12
+msgid "Three series with independent CI text rows after the plot"
+msgstr "绘图后具有独立 CI 文本行的三个系列"
+
+#: ../../getting_started.rst:2
+msgid "Getting started"
+msgstr "快速入门"
+
+#: ../../getting_started.rst:5
+msgid "Install"
+msgstr "安装"
+
+#: ../../getting_started.rst:7
+msgid "Install the current release from PyPI:"
+msgstr "从 PyPI 安装当前版本："
+
+#: ../../getting_started.rst:13
+msgid ""
+"For a release candidate, allow prereleases explicitly with ``python -m "
+"pip install --pre forestploter``. Contributors can instead install an "
+"editable checkout with ``python -m pip install -e .``."
+msgstr ""
+"对于候选版本，请使用 ``python -m pip install --pre forestploter`` 显式允许"
+"预发行版本。贡献者也可以使用 ``python -m pip install -e .`` 安装可编辑的"
+"源码检出。"
+
+#: ../../getting_started.rst:17
+msgid ""
+"XLSX is the recommended input format. Begin with the :download:`long-"
+"table workbook template <../tests/data/forest_data_template.xlsx>`. Its "
+"first worksheet is ``Forest`` and its ``README`` worksheet contains an "
+"English/Chinese field dictionary, entry rules, and validated drop-down "
+"fields."
+msgstr ""
+"XLSX 是推荐的输入格式。请从 :download:`长表工作簿模板 "
+"<../tests/data/forest_data_template.xlsx>` 开始。其第一个工作表是 ``Forest``，其 "
+"``README`` 工作表包含中英文字段字典、录入规则和带数据验证的下拉字段。"
+
+#: ../../getting_started.rst:23
+msgid "Read a file"
+msgstr "读取文件"
+
+#: ../../getting_started.rst:31
+msgid ""
+"Despite the familiar variable name, ``df`` is a "
+":class:`forestploter.ForestData` object. Its ``frame`` attribute is the "
+"underlying DataFrame, while ``spans`` contains supported XLSX merges. CSV"
+" uses the same fields but has no merge metadata:"
+msgstr ""
+"尽管变量名称很熟悉，但 ``df`` 是一个 :class:`forestploter.ForestData` 对象。它的 ``frame`` "
+"属性是底层 DataFrame，而 ``spans`` 包含支持的 XLSX 合并。 CSV 使用相同的字段，但没有合并信息："
+
+#: ../../getting_started.rst:41
+msgid "Minimal long table"
+msgstr "最小长表"
+
+#: ../../getting_started.rst:43
+msgid ""
+"Each source record contains at most one ``estimate/lower/upper`` triple. "
+"``_plot_row`` determines the visual row, ``_series`` selects the series "
+"style, and ``_ci_column`` selects the target CI plotting column."
+msgstr ""
+"每条源记录最多包含一个 ``estimate/lower/upper`` 三元组。 ``_plot_row`` 确定视觉行，``_series``"
+" 选择系列样式，``_ci_column`` 选择目标 CI 绘图列。"
+
+#: ../../getting_started.rst:47
+msgid ""
+"The physical field order below follows the recommended entry layout: "
+"visible fields before the first CI, the statistical triple, visible "
+"fields after the CI, and finally the six control fields. The rendered "
+"order is controlled only by ``columns``."
+msgstr ""
+"下面的物理字段顺序遵循推荐的录入布局：第一个 CI 之前的显示字段、统计三元组、CI 之后的显示字段，最后是六个控制字段。渲染顺序仅由 "
+"``columns`` 控制。"
+
+#: ../../getting_started.rst:97
+msgid "Save the result"
+msgstr "保存结果"
+
+#: ../../getting_started.rst:104
+msgid "Close the Figure after batch rendering:"
+msgstr "批量渲染后关闭图："
+
+#: ../../getting_started.rst:112
+msgid "Next steps"
+msgstr "后续步骤"
+
+#: ../../getting_started.rst:114
+msgid ""
+"Read :doc:`data_contract` for XLSX merges, row recipes, and multi-CI "
+"alignment."
+msgstr "查阅 :doc:`data_contract`，了解 XLSX 合并、行填写模板和多 CI 对齐。"
+
+#: ../../getting_started.rst:116
+msgid ""
+"Browse :doc:`gallery` for twelve downloadable XLSX/CSV/PNG cases with the"
+" exact plotting code."
+msgstr "浏览 :doc:`gallery`，获取 12 个可下载的 XLSX/CSV/PNG 案例，其中包含准确的绘图代码。"
+
+#: ../../getting_started.rst:118
+msgid ""
+"Consult :func:`forestploter.read_forest_data` and "
+":func:`forestploter.forest` for API details."
+msgstr ""
+"有关 API 细节，请查阅 :func:`forestploter.read_forest_data` 和 "
+":func:`forestploter.forest`。"
+
+#: ../../index.rst:36
+msgid "User guide"
+msgstr "用户指南"
+
+#: ../../index.rst:44
+msgid "Reference"
+msgstr "参考"
+
+#: ../../index.rst:2
+msgid "forestploter documentation"
+msgstr "forestploter 文档"
+
+#: ../../index.rst:5
+msgid "Auditable forest plots from XLSX/CSV long tables"
+msgstr "XLSX/CSV 长表中的可审计森林图"
+
+#: ../../index.rst:6
+msgid ""
+"``forestploter`` places table text, statistical estimates, and confidence"
+" intervals in one shared row-and-column geometry. XLSX preserves values, "
+"record order, and supported vertical merges; CSV uses the same logical "
+"fields. You calculate the statistics, while the package reads, validates,"
+" lays out, and renders the figure."
+msgstr ""
+"``forestploter`` 将表格文本、统计估计和置信区间放置在一个共享的行和列几何图形中。 XLSX 保留值、记录顺序和支持的纵向合并； "
+"CSV 使用相同的逻辑字段。您计算统计数据，而包则读取、验证、布置和呈现图形。"
+
+#: ../../index.rst:13
+msgid "Current capabilities"
+msgstr "当前能力"
+
+#: ../../index.rst:15
+msgid "recommended XLSX input and compatible UTF-8 CSV input;"
+msgstr "推荐XLSX输入并兼容UTF-8 CSV输入；"
+
+#: ../../index.rst:16
+msgid "single or multiple series and one or more CI columns;"
+msgstr "单或多系列和一根或多根CI柱；"
+
+#: ../../index.rst:17
+msgid "explicit cross-column alignment through ``_plot_row``;"
+msgstr "通过 ``_plot_row`` 显式跨列对齐；"
+
+#: ../../index.rst:18
+msgid ""
+"ordinary estimates, summary diamonds, clipping arrows, guide lines, and "
+"legends;"
+msgstr "普通估计、汇总菱形、截断箭头、引导线和图例；"
+
+#: ../../index.rst:20
+msgid "independently editable per-series CI text aligned with each plotted row;"
+msgstr "独立可编辑的每系列 CI 文本与每个绘制的行对齐；"
+
+#: ../../index.rst:21
+msgid ""
+"vertically merged display cells with centered text and suppressed "
+"internal rules;"
+msgstr "纵向合并显示单元，文本居中并抑制内部规则；"
+
+#: ../../index.rst:23
+msgid ""
+"header wrapping, automatic width growth, hierarchical indentation, "
+"themes, and layout diagnostics;"
+msgstr "标头换行、自动宽度增长、分层缩进、主题和布局诊断；"
+
+#: ../../index.rst:25
+msgid "PNG, SVG, and other Matplotlib-supported static exports."
+msgstr "PNG、SVG 和其他 Matplotlib 支持的静态导出。"
+
+#: ../../index.rst:27
+msgid ""
+"Start with :doc:`getting_started`, use :doc:`data_contract` when "
+"preparing non-trivial workbooks, browse the :doc:`gallery`, and consult "
+":doc:`api` for complete signatures and parameter definitions."
+msgstr ""
+"从 :doc:`getting_started` 开始，在准备重要的工作簿时使用 :doc:`data_contract`，浏览 "
+":doc:`gallery`，并查阅 :doc:`api` 以获取完整的签名和参数定义。"
+
+#: ../../index.rst:33
+msgid ""
+"Version |release| is a quality-first public preview. All CI columns "
+"currently share one global linear coordinate configuration."
+msgstr "版本 |release| 是质量优先的公开预览。当前所有 CI 列共享一套全局线性坐标配置。"
+
+#: ../../index.rst:51
+msgid "Indexes"
+msgstr "索引"
+
+#: ../../index.rst:53
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+#: ../../index.rst:54
+msgid ":ref:`search`"
+msgstr ":ref:`search`"
+
+#~ msgid ""
+#~ "Install the package and runtime "
+#~ "dependencies from the project directory:"
+#~ msgstr "从项目目录安装包和运行时依赖项："

@@ -1,0 +1,12 @@
+endpoint,n,estimate,lower,upper,_plot_row,_series,_ci_column,_row_type,_indent,_is_summary
+Clinical endpoints,,,,,c03-r001,,,header,0,False
+Hospital readmission,540,0.78,0.62,0.98,c03-r002-observed,Observed,ci_30d,estimate,1,False
+Hospital readmission,540,0.72,0.56,0.93,c03-r002-observed,Observed,ci_90d,estimate,1,False
+Emergency visit,540,0.91,0.74,1.12,c03-r003-observed,Observed,ci_30d,estimate,1,False
+Emergency visit,540,0.83,0.67,1.03,c03-r003-observed,Observed,ci_90d,estimate,1,False
+Treatment escalation,486,1.08,0.84,1.39,c03-r004-observed,Observed,ci_30d,estimate,1,False
+Treatment escalation,486,0.94,0.72,1.22,c03-r004-observed,Observed,ci_90d,estimate,1,False
+Patient-reported improvement,502,0.69,0.55,0.86,c03-r005-observed,Observed,ci_30d,estimate,1,False
+Patient-reported improvement,502,0.64,0.5,0.81,c03-r005-observed,Observed,ci_90d,estimate,1,False
+Pooled endpoints,2068,0.84,0.75,0.94,c03-r006-observed,Observed,ci_30d,summary,0,True
+Pooled endpoints,2068,0.76,0.67,0.87,c03-r006-observed,Observed,ci_90d,summary,0,True

@@ -1,0 +1,26 @@
+include AUTHORS.md
+include CHANGELOG.md
+include CITATION.cff
+include CODE_OF_CONDUCT.md
+include CONTRIBUTING.md
+include LICENSE
+include MAINTAINERS.md
+include noxfile.py
+include .gitattributes
+include .pre-commit-config.yaml
+include README.md
+include README.zh-CN.md
+include RELEASING.md
+include ROADMAP.md
+include SECURITY.md
+include SUPPORT.md
+recursive-include .github *.md *.yml
+recursive-include docs *.css *.js *.po *.py *.rst *.txt Makefile make.bat
+recursive-include scripts *.py
+recursive-include tests *.csv *.gitkeep *.md *.png *.py *.xlsx
+prune docs/_build
+prune docs/api/generated
+prune tests/.cache
+global-exclude *.mo
+global-exclude *.py[cod]
+global-exclude __pycache__

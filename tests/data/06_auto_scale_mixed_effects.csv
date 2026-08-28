@@ -1,0 +1,13 @@
+outcome,scale,n,effect_display,estimate,lower,upper,_plot_row,_series,_ci_column,_row_type,_indent,_is_summary
+Laboratory outcomes,,,,,,,c06-r001,,,header,0,False
+Inflammation index,Standardized units,320,"-1.80 [-2.35, -1.25]",-1.8,-2.35,-1.25,c06-r002-effect,Effect,ci,estimate,1,False
+Metabolic response,Standardized units,286,"-0.62 [-1.08, -0.16]",-0.62,-1.08,-0.16,c06-r003-effect,Effect,ci,estimate,1,False
+Functional capacity,Standardized units,301,"0.45 [-0.05, 0.95]",0.45,-0.05,0.95,c06-r004-effect,Effect,ci,estimate,1,False
+Sleep quality,Standardized units,274,"1.25 [0.60, 1.90]",1.25,0.6,1.9,c06-r005-effect,Effect,ci,estimate,1,False
+Laboratory subtotal,Standardized units,1181,"-0.36 [-0.71, -0.01]",-0.36,-0.71,-0.01,c06-r006-effect,Effect,ci,summary,0,True
+,,,,,,,c06-r007,,,spacer,0,False
+Patient-reported outcomes,,,,,,,c06-r008,,,header,0,False
+Daily symptom burden,Standardized units,512,"-2.65 [-3.20, -2.10]",-2.65,-3.2,-2.1,c06-r009-effect,Effect,ci,estimate,1,False
+Treatment convenience,Standardized units,498,"2.90 [2.15, 3.65]",2.9,2.15,3.65,c06-r010-effect,Effect,ci,estimate,1,False
+Social participation,Standardized units,477,"0.18 [-0.42, 0.78]",0.18,-0.42,0.78,c06-r011-effect,Effect,ci,estimate,1,False
+Patient-reported subtotal,Standardized units,1487,"-0.14 [-0.51, 0.23]",-0.14,-0.51,0.23,c06-r012-effect,Effect,ci,summary,0,True

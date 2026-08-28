@@ -1,0 +1,11 @@
+结局,人群,样本量,效应值,estimate,lower,upper,_plot_row,_series,_ci_column,_row_type,_indent,_is_summary
+主要终点,,,,,,,c10-r001,,,header,0,False
+全因住院,中国大陆：年龄 ≥ 65 岁,836,"-0.42 [-0.65, -0.19]",-0.42,-0.65,-0.19,c10-r002-effect,治疗效应,ci,estimate,1,False
+症状缓解,日本：HbA1c ≥ 8.0%,412,"-0.18 [-0.49, 0.13]",-0.18,-0.49,0.13,c10-r003-effect,治疗效应,ci,estimate,1,False
+肾功能稳定,韩国：eGFR < 60 mL/min,368,"0.07 [-0.28, 0.42]",0.07,-0.28,0.42,c10-r004-effect,治疗效应,ci,estimate,1,False
+主要终点合计,亚洲多中心人群,1616,"-0.24 [-0.39, -0.09]",-0.24,-0.39,-0.09,c10-r005-effect,治疗效应,ci,summary,0,True
+,,,,,,,c10-r006,,,spacer,0,False
+Secondary outcomes / 次要终点,,,,,,,c10-r007,,,header,0,False
+Quality-of-life score Δ,English-speaking cohort,524,"-0.31 [-0.56, -0.06]",-0.31,-0.56,-0.06,c10-r008-effect,治疗效应,ci,estimate,1,False
+β-cell function index,Ελληνική υποομάδα,286,"-0.09 [-0.44, 0.26]",-0.09,-0.44,0.26,c10-r009-effect,治疗效应,ci,estimate,1,False
+次要终点合计,全球扩展人群,810,"-0.22 [-0.42, -0.02]",-0.22,-0.42,-0.02,c10-r010-effect,治疗效应,ci,summary,0,True

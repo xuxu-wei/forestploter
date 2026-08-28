@@ -1,0 +1,7 @@
+subgroup,region,participants,effect_display,estimate,lower,upper,_plot_row,_series,_ci_column,_row_type,_indent,_is_summary
+Prespecified demographic and clinical subgroups,,,,,,,c05-r001,,,header,0,False
+Participants aged 65 years or older with baseline renal impairment,North America,1248,"-0.31 [-0.52, -0.10]",-0.31,-0.52,-0.1,c05-r002-effect,Adjusted effect,ci,estimate,1,False
+Long-term smokers with two or more documented cardiometabolic conditions,Western Europe,876,"-0.12 [-0.38, 0.14]",-0.12,-0.38,0.14,c05-r003-effect,Adjusted effect,ci,estimate,1,False
+Participants enrolled through community-based primary care networks,Latin America,703,"0.06 [-0.24, 0.36]",0.06,-0.24,0.36,c05-r004-effect,Adjusted effect,ci,estimate,1,False
+亚太地区接受联合治疗且基线风险较高的参与者,亚太地区,932,"-0.44 [-0.66, -0.22]",-0.44,-0.66,-0.22,c05-r005-effect,Adjusted effect,ci,estimate,1,False
+All prespecified subgroups,Global,3759,"-0.24 [-0.35, -0.13]",-0.24,-0.35,-0.13,c05-r006-effect,Adjusted effect,ci,summary,0,True

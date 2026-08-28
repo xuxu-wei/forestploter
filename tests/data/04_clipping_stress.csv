@@ -1,0 +1,9 @@
+scenario,expected_clipping,interval_display,estimate,lower,upper,_plot_row,_series,_ci_column,_row_type,_indent,_is_summary
+Axis clipping scenarios,,,,,,c04-r001,,,header,0,False
+Inside axis,None,"0.10 [-0.25, 0.45]",0.1,-0.25,0.45,c04-r002-interval,Interval,ci,estimate,1,False
+Left endpoint clipped,Left,"-0.55 [-1.35, 0.15]",-0.55,-1.35,0.15,c04-r003-interval,Interval,ci,estimate,1,False
+Right endpoint clipped,Right,"0.55 [-0.15, 1.45]",0.55,-0.15,1.45,c04-r004-interval,Interval,ci,estimate,1,False
+Both endpoints clipped,Both,"0.00 [-1.60, 1.70]",0,-1.6,1.7,c04-r005-interval,Interval,ci,estimate,1,False
+Entire interval left,Entire left,"-1.40 [-1.80, -1.20]",-1.4,-1.8,-1.2,c04-r006-interval,Interval,ci,estimate,1,False
+Entire interval right,Entire right,"1.40 [1.20, 1.80]",1.4,1.2,1.8,c04-r007-interval,Interval,ci,estimate,1,False
+Inside-axis summary,None,"0.02 [-0.31, 0.35]",0.02,-0.31,0.35,c04-r008-interval,Interval,ci,summary,0,True

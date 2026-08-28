@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a reproducible defect in validation, layout, or rendering.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Remove confidential data before attaching XLSX/CSV files. Security
+        vulnerabilities must use the private advisory form instead.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the observed and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include code and a minimal anonymized input when possible.
+      render: python
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: forestploter version
+      placeholder: 0.1.0rc1
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Python and dependency versions
+      placeholder: Python 3.12, pandas 2.x, Matplotlib 3.x, openpyxl 3.x
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Layout diagnostics and traceback
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I removed confidential or identifying data.
+          required: true
+        - label: I searched existing issues for the same defect.
+          required: true
