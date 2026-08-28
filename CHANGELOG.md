@@ -22,6 +22,8 @@ No changes yet.
   template.
 - English and Simplified Chinese Sphinx documentation with generated API pages,
   data-contract guidance, and an executable example gallery.
+- PyPI-friendly English and Chinese READMEs with a visual showcase, clear
+  Python/R project identity, and development-contribution acknowledgments.
 
 ### Changed
 

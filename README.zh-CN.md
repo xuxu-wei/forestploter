@@ -1,20 +1,46 @@
-# forestploter
+# forestploter for Python
 
-`forestploter` 是一个由 XLSX/CSV 长表驱动、强调可审计性的表格化森林图绘制包。
-它负责输入验证、文字与置信区间对齐、自动布局和 Matplotlib 渲染，不负责计算
-效应量、置信区间或荟萃分析统计量。
+[![CI](https://github.com/xuxu-wei/forestploter/actions/workflows/ci.yml/badge.svg)](https://github.com/xuxu-wei/forestploter/actions/workflows/ci.yml)
+[![Documentation](https://github.com/xuxu-wei/forestploter/actions/workflows/docs.yml/badge.svg)](https://xuxu-wei.github.io/forestploter/)
+[![PyPI](https://img.shields.io/pypi/v/forestploter.svg)](https://pypi.org/project/forestploter/)
+[![Python](https://img.shields.io/pypi/pyversions/forestploter.svg)](https://pypi.org/project/forestploter/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/xuxu-wei/forestploter/blob/main/LICENSE)
 
-> 这是一个独立的 Python 项目，与同名 R 包没有隶属关系。
+`forestploter` 是一个面向 Python 的表格化森林图绘制包，可从可审计的 XLSX/CSV
+长表生成适合发表的静态图。它负责数据契约验证、文本与置信区间逐行对齐，以及基于
+Matplotlib 的 PNG/SVG 渲染；不负责计算效应量、置信区间或荟萃分析统计量。
 
-[English README](README.md)
+> **项目身份：**这是一个独立的 Python 包，不是同名的
+> [`forestploter` R 包](https://github.com/adayim/forestploter)，也不由该 R 包的
+> 作者或维护者开发、背书或维护。
+
+[English README](https://github.com/xuxu-wei/forestploter/blob/main/README.md)
+
+## 绘图效果
+
+[![两个队列在粗模型和校正模型置信区间列中逐行对齐](https://raw.githubusercontent.com/xuxu-wei/forestploter/main/tests/artifacts/08_two_by_two_ci_columns.png)](https://xuxu-wei.github.io/forestploter/zh_CN/gallery/08_two_by_two_ci_columns.html)
+
+*两个队列在粗模型与校正模型 CI 列中保持逐行对齐，同时展示汇总菱形、尾部文本列
+和嵌入列表头的图例。图中为合成演示数据。[查看完整代码并下载 XLSX 或 CSV
+输入](https://xuxu-wei.github.io/forestploter/zh_CN/gallery/08_two_by_two_ci_columns.html)。*
+
+## 核心能力
+
+- 从 XLSX、CSV 读取统一的可审计长表数据契约，也可直接传入兼容的
+  `pandas.DataFrame`。
+- 保留受支持的 XLSX 纵向合并，使多个系列可以共享一个居中显示值，而不必在每条
+  记录中重复填写。
+- 通过 `_plot_row`、`_series` 和 `_ci_column`，将单系列或多系列在一个或多个
+  CI 列中显式逐行对齐。
+- 普通文本或数值列可以放在 CI 绘图区之前、中间或之后；最终左右顺序只由
+  `columns` 决定。
+- 支持汇总菱形、越界箭头、参考线与目标线、系列样式、主题，以及列表头或图像底部
+  图例。
+- 通过自动尺寸和布局诊断处理密集表格、长文本、Unicode 标签及 PNG/SVG 导出。
 
 ## 安装
 
-```bash
-python -m pip install forestploter
-```
-
-首个正式版本发布前，需要显式安装候选版本：
+当前版本是公开预览候选版，需要显式安装预发布版本：
 
 ```bash
 python -m pip install --pre forestploter
@@ -24,43 +50,85 @@ python -m pip install --pre forestploter
 
 ## 快速开始
 
+先[下载可直接运行的 01 示例工作簿](https://raw.githubusercontent.com/xuxu-wei/forestploter/main/tests/data/01_single_series.xlsx)，
+然后运行：
+
 ```python
 from forestploter import ForestColumn, forest, read_forest_data
 
-df = read_forest_data("forest_input.xlsx", sheet_name="Forest")
+df = read_forest_data("01_single_series.xlsx", sheet_name="Forest")
 result = forest(
     df,
     columns=[
-        ForestColumn("Outcome", "结局", "text", 2.5),
-        ForestColumn("ci", "治疗效应", "ci", 3.5, "center"),
-        ForestColumn("Effect", "效应值 [95% CI]", "numeric", 2.0, "right"),
+        ForestColumn("label", "结局 / 研究", "text", 2.8),
+        ForestColumn("n", "样本量", "numeric", 0.7, "right"),
+        ForestColumn("ci", "治疗效应", "ci", 3.3, "center"),
+        ForestColumn(
+            "effect_display",
+            "均值差 [95% CI]",
+            "numeric",
+            2.0,
+            "right",
+        ),
     ],
-    xlim=(0.4, 1.6),
-    ref_line=1.0,
+    xlim=(-1.0, 1.0),
+    ticks_at=(-1.0, -0.5, 0.0, 0.5, 1.0),
+    ref_line=0.0,
 )
-result.save("forest.png")
+result.save("forest.png", dpi=300)
 ```
 
 `columns` 是最终图像从左到右顺序的唯一依据，因此无论 XLSX/CSV 表头怎样排列，
-普通文本列都可以放在任意 CI 绘图区之前或之后。
+普通显示列都可以出现在任意 CI 绘图区之前或之后。
+
+## 输入模型速览
+
+`read_forest_data()` 返回 `ForestData`：标准化数据位于 `df.frame`，受支持的 XLSX
+合并范围保存在 `df.spans`；CSV 使用相同逻辑字段，但不包含合并元数据。
 
 一条源记录描述“一个系列 × 一个目标 CI 列 × 一组
 `estimate/lower/upper`”。`_plot_row` 明确指定视觉行；同一系列跨多个 CI 列时，
 复制记录、保持 `_plot_row` 不变，并修改 `_ci_column`。
 
+完整填写规则见[数据契约](https://xuxu-wei.github.io/forestploter/zh_CN/data_contract.html)
+和 [XLSX 通用模板](https://raw.githubusercontent.com/xuxu-wei/forestploter/main/tests/data/forest_data_template.xlsx)。
+
 ## 文档与示例
 
 - [中英文网页版文档](https://xuxu-wei.github.io/forestploter/)
-- [数据契约](https://xuxu-wei.github.io/forestploter/zh_CN/data_contract.html)
+- [快速入门](https://xuxu-wei.github.io/forestploter/zh_CN/getting_started.html)
 - [示例图库](https://xuxu-wei.github.io/forestploter/zh_CN/gallery.html)
 - [API 文档](https://xuxu-wei.github.io/forestploter/zh_CN/api.html)
-- [XLSX 长表模板](tests/data/forest_data_template.xlsx)
-- [十二组 XLSX/CSV/PNG 回归用例](tests/README.md)
+- [十二组 XLSX/CSV/PNG 回归用例](https://github.com/xuxu-wei/forestploter/blob/main/tests/README.md)
 
-`0.1` 系列是质量优先的公开预览版本。长期维护规则见
-[CONTRIBUTING.md](CONTRIBUTING.md)、[SUPPORT.md](SUPPORT.md)、
-[SECURITY.md](SECURITY.md) 和 [CHANGELOG.md](CHANGELOG.md)。
+## 当前范围与状态
+
+`0.1` 系列是质量优先的公开预览版本。CI 覆盖 Python 3.10 至 3.14，并在 Windows
+和 macOS 上执行冒烟测试。公开 API 在 `1.0` 前仍可能通过正式弃用流程演进。
+
+目前所有 CI 列共用一套全局线性坐标配置；逐 CI 列独立坐标和对数坐标列入后续计划，
+详见[路线图](https://github.com/xuxu-wei/forestploter/blob/main/ROADMAP.md)。
+
+## 支持、贡献与引用
+
+- [获取支持](https://github.com/xuxu-wei/forestploter/blob/main/SUPPORT.md)
+- [参与贡献](https://github.com/xuxu-wei/forestploter/blob/main/CONTRIBUTING.md)
+- [安全策略](https://github.com/xuxu-wei/forestploter/blob/main/SECURITY.md)
+- [变更日志](https://github.com/xuxu-wei/forestploter/blob/main/CHANGELOG.md)
+- [软件引用信息](https://github.com/xuxu-wei/forestploter/blob/main/CITATION.cff)
+
+## 致谢与开发透明度
+
+本项目的表格化森林图工作流受到 Alimu Dayimu 创建的 R 包
+[`forestploter`](https://github.com/adayim/forestploter) 启发。本仓库是面向
+Python 生态的独立实现，具有自己的 API 和数据契约，并非该 R 包的官方 Python
+版本；与该 R 包的作者或维护者不存在隶属、背书或维护关系。
+
+本项目的代码实现、测试、文档、发布工程和维护流程均包含
+[OpenAI Codex](https://developers.openai.com/codex/) 的大量 AI 辅助贡献。所有改动与
+版本发布均由本包作者和维护者 Xuxu Wei 指导、审阅并批准。OpenAI 不是本项目的
+维护者或赞助方。
 
 ## 许可证
 
-MIT © 2026 Xuxu Wei。详见 [LICENSE](LICENSE)。
+MIT © 2026 Xuxu Wei。详见[许可证](https://github.com/xuxu-wei/forestploter/blob/main/LICENSE)。

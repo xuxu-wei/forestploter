@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "forestploter"
 version = "0.1.0rc1"
-description = "Auditable XLSX/CSV-driven forest plots with Matplotlib"
+description = "Auditable XLSX/CSV-driven forest plots for Python with Matplotlib"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
