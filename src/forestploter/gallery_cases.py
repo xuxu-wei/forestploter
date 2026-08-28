@@ -390,9 +390,9 @@ def plot_comprehensive_showcase(df: ForestInput) -> ForestPlotResult:
         ForestColumn("note", "Outcome-level note", "text", 1.75),
     )
     styles = {
-        "Integrated care": ForestSeriesStyle("Integrated care", "#0072B2", marker="s"),
-        "Digital support": ForestSeriesStyle("Digital support", "#D55E00", marker="o"),
-        "Usual care": ForestSeriesStyle("Usual care", "#009E73", marker="^"),
+        "Integrated care": ForestSeriesStyle("Integrated care", "#332288", marker="s"),
+        "Digital support": ForestSeriesStyle("Digital support", "#CC6677", marker="o"),
+        "Usual care": ForestSeriesStyle("Usual care", "#117733", marker="^"),
     }
     return forest(
         df,
@@ -405,7 +405,7 @@ def plot_comprehensive_showcase(df: ForestInput) -> ForestPlotResult:
         arrow_lab=("Favours integrated care", "Favours usual care"),
         title="Comprehensive showcase: three programs across two models",
         figure_width=16.5,
-        row_height=0.21,
+        row_height=0.16,
         series_styles=styles,
         legend=ForestLegendSpec(location="bottom", ncol=3),
         reference_legend=ForestReferenceLegendSpec(
@@ -416,12 +416,12 @@ def plot_comprehensive_showcase(df: ForestInput) -> ForestPlotResult:
         ),
         theme=ForestTheme(
             base_font_size=8.2,
-            header_fill="#E7F0F7",
-            alternate_fill="#F7FAFC",
-            group_fill="#EDF3F7",
-            grid_color="#D2DCE6",
-            reference_color="#3D4653",
-            ideal_color="#8C5A00",
+            header_fill="#ECE8F3",
+            alternate_fill="#FAF9FC",
+            group_fill="#F3EFF7",
+            grid_color="#D9D2E3",
+            reference_color="#45404A",
+            ideal_color="#7A5542",
             show_vertical_grid=True,
         ),
         table_layout=ForestTableLayoutSpec(

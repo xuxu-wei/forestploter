@@ -440,7 +440,7 @@ def test_comprehensive_showcase_combines_hierarchy_alignment_clipping_and_legend
         )
         assert len(data.frame) == 35
         assert len(result.row_centers) == 20
-        assert result.figure.get_size_inches()[1] < 8.0
+        assert 6.7 < result.figure.get_size_inches()[1] < 7.0
         assert set(data.frame["_series"].dropna()) == {
             "Integrated care",
             "Digital support",
@@ -543,6 +543,12 @@ def test_comprehensive_showcase_combines_hierarchy_alignment_clipping_and_legend
         assert {"reference-line:ci_crude", "reference-line:ci_adjusted"} <= gids
         assert "ideal-line:ci_crude" not in gids
         assert "ideal-line:ci_adjusted" in gids
+        ci_colors = {
+            str(line.get_color()).upper()
+            for line in result.axes.lines
+            if (line.get_gid() or "").startswith("ci:") and (line.get_gid() or "").endswith(":line")
+        }
+        assert ci_colors == {"#332288", "#CC6677", "#117733"}
         assert [item[0] for item in result.layout_diagnostics.legend_bounds] == [
             "series",
             "reference",

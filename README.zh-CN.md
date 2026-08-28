@@ -21,7 +21,8 @@ Matplotlib 的 PNG/SVG 渲染；不负责计算效应量、置信区间或荟萃
 [![三系列在双森林图列及对应置信区间文本中逐行对齐，并展示父标题行与缩进子行、截断箭头、共有无效应线、单列额外目标线、方向指示和底部图例](https://raw.githubusercontent.com/xuxu-wei/forestploter/main/tests/artifacts/13_comprehensive_showcase.png)](https://xuxu-wei.github.io/forestploter/zh_CN/gallery/13_comprehensive_showcase.html)
 
 *三个系列在粗模型与校正模型 CI 绘图区及各自对应的文本列中以紧凑行距严格对齐；CI
-文本只保留数值，系列由缩进子行标签、标记样式和图例区分。共享的结局数据只在父
+文本只保留数值，系列由高对比度的靛蓝、玫红、森林绿配色，方形、圆形、三角形标记，
+缩进子行标签和图例共同区分。共享的结局数据只在父
 标题行填写，不使用合并单元格。同一示例还展示上下界截断、两个面板共有的无效应线、
 仅校正模型面板出现的额外目标线、坐标轴方向指示、汇总菱形及底部图例。图中为合成
 演示数据。[查看完整代码并下载 XLSX 或 CSV 输入](https://xuxu-wei.github.io/forestploter/zh_CN/gallery/13_comprehensive_showcase.html)。*

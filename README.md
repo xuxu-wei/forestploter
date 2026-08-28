@@ -24,8 +24,9 @@ sizes, confidence intervals, or meta-analysis statistics.
 [![Three series aligned across two forest-plot columns with matching CI text, hierarchical header rows, clipping arrows, shared no-effect lines, one additional target line, direction labels, and bottom legends](https://raw.githubusercontent.com/xuxu-wei/forestploter/main/tests/artifacts/13_comprehensive_showcase.png)](https://xuxu-wei.github.io/forestploter/en/gallery/13_comprehensive_showcase.html)
 
 *Three series remain row-aligned across crude and adjusted CI panels and their
-matching text columns in a compact layout. CI text contains values only; marker
-styling, the legend, and indented child labels identify each series. Shared
+matching text columns in a compact layout. CI text contains values only; a
+high-contrast indigo, rose, and green palette, distinct marker shapes, the
+legend, and indented child labels identify each series. Shared
 outcome data appear once on group-header rows rather than in merged cells. The
 example also combines lower- and upper-bound clipping, no-effect lines in both
 panels plus an additional target line in the adjusted panel only, direction

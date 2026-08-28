@@ -17,7 +17,7 @@
 | 10 | `data/10_unicode_custom_theme.xlsx` | `artifacts/10_unicode_custom_theme.png` | 中文、英文、希腊文和自定义主题 |
 | 11 | `data/11_boundary_precision.xlsx` | `artifacts/11_boundary_precision.png` | 精确边界、零宽区间与微量越界 |
 | 12 | `data/12_multi_series_ci_text_rows.xlsx` | `artifacts/12_multi_series_ci_text_rows.png` | CI 后每系列一条文本、一条 CI 线、同一 y |
-| 13 | `data/13_comprehensive_showcase.xlsx` | `artifacts/13_comprehensive_showcase.png` | 双 CI 与对应文本、父标题行与缩进系列子行（零合并）、双侧截断、共有无效应线、单列额外目标线、方向指示和底部图例 |
+| 13 | `data/13_comprehensive_showcase.xlsx` | `artifacts/13_comprehensive_showcase.png` | 双 CI 与对应文本、父标题行与缩进系列子行（零合并）、紧凑行距、高对比度配色、双侧截断、共有无效应线、单列额外目标线、方向指示和底部图例 |
 
 每个 XLSX 都有同名 `.csv` 伴随文件；`data/forest_data_template.xlsx` 是带 README
 工作表的通用填写模板。
