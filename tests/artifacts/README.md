@@ -16,8 +16,9 @@
 | [10_unicode_custom_theme.xlsx](../data/10_unicode_custom_theme.xlsx) | [10_unicode_custom_theme.csv](../data/10_unicode_custom_theme.csv) | [10_unicode_custom_theme.png](10_unicode_custom_theme.png) |
 | [11_boundary_precision.xlsx](../data/11_boundary_precision.xlsx) | [11_boundary_precision.csv](../data/11_boundary_precision.csv) | [11_boundary_precision.png](11_boundary_precision.png) |
 | [12_multi_series_ci_text_rows.xlsx](../data/12_multi_series_ci_text_rows.xlsx) | [12_multi_series_ci_text_rows.csv](../data/12_multi_series_ci_text_rows.csv) | [12_multi_series_ci_text_rows.png](12_multi_series_ci_text_rows.png) |
+| [13_comprehensive_showcase.xlsx](../data/13_comprehensive_showcase.xlsx) | [13_comprehensive_showcase.csv](../data/13_comprehensive_showcase.csv) | [13_comprehensive_showcase.png](13_comprehensive_showcase.png) |
 
-图片由 `python -m forestploter.tests.render_visual_cases` 生成，不应手工重命名。
+图片由 `python -m tests.render_visual_cases` 生成，不应手工重命名。
 
 ## 核对提示
 
@@ -26,4 +27,5 @@
 - `01_single_series.png`：效应文本位于 CI 绘图区右侧。
 - `08_two_by_two_ci_columns.png`：每个 Cohort 的 crude/adjusted 点严格共线，Cohort 文本和图例位于 CI 后。
 - `12_multi_series_ci_text_rows.png`：CI 后每条文本、点和区间线严格共线，共享结局名称居中。
+- `13_comprehensive_showcase.png`：双 CI 列和对应文本逐系列共线，同时核对父标题行与缩进系列子行（零合并）、上下界箭头、共有无效应线、仅校正模型面板额外目标线、方向指示与底部图例。
 - `10_unicode_custom_theme.png`：默认回归环境使用 Microsoft YaHei 渲染中英文。

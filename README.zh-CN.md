@@ -18,24 +18,26 @@ Matplotlib 的 PNG/SVG 渲染；不负责计算效应量、置信区间或荟萃
 
 ## 绘图效果
 
-[![两个队列在粗模型和校正模型置信区间列中逐行对齐](https://raw.githubusercontent.com/xuxu-wei/forestploter/main/tests/artifacts/08_two_by_two_ci_columns.png)](https://xuxu-wei.github.io/forestploter/zh_CN/gallery/08_two_by_two_ci_columns.html)
+[![三系列在双森林图列及对应置信区间文本中逐行对齐，并展示父标题行与缩进子行、截断箭头、共有无效应线、单列额外目标线、方向指示和底部图例](https://raw.githubusercontent.com/xuxu-wei/forestploter/main/tests/artifacts/13_comprehensive_showcase.png)](https://xuxu-wei.github.io/forestploter/zh_CN/gallery/13_comprehensive_showcase.html)
 
-*两个队列在粗模型与校正模型 CI 列中保持逐行对齐，同时展示汇总菱形、尾部文本列
-和嵌入列表头的图例。图中为合成演示数据。[查看完整代码并下载 XLSX 或 CSV
-输入](https://xuxu-wei.github.io/forestploter/zh_CN/gallery/08_two_by_two_ci_columns.html)。*
+*三个系列在粗模型与校正模型 CI 绘图区及各自对应的文本列中以紧凑行距严格对齐；CI
+文本只保留数值，系列由缩进子行标签、标记样式和图例区分。共享的结局数据只在父
+标题行填写，不使用合并单元格。同一示例还展示上下界截断、两个面板共有的无效应线、
+仅校正模型面板出现的额外目标线、坐标轴方向指示、汇总菱形及底部图例。图中为合成
+演示数据。[查看完整代码并下载 XLSX 或 CSV 输入](https://xuxu-wei.github.io/forestploter/zh_CN/gallery/13_comprehensive_showcase.html)。*
 
 ## 核心能力
 
 - 从 XLSX、CSV 读取统一的可审计长表数据契约，也可直接传入兼容的
   `pandas.DataFrame`。
-- 保留受支持的 XLSX 纵向合并，使多个系列可以共享一个居中显示值，而不必在每条
-  记录中重复填写。
+- 使用父标题行和缩进子行表达常规层级，共享值只填写在父标题行。
+- 在确实需要跨多行居中显示时，仍保留受支持的 XLSX 纵向合并。
 - 通过 `_plot_row`、`_series` 和 `_ci_column`，将单系列或多系列在一个或多个
   CI 列中显式逐行对齐。
 - 普通文本或数值列可以放在 CI 绘图区之前、中间或之后；最终左右顺序只由
   `columns` 决定。
-- 支持汇总菱形、越界箭头、参考线与目标线、系列样式、主题，以及列表头或图像底部
-  图例。
+- 支持汇总菱形、越界箭头、共有参考线、仅在指定 CI 列显示的额外目标线、系列样式、
+  主题，以及列表头或图像底部图例。
 - 通过自动尺寸和布局诊断处理密集表格、长文本、Unicode 标签及 PNG/SVG 导出。
 
 ## 安装
@@ -99,7 +101,7 @@ result.save("forest.png", dpi=300)
 - [快速入门](https://xuxu-wei.github.io/forestploter/zh_CN/getting_started.html)
 - [示例图库](https://xuxu-wei.github.io/forestploter/zh_CN/gallery.html)
 - [API 文档](https://xuxu-wei.github.io/forestploter/zh_CN/api.html)
-- [十二组 XLSX/CSV/PNG 回归用例](https://github.com/xuxu-wei/forestploter/blob/main/tests/README.md)
+- [十三组 XLSX/CSV/PNG 回归用例](https://github.com/xuxu-wei/forestploter/blob/main/tests/README.md)
 
 ## 当前范围与状态
 

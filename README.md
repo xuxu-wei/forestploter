@@ -21,26 +21,32 @@ sizes, confidence intervals, or meta-analysis statistics.
 
 ## Showcase
 
-[![Two cohorts aligned across crude and adjusted confidence-interval columns](https://raw.githubusercontent.com/xuxu-wei/forestploter/main/tests/artifacts/08_two_by_two_ci_columns.png)](https://xuxu-wei.github.io/forestploter/en/gallery/08_two_by_two_ci_columns.html)
+[![Three series aligned across two forest-plot columns with matching CI text, hierarchical header rows, clipping arrows, shared no-effect lines, one additional target line, direction labels, and bottom legends](https://raw.githubusercontent.com/xuxu-wei/forestploter/main/tests/artifacts/13_comprehensive_showcase.png)](https://xuxu-wei.github.io/forestploter/en/gallery/13_comprehensive_showcase.html)
 
-*Two cohorts remain row-aligned across crude and adjusted CI columns, with
-pooled summary diamonds, a trailing text column, and a legend embedded in its
-header. Synthetic demonstration data. [View the exact code and download the
-XLSX or CSV input](https://xuxu-wei.github.io/forestploter/en/gallery/08_two_by_two_ci_columns.html).*
+*Three series remain row-aligned across crude and adjusted CI panels and their
+matching text columns in a compact layout. CI text contains values only; marker
+styling, the legend, and indented child labels identify each series. Shared
+outcome data appear once on group-header rows rather than in merged cells. The
+example also combines lower- and upper-bound clipping, no-effect lines in both
+panels plus an additional target line in the adjusted panel only, direction
+labels, summary diamonds, and bottom legends. Synthetic demonstration data.
+[View the exact code and download the XLSX or CSV input](https://xuxu-wei.github.io/forestploter/en/gallery/13_comprehensive_showcase.html).*
 
 ## Highlights
 
 - Read one auditable long-table contract from XLSX or CSV, or pass a compatible
   `pandas.DataFrame` directly.
-- Preserve supported vertical XLSX merges so several series can share one
-  centered display value without repeating it in every record.
+- Express conventional hierarchy with group-header rows and indented children,
+  keeping shared values on the header row.
+- Preserve supported vertical XLSX merges when a specialized centered multirow
+  display is needed.
 - Align single or multiple series across one or more CI columns with explicit
   `_plot_row`, `_series`, and `_ci_column` fields.
 - Place ordinary text or numeric columns before, between, or after CI plotting
   columns; the `columns` sequence controls the final left-to-right order.
-- Render summary diamonds, clipped-interval arrows, reference and target
-  lines, series styles, configurable themes, and legends in a header or below
-  the figure.
+- Render summary diamonds, clipped-interval arrows, shared reference lines,
+  additional target lines restricted to selected CI columns, series styles,
+  configurable themes, and legends in a header or below the figure.
 - Use automatic sizing and layout diagnostics to make dense tables, long text,
   Unicode labels, and PNG/SVG export easier to review.
 
@@ -109,7 +115,7 @@ and the [XLSX workbook template](https://raw.githubusercontent.com/xuxu-wei/fore
 - [Getting started](https://xuxu-wei.github.io/forestploter/en/getting_started.html)
 - [Example gallery](https://xuxu-wei.github.io/forestploter/en/gallery.html)
 - [API reference](https://xuxu-wei.github.io/forestploter/en/api.html)
-- [Twelve XLSX/CSV/PNG regression examples](https://github.com/xuxu-wei/forestploter/blob/main/tests/README.md)
+- [Thirteen XLSX/CSV/PNG regression examples](https://github.com/xuxu-wei/forestploter/blob/main/tests/README.md)
 
 ## Current scope and status
 

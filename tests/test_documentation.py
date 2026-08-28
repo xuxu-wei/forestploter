@@ -70,7 +70,7 @@ def test_every_public_export_has_an_english_docstring() -> None:
 
 
 def test_public_rst_is_english_single_source_and_internal_pages_are_excluded() -> None:
-    assert len(PUBLIC_RST) == 17
+    assert len(PUBLIC_RST) == 18
     for source in PUBLIC_RST:
         text = source.read_text(encoding="utf-8")
         assert not re.search(r"[\u3400-\u9fff]", text), source
@@ -87,7 +87,7 @@ def test_public_rst_is_english_single_source_and_internal_pages_are_excluded() -
 
 def test_gallery_has_one_detail_page_with_assets_and_shared_code_per_case() -> None:
     detail_pages = sorted((DOCS_DIR / "gallery").glob("*.rst"))
-    assert len(detail_pages) == len(CASE_DATA_FILES) == 12
+    assert len(detail_pages) == len(CASE_DATA_FILES) == 13
     overview = (DOCS_DIR / "gallery.rst").read_text(encoding="utf-8")
     for (case_name, data_name), page in zip(CASE_DATA_FILES.items(), detail_pages, strict=True):
         csv_name = CASE_CSV_FILES[case_name]
@@ -117,7 +117,7 @@ def test_xlsx_contract_explains_types_orders_rows_merges_and_alignment() -> None
         "Field dictionary",
         "Row-type recipes",
         "Complete single-CI example",
-        "Multiple series: one visual row per series",
+        "Multiple series: header row and indented children",
         "Multiple CI columns: duplicate records, share a visual row",
         "Multiple series, multiple CI columns, and trailing text",
         "Accepted versus recommended input",

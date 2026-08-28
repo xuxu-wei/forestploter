@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: forestploter development\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-28 23:12+0800\n"
+"POT-Creation-Date: 2026-08-29 04:22+0800\n"
 "PO-Revision-Date: 2026-08-18 16:24+0000\n"
 "Last-Translator: forestploter documentation maintainers\n"
 "Language: zh_CN\n"
@@ -371,7 +371,7 @@ msgstr "**end_record**"
 msgid "Zero-based inclusive index of the final source record in the merge."
 msgstr "合并中最终源记录的零基包含索引。"
 
-#: forestploter.core.forest:86 forestploter.data.ForestCellSpan:27
+#: forestploter.core.forest:93 forestploter.data.ForestCellSpan:27
 #: forestploter.data.ForestData:43 forestploter.data.ForestDataMapping:49
 #: forestploter.data.read_forest_data:56 forestploter.layout.ForestColumn:36
 #: forestploter.layout.ForestSeriesStyle:31 forestploter.theme.ForestTheme:64
@@ -602,14 +602,15 @@ msgstr "与 ``frame`` 形状相同的源参考，例如 CSV 的 ``\"Forest!D7\"`
 msgid ""
 "XLSX “what you see is what you enter” applies to values, record order, "
 "and supported vertical merges. The plot does not copy Excel fonts, fills,"
-" borders, column widths, or row heights. Give each series its own "
-"``_plot_row``. To show one series in several CI columns, duplicate its "
-"record, keep the same ``_plot_row``, and change ``_ci_column``; all CI "
-"columns then share the same vertical coordinate."
-msgstr ""
-"XLSX“所见即所输入”适用于值、记录顺序和支持的纵向合并。该图不会复制 Excel 字体、填充、边框、列宽或行高。给每个系列一个自己的 "
-"``_plot_row``。要在多个 CI 列中显示一个系列，请复制其记录，保留相同的 ``_plot_row``，并更改 "
-"``_ci_column``；所有 CI 列共享相同的垂直坐标。"
+" borders, column widths, or row heights. For a conventional parent-child "
+"hierarchy, put shared values on a ``header`` row and give each series an "
+"indented child ``_plot_row``; no merge is required. On the header record,"
+" leave ``_series``, ``_ci_column``, and ``estimate/lower/upper`` blank; "
+"use ``_indent=0`` and ``_is_summary=False``. To show one series in "
+"several CI columns, duplicate its record, keep the same ``_plot_row``, "
+"and change ``_ci_column``; all CI columns then share the same vertical "
+"coordinate."
+msgstr "XLSX 的“所见即所输入”适用于值、记录顺序和受支持的纵向合并；绘图不会复制 Excel 的字体、填充、边框、列宽或行高。常规父子层级应把共享值放在 ``header`` 行，并为每个系列设置缩进的子 ``_plot_row``，无需合并。标题记录中的 ``_series``、``_ci_column`` 和 ``estimate/lower/upper`` 应留空，并使用 ``_indent=0`` 与 ``_is_summary=False``。若要在多个 CI 列中显示同一系列，请复制其记录，保留相同的 ``_plot_row``，并修改 ``_ci_column``；所有 CI 列将共享同一纵向坐标。"
 
 #: ../../api/generated/forestploter.ForestData.rst:22:<autosummary>:1
 msgid ""
@@ -1789,7 +1790,7 @@ msgstr "边界与输入序列一一对应。"
 msgid "Raises"
 msgstr "异常"
 
-#: forestploter.core.forest:78 forestploter.data.read_forest_data:45
+#: forestploter.core.forest:85 forestploter.data.read_forest_data:45
 #: forestploter.layout.compute_column_geometry:22 of
 msgid "ValueError"
 msgstr "ValueError"
@@ -1852,10 +1853,30 @@ msgid "float, optional"
 msgstr "float，可选"
 
 #: forestploter.core.forest:22 of
-msgid "Optional ideal-value line shared by all CI columns."
-msgstr "所有 CI 列共享的可选理想值线。"
+msgid ""
+"Optional additional ideal or target line shared by the selected CI "
+"columns."
+msgstr "由所选 CI 列共享的可选额外理想线或目标线。"
 
-#: forestploter.core.forest:24 of
+#: forestploter.core.forest:25 of
+msgid "**ideal_line_columns**"
+msgstr "**ideal_line_columns**"
+
+#: forestploter.core.forest:-1 of
+msgid "sequence of str, optional"
+msgstr "str 序列，可选"
+
+#: forestploter.core.forest:26 of
+msgid ""
+"Active CI-column keys in which to draw ``ideal_line``. ``None`` preserves"
+" the default behavior of drawing it in every active CI column; an empty "
+"sequence suppresses the additional line and cannot be paired with an "
+"ideal-line legend label. Requires ``ideal_line``."
+msgstr ""
+"用于绘制 ``ideal_line`` 的活动 CI 列键。``None`` 保留在每个活动 CI "
+"列绘制的默认行为；空序列会隐藏额外线，且不能与额外线图例标签同时使用。必须同时设置 ``ideal_line``。"
+
+#: forestploter.core.forest:31 of
 msgid "**xlim**"
 msgstr "**xlim**"
 
@@ -1863,13 +1884,13 @@ msgstr "**xlim**"
 msgid "tuple of float, optional"
 msgstr "float 元组，可选"
 
-#: forestploter.core.forest:25 of
+#: forestploter.core.forest:32 of
 msgid ""
 "Shared linear range ``(minimum, maximum)``. When omitted, it is derived "
 "from all nonblank intervals."
 msgstr "共享线性范围 ``(minimum, maximum)``。当省略时，它是从所有非空白区间导出的。"
 
-#: forestploter.core.forest:28 of
+#: forestploter.core.forest:35 of
 msgid "**ticks_at**"
 msgstr "**ticks_at**"
 
@@ -1877,11 +1898,11 @@ msgstr "**ticks_at**"
 msgid "sequence of float, optional"
 msgstr "float 序列，可选"
 
-#: forestploter.core.forest:29 of
+#: forestploter.core.forest:36 of
 msgid "Shared tick values. Five ticks are generated within ``xlim`` when omitted."
 msgstr "共享刻度值。省略时，``xlim`` 内会生成五个刻度。"
 
-#: forestploter.core.forest:32 of
+#: forestploter.core.forest:39 of
 msgid "**arrow_lab**"
 msgstr "**arrow_lab**"
 
@@ -1889,11 +1910,11 @@ msgstr "**arrow_lab**"
 msgid "tuple of str, optional"
 msgstr "str 元组，可选"
 
-#: forestploter.core.forest:33 of
+#: forestploter.core.forest:40 of
 msgid "Left and right direction labels below the first active CI column."
 msgstr "第一个活动 CI 列下方的左右方向标签。"
 
-#: forestploter.core.forest:35 of
+#: forestploter.core.forest:42 of
 msgid "**theme**"
 msgstr "**theme**"
 
@@ -1901,11 +1922,11 @@ msgstr "**theme**"
 msgid "ForestTheme, optional"
 msgstr "ForestTheme，可选"
 
-#: forestploter.core.forest:36 of
+#: forestploter.core.forest:43 of
 msgid "Colors, font size, grid, and guide-line styles."
 msgstr "颜色、字体大小、网格和引导线样式。"
 
-#: forestploter.core.forest:38 of
+#: forestploter.core.forest:45 of
 msgid "**title**"
 msgstr "**title**"
 
@@ -1913,11 +1934,11 @@ msgstr "**title**"
 msgid "str, optional"
 msgstr "str，可选"
 
-#: forestploter.core.forest:39 of
+#: forestploter.core.forest:46 of
 msgid "In-figure title."
 msgstr "图标题。"
 
-#: forestploter.core.forest:41 of
+#: forestploter.core.forest:48 of
 msgid "**figure_width**"
 msgstr "**figure_width**"
 
@@ -1925,11 +1946,11 @@ msgstr "**figure_width**"
 msgid "float, default 12"
 msgstr "float，默认值为 12"
 
-#: forestploter.core.forest:42 of
+#: forestploter.core.forest:49 of
 msgid "Minimum Figure width in inches."
 msgstr "最小图形宽度（以英寸为单位）。"
 
-#: forestploter.core.forest:44 of
+#: forestploter.core.forest:51 of
 msgid "**row_height**"
 msgstr "**row_height**"
 
@@ -1937,11 +1958,11 @@ msgstr "**row_height**"
 msgid "float, default 0.36"
 msgstr "float，默认值为 0.36"
 
-#: forestploter.core.forest:45 of
+#: forestploter.core.forest:52 of
 msgid "Physical height of each unique ``_plot_row`` in inches."
 msgstr "每个唯一 ``_plot_row`` 的物理高度（以英寸为单位）。"
 
-#: forestploter.core.forest:47 of
+#: forestploter.core.forest:54 of
 msgid "**series_styles**"
 msgstr "**series_styles**"
 
@@ -1949,13 +1970,13 @@ msgstr "**series_styles**"
 msgid "mapping of str to ForestSeriesStyle, optional"
 msgstr "从 str 到 ForestSeriesStyle 的映射，可选"
 
-#: forestploter.core.forest:48 of
+#: forestploter.core.forest:55 of
 msgid ""
 "Mapping keyed by ``_series`` values. Supplied keys must exactly match "
 "observed series. Defaults follow first-appearance order."
 msgstr "以 ``_series`` 值为键的映射。提供的键必须与数据中出现的系列完全匹配。默认样式按系列首次出现的顺序分配。"
 
-#: forestploter.core.forest:51 of
+#: forestploter.core.forest:58 of
 msgid "**legend**"
 msgstr "**legend**"
 
@@ -1963,11 +1984,11 @@ msgstr "**legend**"
 msgid "ForestLegendSpec, optional"
 msgstr "ForestLegendSpec，可选"
 
-#: forestploter.core.forest:52 of
+#: forestploter.core.forest:59 of
 msgid "Series legend placed in one column header or in the bottom region."
 msgstr "将系列图例放在某一列的表头或图像底部区域。"
 
-#: forestploter.core.forest:54 of
+#: forestploter.core.forest:61 of
 msgid "**table_layout**"
 msgstr "**table_layout**"
 
@@ -1975,11 +1996,11 @@ msgstr "**table_layout**"
 msgid "ForestTableLayoutSpec, optional"
 msgstr "ForestTableLayoutSpec，可选"
 
-#: forestploter.core.forest:55 of
+#: forestploter.core.forest:62 of
 msgid "Automatic column width, header wrapping, and edge-padding rules."
 msgstr "自动列宽、表头换行和边缘留白规则。"
 
-#: forestploter.core.forest:57 of
+#: forestploter.core.forest:64 of
 msgid "**reference_legend**"
 msgstr "**reference_legend**"
 
@@ -1987,53 +2008,60 @@ msgstr "**reference_legend**"
 msgid "ForestReferenceLegendSpec, optional"
 msgstr "ForestReferenceLegendSpec，可选"
 
-#: forestploter.core.forest:58 of
+#: forestploter.core.forest:65 of
 msgid ""
 "Reference/ideal-line legend. It uses the same placement semantics as the "
 "series legend. When both exist, they stack with the series legend first."
 msgstr "参考线与理想值线的图例。其放置规则与系列图例相同；两者同时存在时，系列图例排在前面。"
 
-#: forestploter.core.forest:66 of
+#: forestploter.core.forest:73 of
 msgid "ForestPlotResult"
 msgstr "ForestPlotResult"
 
-#: forestploter.core.forest:67 of
+#: forestploter.core.forest:74 of
 msgid ""
 "Figure, Axes, column boundaries, visual-row centers, clipping count, and "
 "layout diagnostics."
 msgstr "图形、轴、列边界、视觉行中心、截断计数和布局诊断。"
 
-#: forestploter.core.forest:75 forestploter.data.read_forest_data:41 of
+#: forestploter.core.forest:82 forestploter.data.read_forest_data:41 of
 msgid "TypeError"
 msgstr "TypeError"
 
-#: forestploter.core.forest:76 of
+#: forestploter.core.forest:83 of
 msgid "Raised for invalid ``data`` or series-style types."
 msgstr "由于无效的 ``data`` 或系列样式类型而引发。"
 
-#: forestploter.core.forest:79 of
+#: forestploter.core.forest:86 of
 msgid ""
 "Raised when the long table, intervals, styles, coordinates, legends, "
 "columns, or layout settings are invalid."
 msgstr "当长表、区间、样式、坐标、图例、列或布局设置无效时引发。"
 
-#: forestploter.core.forest:87 of
+#: forestploter.core.forest:94 of
 msgid ""
 "Prefer :func:`read_forest_data` for XLSX. For three series under one "
-"outcome, use three records and three ``_plot_row`` values. The outcome "
-"cell may be vertically merged while an unmerged effect-text field "
-"contains one value per series, so every text row is naturally aligned "
-"with its interval. To show one series in several CI columns, duplicate "
-"the record, retain the same ``_plot_row``, and change only "
-"``_ci_column``. CSV uses the same logical fields but has no merge "
-"metadata; blanks are never inferred or forward-filled."
-msgstr ""
-"XLSX 输入推荐使用 :func:`read_forest_data`。一个结局下若有三个系列，请使用三条记录和三个 ``_plot_row``"
-" 值。结局单元格可以纵向合并；未合并的效应文本字段则每个系列填写一个值，使每行文本自然与对应区间对齐。若要在多个 CI "
-"列中显示同一系列，请复制记录，保留相同的 ``_plot_row``，只更改 ``_ci_column``。CSV "
-"使用相同的逻辑字段，但不包含合并信息；空白值不会被推断或向前填充。"
+"outcome, the recommended hierarchy uses one ``header`` row for the shared"
+" outcome-level values and three child ``_plot_row`` values with "
+"``_indent=1``. Put the series label and its CI text on each child row. "
+"This conventional layout needs no merged cells. Supported vertical XLSX "
+"merges remain available for specialized display needs. On the header "
+"record, leave ``_series``, ``_ci_column``, and ``estimate/lower/upper`` "
+"blank; use ``_row_type=\"header\"``, ``_indent=0``, and "
+"``_is_summary=False``."
+msgstr "对于 XLSX，优先使用 :func:`read_forest_data`。当一个结局包含三个系列时，推荐使用一个 ``header`` 行保存共享的结局层级值，并为三个子行分别设置不同的 ``_plot_row`` 和 ``_indent=1``。在每个子行填写系列标签及其 CI 文本。这种常规布局不需要合并单元格；如有特殊显示需求，仍可使用受支持的 XLSX 纵向合并。标题记录中的 ``_series``、``_ci_column`` 和 ``estimate/lower/upper`` 应留空，并使用 ``_row_type=\"header\"``、``_indent=0`` 与 ``_is_summary=False``。"
 
-#: forestploter.core.forest:96 of
+#: forestploter.core.forest:103 of
+msgid ""
+"To show one series in several CI columns, duplicate the record, retain "
+"the same ``_plot_row``, and change only ``_ci_column``. CSV uses the same"
+" logical fields but has no merge metadata; blanks are never inferred or "
+"forward-filled."
+msgstr ""
+"若要在多个 CI 列中显示同一系列，请复制该记录，保留相同的 ``_plot_row``，只修改 ``_ci_column``。CSV "
+"使用相同的逻辑字段，但没有合并元数据；绝不会推断或向前填充空白值。"
+
+#: forestploter.core.forest:108 of
 msgid ""
 "A readable file-header order is recommended but does not control output. "
 "Place display fields before the first CI, then ``estimate/lower/upper`` "
@@ -2047,7 +2075,7 @@ msgstr ""
 "``_plot_row``、``_series``、``_ci_column``、``_row_type``、``_indent`` 和 "
 "``_is_summary``。实际渲染顺序仍仅由 ``columns`` 决定。"
 
-#: forestploter.core.forest:103 of
+#: forestploter.core.forest:115 of
 msgid ""
 "``_row_type`` controls row semantics. ``_is_summary`` must be boolean and"
 " controls marker shape only. A fully blank triple skips an interval; a "
@@ -2058,14 +2086,18 @@ msgstr ""
 "``_row_type`` 控制行语义。``_is_summary`` "
 "必须是布尔值，且只控制标记形态。三元组全部留空时跳过该区间，部分留空则无效。区间越过坐标范围时，箭头取代相应一侧的竖向端帽；完全越界的区间只显示最近的向外箭头。"
 
-#: forestploter.core.forest:109 of
+#: forestploter.core.forest:121 of
 msgid ""
 "This function uses one global linear axis configuration. It performs no "
 "logarithmic transformation and computes no effect size, confidence "
-"interval, or meta-analysis statistic."
-msgstr "本函数使用一套全局线性坐标配置，不执行对数变换，也不计算效应量、置信区间或荟萃分析统计量。"
+"interval, or meta-analysis statistic. ``ideal_line_columns`` controls "
+"only the additional line's visibility; all CI columns still share the "
+"same reference value, limits, and ticks."
+msgstr ""
+"本函数使用一套全局线性坐标配置，不执行对数变换，也不计算效应量、置信区间或荟萃分析统计量。``ideal_line_columns`` "
+"只控制额外线是否可见；所有 CI 列仍共享同一参考值、范围和刻度。"
 
-#: forestploter.core.forest:115 forestploter.data.read_forest_data:94 of
+#: forestploter.core.forest:129 forestploter.data.read_forest_data:101 of
 msgid "Examples"
 msgstr "示例"
 
@@ -2193,19 +2225,27 @@ msgstr ""
 #: forestploter.data.read_forest_data:70 of
 msgid ""
 "Enter only one statistical triple per estimate record. For three series, "
-"use three records and normally three different ``_plot_row`` values. A "
-"shared outcome cell may be vertically merged across those records, while "
-"an unmerged effect-text field can contain one value per series; every "
-"text row is then exactly aligned with its CI. To show the same series in "
-"two CI columns, duplicate its record, use a different ``_ci_column``, and"
-" retain the same ``_plot_row``. The two plotted intervals will share one "
-"y position."
-msgstr ""
-"每条 ``estimate`` 记录只填写一个统计三元组。若有三个系列，请使用三条记录，并通常分配三个不同的 ``_plot_row`` "
-"值。共享的结局单元格可以跨这些记录纵向合并；未合并的效应文本字段则可为每个系列各填一个值，使每行文本与其 CI 精确对齐。若要在两个 CI "
-"列中显示同一系列，请复制记录，使用不同的 ``_ci_column``，并保留相同的 ``_plot_row``；两个区间将共享同一 y 位置。"
+"the recommended hierarchy uses one ``header`` record for the shared "
+"outcome, sample size, and other group-level values, followed by three "
+"series rows with distinct ``_plot_row`` values and ``_indent=1``. Put "
+"each series label and CI text on its child row. This conventional layout "
+"works identically in XLSX and CSV and requires no merged cells. Supported"
+" vertical XLSX merges remain available when a centered multirow display "
+"value is specifically desired. On the header record, leave ``_series``, "
+"``_ci_column``, and ``estimate/lower/upper`` blank; use "
+"``_row_type=\"header\"``, ``_indent=0``, and ``_is_summary=False``."
+msgstr "每条估计记录只填写一组统计三元数。当有三个系列时，推荐使用一个 ``header`` 记录保存共享的结局、样本量和其他组层级值，随后为三个系列各设一行，使用不同的 ``_plot_row`` 且令 ``_indent=1``。在对应子行填写系列标签和 CI 文本。该常规布局在 XLSX 与 CSV 中结构完全相同，不需要合并单元格。仅当确实需要让一个显示值跨多行居中时，才使用受支持的 XLSX 纵向合并。标题记录中的 ``_series``、``_ci_column`` 和 ``estimate/lower/upper`` 应留空，并使用 ``_row_type=\"header\"``、``_indent=0`` 与 ``_is_summary=False``。"
 
-#: forestploter.data.read_forest_data:78 of
+#: forestploter.data.read_forest_data:81 of
+msgid ""
+"To show the same series in two CI columns, duplicate its record, use a "
+"different ``_ci_column``, and retain the same ``_plot_row``. The two "
+"plotted intervals will share one y position."
+msgstr ""
+"若要在两个 CI 列中显示同一系列，请复制其记录，使用不同的 ``_ci_column``，并保留相同的 "
+"``_plot_row``。两个绘制区间将共享同一个 y 位置。"
+
+#: forestploter.data.read_forest_data:85 of
 msgid ""
 "Merges are accepted only in display fields and must be single-column, "
 "vertical ranges below the header. Merges in reserved fields, horizontal "
@@ -2218,7 +2258,7 @@ msgstr ""
 "``estimate/lower/upper`` 可以全部留空以跳过一个区间；三元组仅部分留空会在 "
 ":func:`forestploter.forest` 中验证失败。"
 
-#: forestploter.data.read_forest_data:85 of
+#: forestploter.data.read_forest_data:92 of
 msgid ""
 "The package does not evaluate Excel formulas. It uses cached results "
 "saved in the workbook and asks the user to recalculate and save when a "
@@ -2394,8 +2434,8 @@ msgid "``estimate <= upper``"
 msgstr "``estimate <= upper``"
 
 #: ../../data_contract.rst:81 ../../data_contract.rst:172
-#: ../../data_contract.rst:216 ../../data_contract.rst:261
-#: ../../data_contract.rst:313
+#: ../../data_contract.rst:219 ../../data_contract.rst:298
+#: ../../data_contract.rst:354
 msgid "``_plot_row``"
 msgstr "``_plot_row``"
 
@@ -2415,8 +2455,8 @@ msgid ""
 msgstr "每条记录均为必填。相同值恰好共享一个 y 坐标，同一值的所有记录必须连续排列。推荐使用稳定的字符串。"
 
 #: ../../data_contract.rst:87 ../../data_contract.rst:125
-#: ../../data_contract.rst:173 ../../data_contract.rst:217
-#: ../../data_contract.rst:262 ../../data_contract.rst:314
+#: ../../data_contract.rst:173 ../../data_contract.rst:220
+#: ../../data_contract.rst:299 ../../data_contract.rst:355
 msgid "``_series``"
 msgstr "``_series``"
 
@@ -2437,8 +2477,8 @@ msgstr ""
 "``_plot_row`` 必须一致。"
 
 #: ../../data_contract.rst:92 ../../data_contract.rst:126
-#: ../../data_contract.rst:174 ../../data_contract.rst:218
-#: ../../data_contract.rst:263 ../../data_contract.rst:315
+#: ../../data_contract.rst:174 ../../data_contract.rst:221
+#: ../../data_contract.rst:300 ../../data_contract.rst:356
 msgid "``_ci_column``"
 msgstr "``_ci_column``"
 
@@ -2456,7 +2496,8 @@ msgstr ""
 "``(_plot_row, _ci_column)`` 目标只能出现一次。"
 
 #: ../../data_contract.rst:98 ../../data_contract.rst:124
-#: ../../data_contract.rst:175 ../../data_contract.rst:264
+#: ../../data_contract.rst:175 ../../data_contract.rst:222
+#: ../../data_contract.rst:301
 msgid "``_row_type``"
 msgstr "``_row_type``"
 
@@ -2473,8 +2514,8 @@ msgid "Required on every record and identical within one ``_plot_row``."
 msgstr "每条记录都需要，并且在一个 ``_plot_row`` 中相同。"
 
 #: ../../data_contract.rst:102 ../../data_contract.rst:128
-#: ../../data_contract.rst:176 ../../data_contract.rst:265
-#: ../../data_contract.rst:393
+#: ../../data_contract.rst:176 ../../data_contract.rst:223
+#: ../../data_contract.rst:302 ../../data_contract.rst:434
 msgid "``_indent``"
 msgstr "``_indent``"
 
@@ -2493,7 +2534,8 @@ msgid ""
 msgstr "每条记录都需要，并且在一个 ``_plot_row`` 中相同。尽管目前接受小数，但建议使用整数级别。"
 
 #: ../../data_contract.rst:108 ../../data_contract.rst:129
-#: ../../data_contract.rst:177 ../../data_contract.rst:266
+#: ../../data_contract.rst:177 ../../data_contract.rst:224
+#: ../../data_contract.rst:303
 msgid "``_is_summary``"
 msgstr "``_is_summary``"
 
@@ -2598,19 +2640,20 @@ msgid "study"
 msgstr "study"
 
 #: ../../data_contract.rst:168 ../../data_contract.rst:186
-#: ../../data_contract.rst:212 ../../data_contract.rst:258
-#: ../../data_contract.rst:274 ../../data_contract.rst:284
-#: ../../data_contract.rst:309
+#: ../../data_contract.rst:215 ../../data_contract.rst:246
+#: ../../data_contract.rst:258 ../../data_contract.rst:270
+#: ../../data_contract.rst:295 ../../data_contract.rst:311
+#: ../../data_contract.rst:321 ../../data_contract.rst:350
 msgid "estimate"
 msgstr "estimate"
 
-#: ../../data_contract.rst:169 ../../data_contract.rst:213
-#: ../../data_contract.rst:259 ../../data_contract.rst:310
+#: ../../data_contract.rst:169 ../../data_contract.rst:216
+#: ../../data_contract.rst:296 ../../data_contract.rst:351
 msgid "lower"
 msgstr "lower"
 
-#: ../../data_contract.rst:170 ../../data_contract.rst:214
-#: ../../data_contract.rst:260 ../../data_contract.rst:311
+#: ../../data_contract.rst:170 ../../data_contract.rst:217
+#: ../../data_contract.rst:297 ../../data_contract.rst:352
 msgid "upper"
 msgstr "upper"
 
@@ -2622,23 +2665,23 @@ msgstr "effect_text"
 msgid "Study A"
 msgstr "Study A"
 
-#: ../../data_contract.rst:179 ../../data_contract.rst:220
+#: ../../data_contract.rst:179 ../../data_contract.rst:239
 msgid "0.72"
 msgstr "0.72"
 
-#: ../../data_contract.rst:180 ../../data_contract.rst:221
+#: ../../data_contract.rst:180 ../../data_contract.rst:240
 msgid "0.58"
 msgstr "0.58"
 
-#: ../../data_contract.rst:181 ../../data_contract.rst:222
+#: ../../data_contract.rst:181 ../../data_contract.rst:241
 msgid "0.90"
 msgstr "0.90"
 
-#: ../../data_contract.rst:182
+#: ../../data_contract.rst:182 ../../data_contract.rst:242
 msgid "0.72 [0.58, 0.90]"
 msgstr "0.72 [0.58, 0.90]"
 
-#: ../../data_contract.rst:183 ../../data_contract.rst:224
+#: ../../data_contract.rst:183 ../../data_contract.rst:243
 msgid "os-a"
 msgstr "os-a"
 
@@ -2647,18 +2690,21 @@ msgid "Treatment"
 msgstr "治疗"
 
 #: ../../data_contract.rst:185 ../../data_contract.rst:196
-#: ../../data_contract.rst:226 ../../data_contract.rst:234
-#: ../../data_contract.rst:242
+#: ../../data_contract.rst:245 ../../data_contract.rst:257
+#: ../../data_contract.rst:269
 msgid "ci"
 msgstr "ci"
 
 #: ../../data_contract.rst:187 ../../data_contract.rst:198
-#: ../../data_contract.rst:275 ../../data_contract.rst:285
+#: ../../data_contract.rst:235 ../../data_contract.rst:312
+#: ../../data_contract.rst:322
 msgid "0"
 msgstr "0"
 
-#: ../../data_contract.rst:188 ../../data_contract.rst:276
-#: ../../data_contract.rst:286
+#: ../../data_contract.rst:188 ../../data_contract.rst:236
+#: ../../data_contract.rst:248 ../../data_contract.rst:260
+#: ../../data_contract.rst:272 ../../data_contract.rst:313
+#: ../../data_contract.rst:323
 msgid "FALSE"
 msgstr "FALSE"
 
@@ -2666,8 +2712,8 @@ msgstr "FALSE"
 msgid "Pooled result"
 msgstr "Pooled result"
 
-#: ../../data_contract.rst:190 ../../data_contract.rst:237
-#: ../../data_contract.rst:278 ../../data_contract.rst:325
+#: ../../data_contract.rst:190 ../../data_contract.rst:264
+#: ../../data_contract.rst:315 ../../data_contract.rst:366
 msgid "0.79"
 msgstr "0.79"
 
@@ -2696,98 +2742,121 @@ msgid "TRUE"
 msgstr "TRUE"
 
 #: ../../data_contract.rst:202
-msgid "Multiple series: one visual row per series"
-msgstr "多系列：每个系列一个视觉行"
+msgid "Multiple series: header row and indented children"
+msgstr "多系列：标题行和缩进子行"
 
 #: ../../data_contract.rst:204
 msgid ""
-"Use one record and one ``_plot_row`` for each series. In XLSX, merge the "
-"outcome and participant cells vertically across the three records; leave "
-"the CI-text cells unmerged so each line remains aligned with its series."
+"The recommended structure uses one ``header`` record for shared outcome-"
+"level data, followed by one indented visual row per series. Put the "
+"outcome, participant count, and other shared values on the header. Put "
+"the series label and its CI text on the child row with ``_indent=1``. "
+"This conventional hierarchy uses no merges and has the same structure in "
+"XLSX and CSV."
 msgstr ""
-"每个系列使用一条记录和一个 ``_plot_row``。在 XLSX 中，纵向合并三个记录中的结果和参与者单元格；保留 CI "
-"文本单元格不合并，以便每行与其系列保持对齐。"
+"推荐结构使用一个 ``header`` "
+"记录保存共享的结局层级数据，随后每个系列使用一个缩进视觉行。将结局、参与者数量和其他共享值填写在标题行；将系列标签及其 CI 文本填写在 "
+"``_indent=1`` 的子行。该常规层级不使用合并，在 XLSX 和 CSV 中具有相同结构。"
 
-#: ../../data_contract.rst:211 ../../data_contract.rst:257
-#: ../../data_contract.rst:308
-msgid "outcome"
-msgstr "outcome"
+#: ../../data_contract.rst:213
+msgid "label"
+msgstr "label"
 
-#: ../../data_contract.rst:215
+#: ../../data_contract.rst:214
+msgid "participants"
+msgstr "participants"
+
+#: ../../data_contract.rst:218
 msgid "series_ci_text"
 msgstr "series_ci_text"
 
-#: ../../data_contract.rst:219
-msgid "Overall survival (merge 3 rows)"
-msgstr "Overall survival (merge 3 rows)"
-
-#: ../../data_contract.rst:223
-msgid "A 0.72 [0.58, 0.90]"
-msgstr "A 0.72 [0.58, 0.90]"
-
 #: ../../data_contract.rst:225
+msgid "Overall survival"
+msgstr "Overall survival"
+
+#: ../../data_contract.rst:226
+msgid "1240"
+msgstr "1240"
+
+#: ../../data_contract.rst:231
+msgid "os-header"
+msgstr "os-header"
+
+#: ../../data_contract.rst:234
+msgid "header"
+msgstr "header"
+
+#: ../../data_contract.rst:237 ../../data_contract.rst:244
 msgid "Series A"
 msgstr "Series A"
 
-#: ../../data_contract.rst:228
-msgid "0.81"
-msgstr "0.81"
+#: ../../data_contract.rst:247 ../../data_contract.rst:259
+#: ../../data_contract.rst:271
+msgid "1"
+msgstr "1"
 
-#: ../../data_contract.rst:229 ../../data_contract.rst:279
-#: ../../data_contract.rst:326
-msgid "0.67"
-msgstr "0.67"
-
-#: ../../data_contract.rst:230
-msgid "0.98"
-msgstr "0.98"
-
-#: ../../data_contract.rst:231
-msgid "B 0.81 [0.67, 0.98]"
-msgstr "B 0.81 [0.67, 0.98]"
-
-#: ../../data_contract.rst:232
-msgid "os-b"
-msgstr "os-b"
-
-#: ../../data_contract.rst:233
+#: ../../data_contract.rst:249 ../../data_contract.rst:256
 msgid "Series B"
 msgstr "Series B"
 
-#: ../../data_contract.rst:236
-msgid "0.95"
-msgstr "0.95"
+#: ../../data_contract.rst:251
+msgid "0.81"
+msgstr "0.81"
 
-#: ../../data_contract.rst:238
-msgid "1.14"
-msgstr "1.14"
+#: ../../data_contract.rst:252 ../../data_contract.rst:316
+#: ../../data_contract.rst:367
+msgid "0.67"
+msgstr "0.67"
 
-#: ../../data_contract.rst:239
-msgid "C 0.95 [0.79, 1.14]"
-msgstr "C 0.95 [0.79, 1.14]"
+#: ../../data_contract.rst:253
+msgid "0.98"
+msgstr "0.98"
 
-#: ../../data_contract.rst:240
-msgid "os-c"
-msgstr "os-c"
+#: ../../data_contract.rst:254
+msgid "0.81 [0.67, 0.98]"
+msgstr "0.81 [0.67, 0.98]"
 
-#: ../../data_contract.rst:241
+#: ../../data_contract.rst:255
+msgid "os-b"
+msgstr "os-b"
+
+#: ../../data_contract.rst:261 ../../data_contract.rst:268
 msgid "Series C"
 msgstr "Series C"
 
-#: ../../data_contract.rst:244
+#: ../../data_contract.rst:263
+msgid "0.95"
+msgstr "0.95"
+
+#: ../../data_contract.rst:265
+msgid "1.14"
+msgstr "1.14"
+
+#: ../../data_contract.rst:266
+msgid "0.95 [0.79, 1.14]"
+msgstr "0.95 [0.79, 1.14]"
+
+#: ../../data_contract.rst:267
+msgid "os-c"
+msgstr "os-c"
+
+#: ../../data_contract.rst:274
 msgid ""
 "Do not create ``estimate_a/lower_a/upper_a`` and similar ``3*k`` wide-"
 "form fields. Do not combine several series' CI text into one multiline "
-"cell."
+"cell. Supported vertical XLSX merges are still accepted for specialized "
+"layouts; see `XLSX merge rules`_. They are not needed to express this "
+"parent-child hierarchy."
 msgstr ""
-"不要创建 ``estimate_a/lower_a/upper_a`` 和类似的 ``3*k`` 宽格式字段。不要将多个系列的 CI "
-"文本合并到一个多行单元格中。"
+"不要创建 ``estimate_a/lower_a/upper_a`` 及类似的 ``3*k`` 宽表字段。不要把多个系列的 CI "
+"文本合并到一个多行单元格中。特殊布局仍可使用受支持的 XLSX 纵向合并；参见 `XLSX merge "
+"rules`_。表达这种父子层级时不需要合并。"
 
-#: ../../data_contract.rst:248
+#: ../../data_contract.rst:280
 msgid "Multiple CI columns: duplicate records, share a visual row"
 msgstr "多 CI 列：复制记录并共享视觉行"
 
-#: ../../data_contract.rst:250
+#: ../../data_contract.rst:282
 msgid ""
 "One series shown in crude and adjusted CI columns uses two records. The "
 "records share ``_plot_row`` and ``_series`` but have different "
@@ -2796,51 +2865,71 @@ msgstr ""
 "同一系列若同时显示在未调整和调整后 CI 列中，需要使用两条记录。这两条记录共享 ``_plot_row`` 和 ``_series``，但 "
 "``_ci_column`` 值不同，因此会使用完全相同的 y 坐标。"
 
-#: ../../data_contract.rst:267 ../../data_contract.rst:277
+#: ../../data_contract.rst:286
+msgid ""
+"For a display value shared by those two source records, either fill it "
+"once and leave the other cell blank, or repeat the same value in both "
+"records. The renderer aggregates non-conflicting values within that "
+"``_plot_row``; it does not forward-fill source data."
+msgstr "对于由这两条源记录共享的显示值，可以只填写一次并将另一个单元格留空，也可以在两条记录中重复相同值。渲染器会在该 ``_plot_row`` 内聚合互不冲突的值，不会向前填充源数据。"
+
+#: ../../data_contract.rst:294 ../../data_contract.rst:349
+msgid "outcome"
+msgstr "outcome"
+
+#: ../../data_contract.rst:304 ../../data_contract.rst:314
 msgid "Readmission"
 msgstr "再入院"
 
-#: ../../data_contract.rst:268 ../../data_contract.rst:317
+#: ../../data_contract.rst:305 ../../data_contract.rst:358
 msgid "0.74"
 msgstr "0.74"
 
-#: ../../data_contract.rst:269 ../../data_contract.rst:318
+#: ../../data_contract.rst:306 ../../data_contract.rst:359
 msgid "0.63"
 msgstr "0.63"
 
-#: ../../data_contract.rst:270 ../../data_contract.rst:319
+#: ../../data_contract.rst:307 ../../data_contract.rst:360
 msgid "0.87"
 msgstr "0.87"
 
-#: ../../data_contract.rst:271 ../../data_contract.rst:281
-#: ../../data_contract.rst:321 ../../data_contract.rst:329
+#: ../../data_contract.rst:308 ../../data_contract.rst:318
+#: ../../data_contract.rst:362 ../../data_contract.rst:370
 msgid "readmit-a"
 msgstr "readmit-a"
 
-#: ../../data_contract.rst:272 ../../data_contract.rst:282
-#: ../../data_contract.rst:322 ../../data_contract.rst:330
+#: ../../data_contract.rst:309 ../../data_contract.rst:319
+#: ../../data_contract.rst:363 ../../data_contract.rst:371
 msgid "Cohort A"
 msgstr "Cohort A"
 
-#: ../../data_contract.rst:273 ../../data_contract.rst:323
-#: ../../data_contract.rst:339
+#: ../../data_contract.rst:310 ../../data_contract.rst:364
+#: ../../data_contract.rst:380
 msgid "ci_crude"
 msgstr "ci_crude"
 
-#: ../../data_contract.rst:280 ../../data_contract.rst:327
+#: ../../data_contract.rst:317 ../../data_contract.rst:368
 msgid "0.93"
 msgstr "0.93"
 
-#: ../../data_contract.rst:283 ../../data_contract.rst:331
-#: ../../data_contract.rst:347
+#: ../../data_contract.rst:320 ../../data_contract.rst:372
+#: ../../data_contract.rst:388
 msgid "ci_adjusted"
 msgstr "ci_adjusted"
 
-#: ../../data_contract.rst:289
+#: ../../data_contract.rst:326
 msgid "Multiple series, multiple CI columns, and trailing text"
 msgstr "多系列、多 CI 列与尾部文本"
 
-#: ../../data_contract.rst:291
+#: ../../data_contract.rst:328
+msgid ""
+"The following table is a specialized merged-layout example, not the "
+"recommended way to express a routine parent-child hierarchy. Use it only "
+"when a display value specifically needs to be centered across several "
+"source records."
+msgstr "下表是特殊的合并布局示例，不是表达常规父子层级的推荐方式。仅当某个显示值确实需要跨多条源记录居中时才使用这种方式。"
+
+#: ../../data_contract.rst:332
 msgid ""
 "Repeat the two-record pattern for each series, giving each series a "
 "different ``_plot_row``. A trailing display field such as ``cohort`` may "
@@ -2850,85 +2939,85 @@ msgstr ""
 "对每个系列重复两个记录模式，为每个系列提供不同的 ``_plot_row``。诸如 ``cohort`` "
 "之类的尾随显示字段可以合并到该可视行的两个记录上。当 ``columns`` 最后列出时，它在两个 CI 列之后呈现："
 
-#: ../../data_contract.rst:312
+#: ../../data_contract.rst:353
 msgid "cohort"
 msgstr "cohort"
 
-#: ../../data_contract.rst:316
+#: ../../data_contract.rst:357
 msgid "Readmission (merge 4 rows)"
 msgstr "Readmission (merge 4 rows)"
 
-#: ../../data_contract.rst:320
+#: ../../data_contract.rst:361
 msgid "Cohort A (merge 2 rows)"
 msgstr "Cohort A (merge 2 rows)"
 
-#: ../../data_contract.rst:333
+#: ../../data_contract.rst:374
 msgid "0.86"
 msgstr "0.86"
 
-#: ../../data_contract.rst:334
+#: ../../data_contract.rst:375
 msgid "0.73"
 msgstr "0.73"
 
-#: ../../data_contract.rst:335
+#: ../../data_contract.rst:376
 msgid "1.01"
 msgstr "1.01"
 
-#: ../../data_contract.rst:336
+#: ../../data_contract.rst:377
 msgid "Cohort B (merge 2 rows)"
 msgstr "Cohort B (merge 2 rows)"
 
-#: ../../data_contract.rst:337 ../../data_contract.rst:345
+#: ../../data_contract.rst:378 ../../data_contract.rst:386
 msgid "readmit-b"
 msgstr "readmit-b"
 
-#: ../../data_contract.rst:338 ../../data_contract.rst:346
+#: ../../data_contract.rst:379 ../../data_contract.rst:387
 msgid "Cohort B"
 msgstr "Cohort B"
 
-#: ../../data_contract.rst:341
+#: ../../data_contract.rst:382
 msgid "0.89"
 msgstr "0.89"
 
-#: ../../data_contract.rst:342
+#: ../../data_contract.rst:383
 msgid "0.75"
 msgstr "0.75"
 
-#: ../../data_contract.rst:343
+#: ../../data_contract.rst:384
 msgid "1.05"
 msgstr "1.05"
 
-#: ../../data_contract.rst:349
+#: ../../data_contract.rst:390
 msgid ""
 "This structure prevents independent per-CI series offsets: alignment is "
 "stated directly by ``(_plot_row, _series)`` in the data."
 msgstr "该结构可防止独立的每 CI 系列偏移：对齐由数据中的 ``(_plot_row, _series)`` 直接说明。"
 
-#: ../../data_contract.rst:353
+#: ../../data_contract.rst:394
 msgid "XLSX merge rules"
 msgstr "XLSX 合并规则"
 
-#: ../../data_contract.rst:355
+#: ../../data_contract.rst:396
 msgid ":func:`forestploter.read_forest_data` accepts a merge only when it is:"
 msgstr ":func:`forestploter.read_forest_data` 仅接受同时满足以下条件的合并："
 
-#: ../../data_contract.rst:357
+#: ../../data_contract.rst:398
 msgid "below the header;"
 msgstr "位于表头下方；"
 
-#: ../../data_contract.rst:358
+#: ../../data_contract.rst:399
 msgid "vertical and confined to one display-field column;"
 msgstr "纵向合并，且仅限于单个显示字段列；"
 
-#: ../../data_contract.rst:359
+#: ../../data_contract.rst:400
 msgid "at least two physical records tall; and"
 msgstr "纵向至少跨两条物理记录；并且"
 
-#: ../../data_contract.rst:360
+#: ../../data_contract.rst:401
 msgid "aligned with complete ``_plot_row`` record groups."
 msgstr "与完整的 ``_plot_row`` 记录组对齐。"
 
-#: ../../data_contract.rst:362
+#: ../../data_contract.rst:403
 msgid ""
 "Merges in statistics or controls, horizontal merges, rectangles, header "
 "crossings, and partial visual-row groups raise an error. Merged text is "
@@ -2936,11 +3025,11 @@ msgid ""
 "in that column."
 msgstr "统计字段或控制字段中的合并、横向合并、矩形区域、跨越表头以及仅覆盖部分视觉行组的合并都会引发错误。合并文本只在跨度中心绘制一次，并抑制该列内部的水平分隔线。"
 
-#: ../../data_contract.rst:368
+#: ../../data_contract.rst:409
 msgid "CSV compatibility"
 msgstr "CSV 兼容性"
 
-#: ../../data_contract.rst:370
+#: ../../data_contract.rst:411
 msgid ""
 "CSV uses exactly the same fields and record ordering. It cannot store "
 "merge ranges, so repeat shared display values explicitly. Normalized plot"
@@ -2950,101 +3039,125 @@ msgstr ""
 "CSV 使用完全相同的字段和记录排序。它无法存储合并范围，因此明确重复共享显示值。标准化绘图行、观测值、截断计数和 y "
 "位置在两种格式之间应保持相同。"
 
-#: ../../data_contract.rst:376
+#: ../../data_contract.rst:417
 msgid "Accepted versus recommended input"
 msgstr "当前接受范围与推荐格式"
 
-#: ../../data_contract.rst:378
+#: ../../data_contract.rst:419
 msgid "The validator intentionally accepts more than the template recommends:"
 msgstr "验证器有意接受超出模板建议的内容："
 
-#: ../../data_contract.rst:384
+#: ../../data_contract.rst:425
 msgid "Topic"
 msgstr "主题"
 
-#: ../../data_contract.rst:385
+#: ../../data_contract.rst:426
 msgid "Currently accepted"
 msgstr "当前接受范围"
 
-#: ../../data_contract.rst:386
+#: ../../data_contract.rst:427
 msgid "Recommended for maintainability"
 msgstr "为便于维护而推荐"
 
-#: ../../data_contract.rst:387
+#: ../../data_contract.rst:428
 msgid "Physical field order"
 msgstr "物理字段顺序"
 
-#: ../../data_contract.rst:388
+#: ../../data_contract.rst:429
 msgid "Any unique header order"
 msgstr "任意不重复的表头顺序"
 
-#: ../../data_contract.rst:389
+#: ../../data_contract.rst:430
 msgid "Display-before-CI, triple, trailing display, then six controls"
 msgstr "CI 前显示字段、三元组、CI 后显示字段，再加六个控制字段"
 
-#: ../../data_contract.rst:390
+#: ../../data_contract.rst:431
 msgid "``_plot_row`` type"
 msgstr "``_plot_row`` 型"
 
-#: ../../data_contract.rst:391
+#: ../../data_contract.rst:432
 msgid "Any nonblank hashable scalar"
 msgstr "任意非空且可哈希的标量"
 
-#: ../../data_contract.rst:392
+#: ../../data_contract.rst:433
 msgid "Stable descriptive string"
 msgstr "稳定且含义明确的字符串"
 
-#: ../../data_contract.rst:394
+#: ../../data_contract.rst:435
 msgid "Any finite number >= 0"
 msgstr "任意有限数 >= 0"
 
-#: ../../data_contract.rst:395
+#: ../../data_contract.rst:436
 msgid "Small non-negative integer"
 msgstr "较小的非负整数"
 
-#: ../../data_contract.rst:396
+#: ../../data_contract.rst:437
+msgid "Parent-child hierarchy"
+msgstr "父子层级"
+
+#: ../../data_contract.rst:438
+msgid "Header rows, indentation, and supported vertical display merges"
+msgstr "标题行、缩进和受支持的纵向显示单元格合并"
+
+#: ../../data_contract.rst:439
+msgid "Shared values on a header row; child labels on rows with ``_indent=1``"
+msgstr "共享值放在标题行；子标签放在 ``_indent=1`` 的行"
+
+#: ../../data_contract.rst:440
+msgid "Merge usage"
+msgstr "合并用法"
+
+#: ../../data_contract.rst:441
+msgid "Supported single-column vertical display merges"
+msgstr "受支持的单列纵向显示单元格合并"
+
+#: ../../data_contract.rst:442
+msgid "Optional for specialized centered displays, not routine hierarchy"
+msgstr "仅用于特殊的跨行居中显示，不用于常规层级结构"
+
+#: ../../data_contract.rst:443
 msgid "Display value type"
 msgstr "显示值类型"
 
-#: ../../data_contract.rst:397
+#: ../../data_contract.rst:444
 msgid "Any scalar with a useful string representation"
 msgstr "具有有用字符串表示形式的任何标量"
 
-#: ../../data_contract.rst:398
+#: ../../data_contract.rst:445
 msgid "Text for ``text``; numbers or formatted effect text for ``numeric``"
 msgstr "``text`` 的文本； ``numeric`` 的数字或格式化效应文本"
 
-#: ../../data_contract.rst:399
+#: ../../data_contract.rst:446
 msgid "Estimate-row triple"
 msgstr "估计行三元组"
 
-#: ../../data_contract.rst:400
+#: ../../data_contract.rst:447
 msgid "All present or all blank"
 msgstr "全部填写或全部留空"
 
-#: ../../data_contract.rst:401
+#: ../../data_contract.rst:448
 msgid "All present unless intentionally suppressing that interval"
 msgstr "全部存在，除非故意抑制该区间"
 
-#: ../../data_contract.rst:402
+#: ../../data_contract.rst:449
 msgid "File style"
 msgstr "文件样式"
 
-#: ../../data_contract.rst:403
+#: ../../data_contract.rst:450
 msgid "Styling is ignored"
 msgstr "样式会被忽略"
 
-#: ../../data_contract.rst:404
+#: ../../data_contract.rst:451
 msgid ""
 "Use the supplied template colors, widths, and validation only as data "
 "entry aids"
 msgstr "仅使用提供的模板颜色、宽度和验证作为数据输入辅助工具"
 
-#: ../../data_contract.rst:408
+#: ../../data_contract.rst:455
 msgid "Clipping semantics"
 msgstr "截断语义"
 
-#: ../../data_contract.rst:410
+#: ../../data_contract.rst:457
 msgid ""
 "An arrow replaces the vertical cap on every clipped side. An interval "
 "spanning both limits shows its visible line and two arrows, with no "
@@ -3181,6 +3294,21 @@ msgid ""
 "one-to-one with the corresponding series graphics."
 msgstr "三个独立的 CI 文本行放置在 CI 列之后，并与相应的系列图形一对一对齐。"
 
+#: ../../gallery.rst:53
+msgid ":doc:`gallery/13_comprehensive_showcase`"
+msgstr ":doc:`gallery/13_comprehensive_showcase`"
+
+#: ../../gallery.rst:54
+msgid ""
+"Three series aligned across crude and adjusted CI columns with paired "
+"value-only CI text, compact outcome headers and indented series children,"
+" two-sided clipping, shared no-effect lines, an additional target line in"
+" one panel, direction labels, and bottom legends. This case uses no "
+"merges."
+msgstr ""
+"三个系列在粗模型和校正模型 CI 列及对应的纯数值 CI "
+"文本中对齐；采用紧凑的结局标题行和缩进系列子行，同时展示双侧截断、两列共有的无效应线、仅一个面板显示的额外目标线、方向标签和底部图例。本例不使用合并单元格。"
+
 #: ../../gallery/01_single_series.rst:2
 msgid "01 · Single series with trailing effect text"
 msgstr "01 · 单系列及 CI 后效应文本"
@@ -3219,6 +3347,7 @@ msgstr "单系列森林图，CI 列后带有效应文本"
 #: ../../gallery/10_unicode_custom_theme.rst:16
 #: ../../gallery/11_boundary_precision.rst:16
 #: ../../gallery/12_multi_series_ci_text_rows.rst:17
+#: ../../gallery/13_comprehensive_showcase.rst:27
 msgid "Run the example"
 msgstr "运行示例"
 
@@ -3232,6 +3361,7 @@ msgstr "运行示例"
 #: ../../gallery/10_unicode_custom_theme.rst:28
 #: ../../gallery/11_boundary_precision.rst:28
 #: ../../gallery/12_multi_series_ci_text_rows.rst:29
+#: ../../gallery/13_comprehensive_showcase.rst:39
 msgid "Plot function used by the gallery and tests"
 msgstr "图库与测试共用的绘图函数"
 
@@ -3514,6 +3644,53 @@ msgstr ""
 msgid "Three series with independent CI text rows after the plot"
 msgstr "绘图后具有独立 CI 文本行的三个系列"
 
+#: ../../gallery/13_comprehensive_showcase.rst:2
+msgid "13 · Comprehensive two-column, three-series showcase"
+msgstr "13 · 双列、三系列综合展示"
+
+#: ../../gallery/13_comprehensive_showcase.rst:4
+msgid ""
+"This synthetic example combines the package's main input and rendering "
+"features in one figure. Each outcome is a bold header row containing its "
+"shared participant count and note; three programs appear below it as "
+"indented child rows. Every child has matching CI text in both the crude "
+"and adjusted panels. This workbook deliberately uses no merged cells. "
+"Lower- and upper-bound clipping are both visible. Both panels retain the "
+"no-effect reference line, while an additional target line appears in the "
+"adjusted panel only. Direction labels and both the series and line "
+"legends occupy the bottom region."
+msgstr ""
+"该合成示例在一张图中组合了本包的主要输入与渲染能力。每个结局使用一个加粗标题行，其中填写共享的参与者数量和注释；三个方案以缩进子行列在其下。每个子行在粗模型和校正模型面板中都有对应的"
+" CI "
+"文本。本工作簿特意不使用合并单元格。图中同时显示下界和上界截断。两个面板都保留无效应参考线，额外目标线只出现在校正模型面板。方向标签、系列图例和线型图例均位于底部区域。"
+
+#: ../../gallery/13_comprehensive_showcase.rst:13
+msgid ""
+"Rows use compact spacing, and CI text follows the conventional ``0.68 "
+"[0.42, 0.92]`` form. Indented child labels, marker styling, and the "
+"legend identify each series instead of repeating its name in every CI-"
+"text cell."
+msgstr ""
+"各行采用紧凑间距，CI 文本使用常规的 ``0.68 [0.42, 0.92]`` 格式。缩进子行标签、标记样式和图例共同标识各系列，无需在每个 "
+"CI 文本单元格中重复系列名称。"
+
+#: ../../gallery/13_comprehensive_showcase.rst:18
+msgid ""
+":download:`XLSX <../../tests/data/13_comprehensive_showcase.xlsx>` · "
+":download:`CSV <../../tests/data/13_comprehensive_showcase.csv>` · "
+":download:`PNG <../../tests/artifacts/13_comprehensive_showcase.png>`"
+msgstr ""
+":download:`XLSX <../../tests/data/13_comprehensive_showcase.xlsx>` · "
+":download:`CSV <../../tests/data/13_comprehensive_showcase.csv>` · "
+":download:`PNG <../../tests/artifacts/13_comprehensive_showcase.png>`"
+
+#: ../../gallery/13_comprehensive_showcase.rst:22
+msgid ""
+"Outcome header rows and three indented series aligned across two forest-"
+"plot columns with matching CI text, clipping arrows, shared no-effect "
+"lines, one additional target line, direction labels, and bottom legends"
+msgstr "结局标题行及其三个缩进系列子行在两个森林图列和对应 CI 文本中对齐，并展示截断箭头、两列共有的无效应线、单列额外目标线、方向标签和底部图例"
+
 #: ../../getting_started.rst:2
 msgid "Getting started"
 msgstr "快速入门"
@@ -3532,9 +3709,8 @@ msgid ""
 "pip install --pre forestploter``. Contributors can instead install an "
 "editable checkout with ``python -m pip install -e .``."
 msgstr ""
-"对于候选版本，请使用 ``python -m pip install --pre forestploter`` 显式允许"
-"预发行版本。贡献者也可以使用 ``python -m pip install -e .`` 安装可编辑的"
-"源码检出。"
+"对于候选版本，请使用 ``python -m pip install --pre forestploter`` "
+"显式允许预发行版本。贡献者也可以使用 ``python -m pip install -e .`` 安装可编辑的源码检出。"
 
 #: ../../getting_started.rst:17
 msgid ""
@@ -3605,9 +3781,9 @@ msgstr "查阅 :doc:`data_contract`，了解 XLSX 合并、行填写模板和多
 
 #: ../../getting_started.rst:116
 msgid ""
-"Browse :doc:`gallery` for twelve downloadable XLSX/CSV/PNG cases with the"
-" exact plotting code."
-msgstr "浏览 :doc:`gallery`，获取 12 个可下载的 XLSX/CSV/PNG 案例，其中包含准确的绘图代码。"
+"Browse :doc:`gallery` for thirteen downloadable XLSX/CSV/PNG cases with "
+"the exact plotting code."
+msgstr "浏览 :doc:`gallery`，获取 13 个可下载的 XLSX/CSV/PNG 案例及其准确绘图代码。"
 
 #: ../../getting_started.rst:118
 msgid ""
@@ -3717,3 +3893,44 @@ msgstr ":ref:`search`"
 #~ "Install the package and runtime "
 #~ "dependencies from the project directory:"
 #~ msgstr "从项目目录安装包和运行时依赖项："
+
+#~ msgid ""
+#~ "Enter only one statistical triple per"
+#~ " estimate record. For three series, "
+#~ "use three records and normally three "
+#~ "different ``_plot_row`` values. A shared "
+#~ "outcome cell may be vertically merged"
+#~ " across those records, while an "
+#~ "unmerged effect-text field can contain"
+#~ " one value per series; every text "
+#~ "row is then exactly aligned with "
+#~ "its CI. To show the same series"
+#~ " in two CI columns, duplicate its "
+#~ "record, use a different ``_ci_column``, "
+#~ "and retain the same ``_plot_row``. The"
+#~ " two plotted intervals will share one"
+#~ " y position."
+#~ msgstr ""
+#~ "每条 ``estimate`` 记录只填写一个统计三元组。若有三个系列，请使用三条记录，并通常分配三个不同的 "
+#~ "``_plot_row`` "
+#~ "值。共享的结局单元格可以跨这些记录纵向合并；未合并的效应文本字段则可为每个系列各填一个值，使每行文本与其 CI "
+#~ "精确对齐。若要在两个 CI 列中显示同一系列，请复制记录，使用不同的 "
+#~ "``_ci_column``，并保留相同的 ``_plot_row``；两个区间将共享同一 y 位置。"
+
+#~ msgid "Multiple series: one visual row per series"
+#~ msgstr "多系列：每个系列一个视觉行"
+
+#~ msgid ""
+#~ "Use one record and one ``_plot_row`` "
+#~ "for each series. In XLSX, merge "
+#~ "the outcome and participant cells "
+#~ "vertically across the three records; "
+#~ "leave the CI-text cells unmerged "
+#~ "so each line remains aligned with "
+#~ "its series."
+#~ msgstr ""
+#~ "每个系列使用一条记录和一个 ``_plot_row``。在 XLSX "
+#~ "中，纵向合并三个记录中的结果和参与者单元格；保留 CI 文本单元格不合并，以便每行与其系列保持对齐。"
+
+#~ msgid "A 0.72 [0.58, 0.90]"
+#~ msgstr "A 0.72 [0.58, 0.90]"

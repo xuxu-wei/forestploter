@@ -28,14 +28,14 @@
 - 列角色、对齐、区间、记录连续性、跨列唯一性、公式缓存和合并边界均有验证。
 - 15 个公开对象具备 pandas/NumPy 风格 docstring；Sphinx API、快速入门、长表
   契约、迁移说明和图库可从当前源码自动构建。
-- 十二组回归用例均提供同名 XLSX、CSV 和 PNG；另有带 `Forest`/`README` 的
+- 十三组回归用例均提供同名 XLSX、CSV 和 PNG；另有带 `Forest`/`README` 的
   XLSX 模板。
 
 ### v0.1 验收标准
 
-1. pytest 零失败、零 `xfail`；当前发布候选基线为 `107 passed`。
-2. 十二组 XLSX 全部渲染，十二组 CSV 的视觉行、观察 y 和截断计数与 XLSX 等价。
-3. PNG 与 SVG 均可导出；12 张同名 PNG 完成人工核对。
+1. pytest 零失败、零 `xfail`；当前发布候选基线为 `113 passed`。
+2. 十三组 XLSX 全部渲染，十三组 CSV 的视觉行、观察 y 和截断计数与 XLSX 等价。
+3. PNG 与 SVG 均可导出；13 张同名 PNG 完成人工核对。
 4. 严格 HTML 构建和 doctest 均零警告。
 5. XLSX 模板两张工作表可读，合并结构和 README 说明完整。
 6. 文档站点桌面与窄屏检查无横向溢出、断链或不可读导航。

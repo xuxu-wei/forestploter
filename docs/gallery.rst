@@ -50,6 +50,12 @@ the renderer and regression tests. On every detail page, ``df`` means the
       Three independent CI-text rows placed after the CI column and aligned
       one-to-one with the corresponding series graphics.
 
+   :doc:`gallery/13_comprehensive_showcase`
+      Three series aligned across crude and adjusted CI columns with paired
+      value-only CI text, compact outcome headers and indented series children,
+      two-sided clipping, shared no-effect lines, an additional target line in
+      one panel, direction labels, and bottom legends. This case uses no merges.
+
 .. toctree::
    :hidden:
 
@@ -65,3 +71,4 @@ the renderer and regression tests. On every detail page, ``df`` means the
    gallery/10_unicode_custom_theme
    gallery/11_boundary_precision
    gallery/12_multi_series_ci_text_rows
+   gallery/13_comprehensive_showcase

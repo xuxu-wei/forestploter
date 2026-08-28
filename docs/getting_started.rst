@@ -113,7 +113,7 @@ Next steps
 
 * Read :doc:`data_contract` for XLSX merges, row recipes, and multi-CI
   alignment.
-* Browse :doc:`gallery` for twelve downloadable XLSX/CSV/PNG cases with the
+* Browse :doc:`gallery` for thirteen downloadable XLSX/CSV/PNG cases with the
   exact plotting code.
 * Consult :func:`forestploter.read_forest_data` and
   :func:`forestploter.forest` for API details.

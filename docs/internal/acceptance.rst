@@ -40,7 +40,7 @@
    * - C. 渲染与布局
      - 合并单元格居中、内部横线抑制、越界箭头、表头/底部图例和布局诊断
      - artist 结构、几何边界、截断计数、图例范围及 PNG/SVG 导出测试
-     - 桌面与窄屏文档页面可读；十二张回归图无视觉错位
+     - 桌面与窄屏文档页面可读；十三张回归图无视觉错位
    * - D. 文档与交付
      - pandas/NumPy 风格 docstring、Sphinx API、数据契约、迁移说明、图库和路线图
      - pytest、严格 Sphinx HTML、doctest、wheel 安装烟雾测试全部通过
@@ -79,10 +79,10 @@
      - 分别测试指定任意列的表头图例、指定列的底部图例及跨全部活动 CI 列的底部图例
      - 图例边界位于目标列或目标列组内，多图例自动堆叠且不重叠
    * - CSV 与 XLSX 兼容
-     - 十二组同名输入逐组比较 ``plot_row_ids``、观察位置和截断计数
+     - 十三组同名输入逐组比较 ``plot_row_ids``、观察位置和截断计数
      - 规范化绘图语义相同；CSV 不推断合并或前向填充
    * - 数据、图片名称可追踪
-     - 检查十二组 ``.xlsx``、``.csv``、``.png`` 的同名映射
+     - 检查十三组 ``.xlsx``、``.csv``、``.png`` 的同名映射
      - 每个用例三个产物具有同一文件名主体且数量一一对应
    * - API 文档随版本更新
      - 严格构建 Sphinx ``autodoc``/``autosummary`` 并核对公开对象清单
@@ -100,18 +100,20 @@
    python -m sphinx -b doctest docs docs/_build/doctest -W
 
 pytest 必须零失败、零 ``xfail``。严格 HTML 构建必须零警告；doctest 必须全部
-通过。十二组规范输入都要成功导出 PNG 和 SVG；生成文件不得覆盖输入工作簿。
+通过。十三组规范输入都要成功导出 PNG 和 SVG；生成文件不得覆盖输入工作簿。
 
 人工视觉清单
 ------------
 
 自动断言通过后，再打开 ``docs/_build/html/index.html`` 完成以下检查：
 
-#. 桌面宽度约 1440 px：侧栏、站内导航、API 字段列表和十二张图库图片完整可读。
+#. 桌面宽度约 1440 px：侧栏、站内导航、API 字段列表和十三张图库图片完整可读。
 #. 窄屏宽度约 390 px：菜单可展开，代码块和宽表可局部横向滚动，页面本身不产生
    持续横向溢出。
-#. 重点核对 ``04_clipping_stress``、``08_two_by_two_ci_columns`` 和
-   ``12_multi_series_ci_text_rows``：箭头端帽、多列共线和逐系列文字行均符合预期。
+#. 重点核对 ``04_clipping_stress``、``08_two_by_two_ci_columns``、
+   ``12_multi_series_ci_text_rows`` 和 ``13_comprehensive_showcase``：箭头端帽、
+   多列共线、逐系列文字行、父标题与缩进子行层级、单列额外目标线、方向指示和
+   底部图例均符合预期；第 13 例不得包含合并单元格。
 #. 打开 ``tests/data/forest_data_template.xlsx``，确认 README 对三元数、
    ``_plot_row``、合法合并、空白值和公式缓存的说明足以独立完成首次录入。
 

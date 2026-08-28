@@ -198,17 +198,20 @@ itself has no physical source field.
      - 0
      - TRUE
 
-Multiple series: one visual row per series
-------------------------------------------
+Multiple series: header row and indented children
+-------------------------------------------------
 
-Use one record and one ``_plot_row`` for each series. In XLSX, merge the
-outcome and participant cells vertically across the three records; leave the
-CI-text cells unmerged so each line remains aligned with its series.
+The recommended structure uses one ``header`` record for shared outcome-level
+data, followed by one indented visual row per series. Put the outcome,
+participant count, and other shared values on the header. Put the series label
+and its CI text on the child row with ``_indent=1``. This conventional hierarchy
+uses no merges and has the same structure in XLSX and CSV.
 
 .. list-table::
    :header-rows: 1
 
-   * - outcome
+   * - label
+     - participants
      - estimate
      - lower
      - upper
@@ -216,33 +219,62 @@ CI-text cells unmerged so each line remains aligned with its series.
      - ``_plot_row``
      - ``_series``
      - ``_ci_column``
-   * - Overall survival (merge 3 rows)
+     - ``_row_type``
+     - ``_indent``
+     - ``_is_summary``
+   * - Overall survival
+     - 1240
+     -
+     -
+     -
+     -
+     - os-header
+     -
+     -
+     - header
+     - 0
+     - FALSE
+   * - Series A
+     -
      - 0.72
      - 0.58
      - 0.90
-     - A 0.72 [0.58, 0.90]
+     - 0.72 [0.58, 0.90]
      - os-a
      - Series A
      - ci
-   * -
+     - estimate
+     - 1
+     - FALSE
+   * - Series B
+     -
      - 0.81
      - 0.67
      - 0.98
-     - B 0.81 [0.67, 0.98]
+     - 0.81 [0.67, 0.98]
      - os-b
      - Series B
      - ci
-   * -
+     - estimate
+     - 1
+     - FALSE
+   * - Series C
+     -
      - 0.95
      - 0.79
      - 1.14
-     - C 0.95 [0.79, 1.14]
+     - 0.95 [0.79, 1.14]
      - os-c
      - Series C
      - ci
+     - estimate
+     - 1
+     - FALSE
 
 Do not create ``estimate_a/lower_a/upper_a`` and similar ``3*k`` wide-form
 fields. Do not combine several series' CI text into one multiline cell.
+Supported vertical XLSX merges are still accepted for specialized layouts; see
+`XLSX merge rules`_. They are not needed to express this parent-child hierarchy.
 
 Multiple CI columns: duplicate records, share a visual row
 ----------------------------------------------------------
@@ -250,6 +282,11 @@ Multiple CI columns: duplicate records, share a visual row
 One series shown in crude and adjusted CI columns uses two records. The records
 share ``_plot_row`` and ``_series`` but have different ``_ci_column`` values.
 They therefore share the exact same y coordinate.
+
+For a display value shared by those two source records, either fill it once and
+leave the other cell blank, or repeat the same value in both records. The
+renderer aggregates non-conflicting values within that ``_plot_row``; it does
+not forward-fill source data.
 
 .. list-table::
    :header-rows: 1
@@ -287,6 +324,10 @@ They therefore share the exact same y coordinate.
 
 Multiple series, multiple CI columns, and trailing text
 -------------------------------------------------------
+
+The following table is a specialized merged-layout example, not the recommended
+way to express a routine parent-child hierarchy. Use it only when a display
+value specifically needs to be centered across several source records.
 
 Repeat the two-record pattern for each series, giving each series a different
 ``_plot_row``. A trailing display field such as ``cohort`` may be merged over
@@ -393,6 +434,12 @@ The validator intentionally accepts more than the template recommends:
    * - ``_indent``
      - Any finite number >= 0
      - Small non-negative integer
+   * - Parent-child hierarchy
+     - Header rows, indentation, and supported vertical display merges
+     - Shared values on a header row; child labels on rows with ``_indent=1``
+   * - Merge usage
+     - Supported single-column vertical display merges
+     - Optional for specialized centered displays, not routine hierarchy
    * - Display value type
      - Any scalar with a useful string representation
      - Text for ``text``; numbers or formatted effect text for ``numeric``

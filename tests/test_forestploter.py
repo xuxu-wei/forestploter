@@ -112,6 +112,15 @@ EXPECTED_FILE_HEADERS = {
         "series_ci_text",
         *CONTROL_FIELDS,
     ),
+    "comprehensive_showcase": (
+        "label",
+        "participants",
+        *STATISTIC_FIELDS,
+        "crude_ci_text",
+        "adjusted_ci_text",
+        "note",
+        *CONTROL_FIELDS,
+    ),
 }
 EXPECTED_MERGE_COUNTS = {
     "single_series": 0,
@@ -126,6 +135,7 @@ EXPECTED_MERGE_COUNTS = {
     "unicode_custom_theme": 0,
     "boundary_precision": 0,
     "multi_series_ci_text_rows": 14,
+    "comprehensive_showcase": 0,
 }
 
 
@@ -413,6 +423,259 @@ def test_two_by_two_case_uses_24_records_12_rows_and_cross_ci_alignment() -> Non
             assert observations[0][2] == pytest.approx(observations[1][2])
     finally:
         plt.close(result.figure)
+
+
+def test_comprehensive_showcase_combines_hierarchy_alignment_clipping_and_legends() -> None:
+    data = load_case_data("comprehensive_showcase")
+    result = build_case("comprehensive_showcase", data)
+    try:
+        assert tuple(item.key for item in result.geometry) == (
+            "label",
+            "participants",
+            "ci_crude",
+            "crude_ci_text",
+            "ci_adjusted",
+            "adjusted_ci_text",
+            "note",
+        )
+        assert len(data.frame) == 35
+        assert len(result.row_centers) == 20
+        assert result.figure.get_size_inches()[1] < 8.0
+        assert set(data.frame["_series"].dropna()) == {
+            "Integrated care",
+            "Digital support",
+            "Usual care",
+        }
+
+        header_records = data.frame.loc[data.frame["_row_type"] == "header"]
+        child_records = data.frame.loc[data.frame["_row_type"] != "header"]
+        assert len(header_records) == 5
+        assert header_records["_plot_row"].nunique() == 5
+        assert header_records[["estimate", "lower", "upper"]].isna().all().all()
+        assert header_records[["_series", "_ci_column"]].isna().all().all()
+        assert header_records["_indent"].eq(0).all()
+        assert header_records["_is_summary"].eq(False).all()
+        assert header_records[["label", "participants", "note"]].notna().all().all()
+        assert len(child_records) == 30
+        assert child_records["_plot_row"].nunique() == 15
+        assert child_records["_indent"].eq(1).all()
+        assert child_records[["participants", "note"]].isna().all().all()
+        assert data.frame["_row_type"].value_counts().to_dict() == {
+            "estimate": 24,
+            "summary": 6,
+            "header": 5,
+        }
+        visual_rows = data.frame.drop_duplicates("_plot_row", keep="first")
+        assert visual_rows.groupby("_row_type", sort=False).size().to_dict() == {
+            "header": 5,
+            "estimate": 12,
+            "summary": 3,
+        }
+        assert visual_rows["_row_type"].tolist() == (
+            ["header", "estimate", "estimate", "estimate"] * 4
+            + ["header", "summary", "summary", "summary"]
+        )
+        assert data.frame.groupby("_plot_row", sort=False).size().tolist() == [1, 2, 2, 2] * 5
+        assert child_records.loc[child_records["_ci_column"] == "ci_crude", "label"].notna().all()
+        assert child_records.loc[child_records["_ci_column"] == "ci_adjusted", "label"].isna().all()
+        for field in ("crude_ci_text", "adjusted_ci_text"):
+            ci_text = data.frame[field].dropna().astype(str)
+            assert len(ci_text) == 15
+            assert ci_text.str.match(r"^\d+\.\d{2} \[\d+\.\d{2}, \d+\.\d{2}\]$").all()
+        assert (
+            data.frame.loc[data.frame["crude_ci_text"].notna(), "_ci_column"].eq("ci_crude").all()
+        )
+        assert (
+            data.frame.loc[data.frame["adjusted_ci_text"].notna(), "_ci_column"]
+            .eq("ci_adjusted")
+            .all()
+        )
+
+        grouped: dict[str, list[tuple[str, str, float]]] = {}
+        for plot_row, series, ci_column, y in result.layout_diagnostics.observation_positions:
+            grouped.setdefault(plot_row, []).append((series, ci_column, y))
+        assert len(grouped) == 15
+        for observations in grouped.values():
+            assert len(observations) == 2
+            assert {item[1] for item in observations} == {"ci_crude", "ci_adjusted"}
+            assert len({item[0] for item in observations}) == 1
+            assert observations[0][2] == pytest.approx(observations[1][2])
+
+        expected_y = {observations[0][2] for observations in grouped.values()}
+        for field in ("crude_ci_text", "adjusted_ci_text"):
+            artists = [
+                artist
+                for artist in result.axes.texts
+                if (artist.get_gid() or "").startswith(f"cell-text:{field}:")
+            ]
+            assert len(artists) == 15
+            assert sorted(artist.get_position()[1] for artist in artists) == pytest.approx(
+                sorted(expected_y)
+            )
+
+        assert data.spans == ()
+        header_label = next(
+            artist for artist in result.axes.texts if artist.get_gid() == "cell-text:label:c13-h001"
+        )
+        child_label = next(
+            artist
+            for artist in result.axes.texts
+            if artist.get_gid() == "cell-text:label:c13-r001-integrated"
+        )
+        assert child_label.get_position()[0] > header_label.get_position()[0]
+        assert result.clipped_intervals == 9
+        gids = {
+            artist.get_gid()
+            for artist in [*result.axes.lines, *result.axes.patches, *result.axes.collections]
+            if artist.get_gid()
+        }
+        assert not any(
+            (artist.get_gid() or "").startswith("merged-") for artist in result.axes.texts
+        )
+        left_arrows = {gid for gid in gids if gid.endswith(":arrow:left")}
+        right_arrows = {gid for gid in gids if gid.endswith(":arrow:right")}
+        assert len(left_arrows) == 3
+        assert len(right_arrows) == 6
+        for arrow_gid in left_arrows | right_arrows:
+            prefix, side = arrow_gid.rsplit(":arrow:", maxsplit=1)
+            assert f"{prefix}:cap:{side}" not in gids
+
+        assert {"reference-line:ci_crude", "reference-line:ci_adjusted"} <= gids
+        assert "ideal-line:ci_crude" not in gids
+        assert "ideal-line:ci_adjusted" in gids
+        assert [item[0] for item in result.layout_diagnostics.legend_bounds] == [
+            "series",
+            "reference",
+        ]
+        assert all(item[4] < 0 for item in result.layout_diagnostics.legend_bounds)
+        labels = {artist.get_text() for artist in result.axes.texts}
+        assert {"Favours integrated care", "Favours usual care"} <= labels
+    finally:
+        plt.close(result.figure)
+
+
+def test_ideal_line_columns_default_filter_and_validation() -> None:
+    data = load_case_data("dual_ci_columns")
+    columns = (
+        ForestColumn("endpoint", "Endpoint", "text", 2.5),
+        ForestColumn("n", "N", "numeric", 0.6, "right"),
+        ForestColumn("ci_30d", "30-day", "ci", 3.0, "center"),
+        ForestColumn("ci_90d", "90-day", "ci", 3.0, "center"),
+    )
+    default_result = forest(
+        data,
+        columns=columns,
+        xlim=(0.4, 1.6),
+        ref_line=1.0,
+        ideal_line=0.75,
+    )
+    filtered_result = forest(
+        data,
+        columns=columns,
+        xlim=(0.4, 1.6),
+        ref_line=1.0,
+        ideal_line=0.75,
+        ideal_line_columns=("ci_90d",),
+    )
+    suppressed_result = forest(
+        data,
+        columns=columns,
+        xlim=(0.4, 1.6),
+        ref_line=1.0,
+        ideal_line=0.75,
+        ideal_line_columns=(),
+    )
+    try:
+        default_gids = {line.get_gid() for line in default_result.axes.lines if line.get_gid()}
+        filtered_gids = {line.get_gid() for line in filtered_result.axes.lines if line.get_gid()}
+        suppressed_gids = {
+            line.get_gid() for line in suppressed_result.axes.lines if line.get_gid()
+        }
+        assert {"reference-line:ci_30d", "reference-line:ci_90d"} <= default_gids
+        assert {"ideal-line:ci_30d", "ideal-line:ci_90d"} <= default_gids
+        assert {"reference-line:ci_30d", "reference-line:ci_90d"} <= filtered_gids
+        assert "ideal-line:ci_30d" not in filtered_gids
+        assert "ideal-line:ci_90d" in filtered_gids
+        assert not {gid for gid in suppressed_gids if gid.startswith("ideal-line:")}
+    finally:
+        plt.close(default_result.figure)
+        plt.close(filtered_result.figure)
+        plt.close(suppressed_result.figure)
+
+    with pytest.raises(ValueError, match="not a string"):
+        forest(
+            data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ideal_line=0.75,
+            ideal_line_columns="ci_30d",
+        )
+    with pytest.raises(ValueError, match="role='ci'"):
+        forest(
+            data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ideal_line=0.75,
+            ideal_line_columns=("endpoint",),
+        )
+    with pytest.raises(ValueError, match="role='ci'"):
+        forest(
+            data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ideal_line=0.75,
+            ideal_line_columns=("unknown",),
+        )
+    with pytest.raises(ValueError, match="requires ideal_line"):
+        forest(
+            data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ideal_line_columns=("ci_30d",),
+        )
+    with pytest.raises(ValueError, match="duplicate"):
+        forest(
+            data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ideal_line=0.75,
+            ideal_line_columns=("ci_30d", "ci_30d"),
+        )
+    with pytest.raises(ValueError, match="non-empty strings"):
+        forest(
+            data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ideal_line=0.75,
+            ideal_line_columns=("",),
+        )
+    with pytest.raises(ValueError, match="non-empty strings"):
+        forest(
+            data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ideal_line=0.75,
+            ideal_line_columns=(1,),  # type: ignore[arg-type]
+        )
+
+    inactive_data = data.frame.loc[data.frame["_ci_column"] == "ci_30d"].reset_index(drop=True)
+    with pytest.raises(ValueError, match="active columns"):
+        forest(
+            inactive_data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ideal_line=0.75,
+            ideal_line_columns=("ci_90d",),
+        )
+    with pytest.raises(ValueError, match="active ideal-line target"):
+        forest(
+            data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ideal_line=0.75,
+            ideal_line_columns=(),
+            reference_legend=ForestReferenceLegendSpec(ideal_label="Target"),
+        )
 
 
 def test_dual_ci_columns_share_one_y_per_endpoint() -> None:

@@ -365,6 +365,74 @@ def plot_multi_series_ci_text_rows(df: ForestInput) -> ForestPlotResult:
     )
 
 
+def plot_comprehensive_showcase(df: ForestInput) -> ForestPlotResult:
+    """Plot case 13: compact hierarchy with two CI columns and three series."""
+
+    columns = (
+        ForestColumn("label", "Outcome / program", "text", 2.05),
+        ForestColumn("participants", "N", "numeric", 0.55, "right"),
+        ForestColumn("ci_crude", "Crude model\nrisk ratio", "ci", 2.65, "center"),
+        ForestColumn(
+            "crude_ci_text",
+            "Crude RR [95% CI]",
+            "numeric",
+            1.45,
+            "right",
+        ),
+        ForestColumn("ci_adjusted", "Adjusted model\nrisk ratio", "ci", 2.65, "center"),
+        ForestColumn(
+            "adjusted_ci_text",
+            "Adjusted RR [95% CI]",
+            "numeric",
+            1.45,
+            "right",
+        ),
+        ForestColumn("note", "Outcome-level note", "text", 1.75),
+    )
+    styles = {
+        "Integrated care": ForestSeriesStyle("Integrated care", "#0072B2", marker="s"),
+        "Digital support": ForestSeriesStyle("Digital support", "#D55E00", marker="o"),
+        "Usual care": ForestSeriesStyle("Usual care", "#009E73", marker="^"),
+    }
+    return forest(
+        df,
+        columns=columns,
+        ref_line=1.0,
+        ideal_line=0.75,
+        ideal_line_columns=("ci_adjusted",),
+        xlim=(0.5, 1.5),
+        ticks_at=(0.5, 0.75, 1.0, 1.25, 1.5),
+        arrow_lab=("Favours integrated care", "Favours usual care"),
+        title="Comprehensive showcase: three programs across two models",
+        figure_width=16.5,
+        row_height=0.21,
+        series_styles=styles,
+        legend=ForestLegendSpec(location="bottom", ncol=3),
+        reference_legend=ForestReferenceLegendSpec(
+            reference_label="No effect (RR = 1)",
+            ideal_label="Target (RR = 0.75; adjusted panel only)",
+            location="bottom",
+            ncol=2,
+        ),
+        theme=ForestTheme(
+            base_font_size=8.2,
+            header_fill="#E7F0F7",
+            alternate_fill="#F7FAFC",
+            group_fill="#EDF3F7",
+            grid_color="#D2DCE6",
+            reference_color="#3D4653",
+            ideal_color="#8C5A00",
+            show_vertical_grid=True,
+        ),
+        table_layout=ForestTableLayoutSpec(
+            auto_width=True,
+            auto_wrap_headers=True,
+            max_header_lines=3,
+            max_figure_width=18.5,
+        ),
+    )
+
+
 GALLERY_FUNCTIONS = {
     "single_series": plot_single_series,
     "multi_series": plot_multi_series,
@@ -378,6 +446,7 @@ GALLERY_FUNCTIONS = {
     "unicode_custom_theme": plot_unicode_custom_theme,
     "boundary_precision": plot_boundary_precision,
     "multi_series_ci_text_rows": plot_multi_series_ci_text_rows,
+    "comprehensive_showcase": plot_comprehensive_showcase,
 }
 
 

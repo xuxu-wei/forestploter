@@ -503,6 +503,7 @@ def forest(
     columns: Sequence[ForestColumn],
     ref_line: float = 0.0,
     ideal_line: float | None = None,
+    ideal_line_columns: Sequence[str] | None = None,
     xlim: tuple[float, float] | None = None,
     ticks_at: Sequence[float] | None = None,
     arrow_lab: tuple[str, str] | None = None,
@@ -531,7 +532,13 @@ def forest(
     ref_line : float, default 0
         Reference line shared by all CI columns.
     ideal_line : float, optional
-        Optional ideal-value line shared by all CI columns.
+        Optional additional ideal or target line shared by the selected CI
+        columns.
+    ideal_line_columns : sequence of str, optional
+        Active CI-column keys in which to draw ``ideal_line``. ``None``
+        preserves the default behavior of drawing it in every active CI
+        column; an empty sequence suppresses the additional line and cannot
+        be paired with an ideal-line legend label. Requires ``ideal_line``.
     xlim : tuple of float, optional
         Shared linear range ``(minimum, maximum)``. When omitted, it is derived
         from all nonblank intervals.
@@ -577,9 +584,14 @@ def forest(
     Notes
     -----
     Prefer :func:`read_forest_data` for XLSX. For three series under one
-    outcome, use three records and three ``_plot_row`` values. The outcome cell
-    may be vertically merged while an unmerged effect-text field contains one
-    value per series, so every text row is naturally aligned with its interval.
+    outcome, the recommended hierarchy uses one ``header`` row for the shared
+    outcome-level values and three child ``_plot_row`` values with
+    ``_indent=1``. Put the series label and its CI text on each child row. This
+    conventional layout needs no merged cells. Supported vertical XLSX merges
+    remain available for specialized display needs. On the header record,
+    leave ``_series``, ``_ci_column``, and ``estimate/lower/upper`` blank; use
+    ``_row_type="header"``, ``_indent=0``, and ``_is_summary=False``.
+
     To show one series in several CI columns, duplicate the record, retain the
     same ``_plot_row``, and change only ``_ci_column``. CSV uses the same
     logical fields but has no merge metadata; blanks are never inferred or
@@ -600,7 +612,9 @@ def forest(
 
     This function uses one global linear axis configuration. It performs no
     logarithmic transformation and computes no effect size, confidence
-    interval, or meta-analysis statistic.
+    interval, or meta-analysis statistic. ``ideal_line_columns`` controls only
+    the additional line's visibility; all CI columns still share the same
+    reference value, limits, and ticks.
 
     Examples
     --------
@@ -669,6 +683,30 @@ def forest(
     active_ci = table.ci_columns or tuple(
         column.key for column in resolved_columns if column.role == "ci"
     )
+    if ideal_line_columns is None:
+        ideal_line_targets = frozenset(active_ci)
+    else:
+        if ideal_line is None:
+            raise ValueError("ideal_line_columns requires ideal_line to be set.")
+        if isinstance(ideal_line_columns, str):
+            raise ValueError(
+                "ideal_line_columns must be a sequence of CI-column keys, not a string."
+            )
+        try:
+            requested_ideal_columns = tuple(ideal_line_columns)
+        except TypeError as error:
+            raise ValueError("ideal_line_columns must be a sequence of CI-column keys.") from error
+        if any(not isinstance(key, str) or not key for key in requested_ideal_columns):
+            raise ValueError("ideal_line_columns must contain non-empty strings only.")
+        if len(requested_ideal_columns) != len(set(requested_ideal_columns)):
+            raise ValueError("ideal_line_columns must not contain duplicate keys.")
+        invalid_ideal_columns = sorted(set(requested_ideal_columns) - set(active_ci))
+        if invalid_ideal_columns:
+            raise ValueError(
+                "ideal_line_columns must name active columns with role='ci'; "
+                f"invalid={invalid_ideal_columns}."
+            )
+        ideal_line_targets = frozenset(requested_ideal_columns)
 
     if legend is not None:
         _validate_legend_position(legend, keys=all_keys)
@@ -684,6 +722,8 @@ def forest(
             raise ValueError("ideal_label must be a string or None.")
         if reference_legend.ideal_label and ideal_line is None:
             raise ValueError("An ideal_label requires ideal_line to be set.")
+        if reference_legend.ideal_label and not ideal_line_targets:
+            raise ValueError("An ideal_label requires at least one active ideal-line target.")
         if not reference_legend.reference_label and not reference_legend.ideal_label:
             raise ValueError("reference_legend must define at least one label.")
 
@@ -864,24 +904,30 @@ def forest(
         plot_right = cell.right - (cell.right - cell.left) * 0.08
         if xlim[0] <= ref_line <= xlim[1]:
             x_ref = _value_to_canvas(ref_line, plot_left, plot_right, xlim)
-            ax.plot(
+            reference_line_artist = ax.plot(
                 [x_ref, x_ref],
                 [0, total_rows],
                 color=style.reference_color,
                 linewidth=0.9,
                 linestyle=style.reference_line_style,
                 zorder=2,
-            )
-        if ideal_line is not None and xlim[0] <= ideal_line <= xlim[1]:
+            )[0]
+            reference_line_artist.set_gid(f"reference-line:{ci_key}")
+        if (
+            ideal_line is not None
+            and ci_key in ideal_line_targets
+            and xlim[0] <= ideal_line <= xlim[1]
+        ):
             x_ideal = _value_to_canvas(ideal_line, plot_left, plot_right, xlim)
-            ax.plot(
+            ideal_line_artist = ax.plot(
                 [x_ideal, x_ideal],
                 [0, total_rows],
                 color=style.ideal_color,
                 linewidth=1.0,
                 linestyle=style.ideal_line_style,
                 zorder=2,
-            )
+            )[0]
+            ideal_line_artist.set_gid(f"ideal-line:{ci_key}")
         for tick in ticks:
             if xlim[0] <= tick <= xlim[1]:
                 x_tick = _value_to_canvas(float(tick), plot_left, plot_right, xlim)

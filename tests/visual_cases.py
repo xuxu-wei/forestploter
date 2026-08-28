@@ -34,6 +34,7 @@ CASE_DATA_FILES = {
     "unicode_custom_theme": "10_unicode_custom_theme.xlsx",
     "boundary_precision": "11_boundary_precision.xlsx",
     "multi_series_ci_text_rows": "12_multi_series_ci_text_rows.xlsx",
+    "comprehensive_showcase": "13_comprehensive_showcase.xlsx",
 }
 CASE_CSV_FILES = {
     case_name: Path(file_name).with_suffix(".csv").name

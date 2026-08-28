@@ -5,7 +5,16 @@ compatibility follows the policy described in `ROADMAP.md`.
 
 ## Unreleased
 
-No changes yet.
+### Added
+
+- A thirteenth comprehensive regression example combining two aligned CI
+  panels and matching CI text, three series under hierarchical header rows,
+  clipping on both sides, direction labels, bottom legends, shared no-effect
+  lines, and an additional target line shown in only one CI panel, without
+  relying on merged cells.
+- ``ideal_line_columns`` for selecting which CI columns display the optional
+  additional ideal or target line while preserving the existing all-column
+  default.
 
 ## 0.1.0rc1 - 2026-08-28
 

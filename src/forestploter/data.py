@@ -139,10 +139,13 @@ class ForestData:
     -----
     XLSX “what you see is what you enter” applies to values, record order, and
     supported vertical merges. The plot does not copy Excel fonts, fills,
-    borders, column widths, or row heights. Give each series its own
-    ``_plot_row``. To show one series in several CI columns, duplicate its
-    record, keep the same ``_plot_row``, and change ``_ci_column``; all CI
-    columns then share the same vertical coordinate.
+    borders, column widths, or row heights. For a conventional parent-child
+    hierarchy, put shared values on a ``header`` row and give each series an
+    indented child ``_plot_row``; no merge is required. On the header record,
+    leave ``_series``, ``_ci_column``, and ``estimate/lower/upper`` blank; use
+    ``_indent=0`` and ``_is_summary=False``. To show one series in several CI
+    columns, duplicate its record, keep the same ``_plot_row``, and change
+    ``_ci_column``; all CI columns then share the same vertical coordinate.
     """
 
     frame: pd.DataFrame
@@ -444,12 +447,19 @@ def read_forest_data(
       ``_indent``, and ``_is_summary``.
 
     Enter only one statistical triple per estimate record. For three series,
-    use three records and normally three different ``_plot_row`` values. A
-    shared outcome cell may be vertically merged across those records, while
-    an unmerged effect-text field can contain one value per series; every text
-    row is then exactly aligned with its CI. To show the same series in two CI
-    columns, duplicate its record, use a different ``_ci_column``, and retain
-    the same ``_plot_row``. The two plotted intervals will share one y position.
+    the recommended hierarchy uses one ``header`` record for the shared
+    outcome, sample size, and other group-level values, followed by three
+    series rows with distinct ``_plot_row`` values and ``_indent=1``. Put each
+    series label and CI text on its child row. This conventional layout works
+    identically in XLSX and CSV and requires no merged cells. Supported
+    vertical XLSX merges remain available when a centered multirow display
+    value is specifically desired. On the header record, leave ``_series``,
+    ``_ci_column``, and ``estimate/lower/upper`` blank; use
+    ``_row_type="header"``, ``_indent=0``, and ``_is_summary=False``.
+
+    To show the same series in two CI columns, duplicate its record, use a
+    different ``_ci_column``, and retain the same ``_plot_row``. The two
+    plotted intervals will share one y position.
 
     Merges are accepted only in display fields and must be single-column,
     vertical ranges below the header. Merges in reserved fields, horizontal or
