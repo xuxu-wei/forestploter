@@ -13,7 +13,7 @@ jobs:
     name: Build release distributions
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - uses: actions/setup-python@v6
@@ -35,7 +35,7 @@ jobs:
           python -m venv .release-smoke
           .release-smoke/bin/python -m pip install dist/*.whl
           .release-smoke/bin/python scripts/release_smoke.py tests/data/01_single_series.xlsx --output-dir .release-smoke/output
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         with:
           name: python-package-distributions
           path: dist/
@@ -51,7 +51,7 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v8
         with:
           name: python-package-distributions
           path: dist/
