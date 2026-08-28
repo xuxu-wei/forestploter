@@ -269,7 +269,7 @@ def test_xlsx_reader_preserves_merge_spans_and_source_coordinates() -> None:
     first_outcome = next(span for span in data.spans if span.column_key == "outcome")
     assert (first_outcome.start_record, first_outcome.end_record) == (0, 2)
     assert data.frame.loc[0, "outcome"] == "Overall survival"
-    assert np.isnan(data.frame.loc[1, "outcome"])
+    assert data.frame.isna().loc[1, "outcome"]
 
 
 def test_xlsx_reader_supports_named_sheet_and_nondefault_header_row(tmp_path: Path) -> None:

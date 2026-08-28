@@ -702,8 +702,8 @@ msgid ""
 "Target CI-column identifier. It must match the ``key`` of a "
 ":class:`forestploter.ForestColumn` whose ``role`` is ``\"ci\"``."
 msgstr ""
-"目标 CI 列标识符。它必须与 :class:`forestploter.ForestColumn`（其 ``role`` 为 "
-"``\"ci\"``）的 ``key`` 匹配。"
+"目标 CI 列标识符。它必须与 ``role`` 为 ``\"ci\"`` 的 "
+":class:`forestploter.ForestColumn` 的 ``key`` 匹配。"
 
 #: forestploter.data.ForestDataMapping:18 of
 msgid "**estimate**"
