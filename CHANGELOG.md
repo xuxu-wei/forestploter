@@ -5,6 +5,8 @@ compatibility follows the policy described in `ROADMAP.md`.
 
 ## Unreleased
 
+## 0.1.0rc1 - 2026-08-29
+
 ### Added
 
 - A thirteenth comprehensive regression example combining two aligned CI
@@ -16,11 +18,6 @@ compatibility follows the policy described in `ROADMAP.md`.
 - ``ideal_line_columns`` for selecting which CI columns display the optional
   additional ideal or target line while preserving the existing all-column
   default.
-
-## 0.1.0rc1 - 2026-08-28
-
-### Added
-
 - XLSX/CSV long-table input through `read_forest_data()` and `ForestData`.
 - Auditable source-cell coordinates and supported vertical XLSX display-cell
   merges.

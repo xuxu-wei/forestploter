@@ -9,7 +9,7 @@ repository-code: "https://github.com/xuxu-wei/forestploter"
 url: "https://xuxu-wei.github.io/forestploter/"
 license: MIT
 version: 0.1.0rc1
-date-released: 2026-08-28
+date-released: 2026-08-29
 keywords:
   - forest plot
   - confidence interval
