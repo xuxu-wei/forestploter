@@ -98,7 +98,6 @@ def plot_dual_ci_columns(df: ForestInput) -> ForestPlotResult:
         title="The same plot row aligned across two follow-up columns",
         figure_width=12.0,
         series_styles={"Observed": ForestSeriesStyle("Observed", "#1F4E79", marker="s")},
-        theme=ForestTheme(show_vertical_grid=True),
     )
 
 
@@ -145,7 +144,7 @@ def plot_long_layout(df: ForestInput) -> ForestPlotResult:
         title="Layout stress test: long labels and multilingual text",
         figure_width=7.5,
         row_height=0.42,
-        theme=ForestTheme(base_font_size=8.25, show_vertical_grid=True),
+        theme=ForestTheme(base_font_size=8.25),
         table_layout=ForestTableLayoutSpec(
             auto_width=True,
             auto_wrap_headers=True,
@@ -238,7 +237,6 @@ def plot_two_by_two_ci_columns(df: ForestInput) -> ForestPlotResult:
         figure_width=14.5,
         series_styles=styles,
         legend=ForestLegendSpec(location="header", column_key="cohort", ncol=1),
-        theme=ForestTheme(show_vertical_grid=True),
     )
 
 
@@ -328,7 +326,6 @@ def plot_boundary_precision(df: ForestInput) -> ForestPlotResult:
         arrow_lab=("Lower", "Higher"),
         title="Exact limits, zero-width intervals, and floating-point precision",
         figure_width=12.5,
-        theme=ForestTheme(show_vertical_grid=True),
     )
 
 
@@ -423,7 +420,6 @@ def plot_comprehensive_showcase(df: ForestInput) -> ForestPlotResult:
             grid_color="#D9D2E3",
             reference_color="#45404A",
             ideal_color="#7A5542",
-            show_vertical_grid=True,
         ),
         table_layout=ForestTableLayoutSpec(
             auto_width=True,

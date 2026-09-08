@@ -39,8 +39,9 @@ Matplotlib 的 PNG/SVG 渲染；不负责计算效应量、置信区间或荟萃
   `columns` 决定。
 - 支持汇总菱形、越界箭头、共有参考线、仅在指定 CI 列显示的额外目标线、系列样式、
   主题，以及列表头或图像底部图例。
-- 表格边框默认隐藏；可通过 `ForestTheme(show_table_border=True)` 显示外框和横向
-  分隔线，纵向列分隔线仍可单独控制。
+- 默认采用三线表：表头上方、表头下方和表格底部各一条横线。通过
+  `ForestTheme(show_table_border=True)` 可增加左右边框和数据行间横线，纵向列分隔线
+  仍可单独控制。
 - 通过自动尺寸和布局诊断处理密集表格、长文本、Unicode 标签及 PNG/SVG 导出。
 
 ## 安装
@@ -86,8 +87,13 @@ result.save("forest.png", dpi=300)
 `columns` 是最终图像从左到右顺序的唯一依据，因此无论 XLSX/CSV 表头怎样排列，
 普通显示列都可以出现在任意 CI 绘图区之前或之后。
 
-表格边框默认不显示。使用 `ForestTheme(show_table_border=True)` 可显示外框和横向行
-分隔线；需要完整方格时再同时设置 `show_vertical_grid=True`。
+默认采用三线表，不显示左右边框和数据行间横线。使用
+`ForestTheme(show_table_border=True)` 可增加这些边框；需要完整方格时再同时设置
+`show_vertical_grid=True`。
+
+列标题行会根据文字和表头图例的实际高度自动扩展，适用于多行文字和较大字体，
+不会挤压数据行。可通过 `ForestTableLayoutSpec(header_padding_pt=4)` 调整上下留白
+（每侧 4 磅）。
 
 ## 输入模型速览
 

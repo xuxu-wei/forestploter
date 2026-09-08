@@ -23,9 +23,11 @@ from matplotlib.axes import Axes
 from matplotlib.colors import is_color_like
 from matplotlib.figure import Figure
 from matplotlib.font_manager import FontProperties
+from matplotlib.legend import Legend
 from matplotlib.lines import Line2D
 from matplotlib.markers import MarkerStyle
 from matplotlib.patches import Polygon, Rectangle
+from matplotlib.text import Text
 from matplotlib.textpath import TextPath
 
 from .data import ForestData
@@ -307,6 +309,13 @@ def _resolve_table_layout(
         raise ValueError("Forest table auto_width and auto_wrap_headers must be boolean.")
     if spec.column_padding_pt <= 0 or spec.edge_padding_pt < 0:
         raise ValueError("Forest table padding values must be positive.")
+    if (
+        isinstance(spec.header_padding_pt, (bool, np.bool_))
+        or not isinstance(spec.header_padding_pt, (int, float, np.integer, np.floating))
+        or not np.isfinite(spec.header_padding_pt)
+        or spec.header_padding_pt < 0
+    ):
+        raise ValueError("header_padding_pt must be a nonnegative finite number.")
     if spec.max_header_lines < 1:
         raise ValueError("max_header_lines must be at least one.")
     if spec.max_figure_width < figure_width:
@@ -386,6 +395,70 @@ def _validate_legend_position(
 
 def _legend_height(item_count: int, ncol: int) -> float:
     return 0.52 + max(0, ceil(item_count / ncol) - 1) * 0.34
+
+
+def _fit_header_height(
+    fig: Figure,
+    ax: Axes,
+    *,
+    background: Rectangle,
+    edges: Sequence[Line2D],
+    texts: Sequence[Text],
+    legends: Sequence[tuple[Legend, float]],
+    title: Text | None,
+    base_height: float,
+    padding_pt: float,
+) -> tuple[float, float]:
+    """Fit the measured header contents while preserving the body-row scale."""
+
+    renderer = cast(Any, fig.canvas).get_renderer()
+    origin, row_top = ax.transData.transform([(0, 0), (0, 1)])
+    pixels_per_row = row_top[1] - origin[1]
+    padding_px = padding_pt * fig.dpi / 72.0
+    text_height_px = max(
+        (text.get_window_extent(renderer).height for text in texts if text.get_text()),
+        default=0.0,
+    )
+    fitted_base = max(base_height, (text_height_px + 2 * padding_px) / pixels_per_row)
+    legend_heights = [
+        max(height, (artist.get_window_extent(renderer).height + 2 * padding_px) / pixels_per_row)
+        for artist, height in legends
+    ]
+    fitted_height = fitted_base + sum(legend_heights) + 0.06 * len(legends)
+    old_height = background.get_height()
+    extra_height = max(0.0, fitted_height - old_height)
+    if extra_height <= 1e-10:
+        return base_height, old_height
+
+    # Increase the physical canvas by exactly the extra header space. Keeping
+    # margins fixed in inches preserves the size and alignment of all body
+    # rows and footer objects, regardless of table length or row_height.
+    old_figure_height = fig.get_figheight()
+    new_figure_height = old_figure_height + extra_height * pixels_per_row / fig.dpi
+    bottom_margin = fig.subplotpars.bottom * old_figure_height / new_figure_height
+    top_margin = (1 - fig.subplotpars.top) * old_figure_height / new_figure_height
+    lower_limit, upper_limit = ax.get_ylim()
+    fig.set_size_inches(fig.get_figwidth(), new_figure_height, forward=False)
+    fig.subplots_adjust(bottom=bottom_margin, top=1 - top_margin)
+    ax.set_ylim(lower_limit, upper_limit + extra_height)
+
+    old_top = background.get_y() + old_height
+    new_top = background.get_y() + fitted_height
+    background.set_height(fitted_height)
+    for edge in edges:
+        y_values = np.asarray(edge.get_ydata(), dtype=float)
+        edge.set_ydata(np.where(y_values == old_top, new_top, y_values))
+    for text in texts:
+        text.set_y(new_top - fitted_base / 2)
+    cursor = new_top - fitted_base
+    for (artist, _), height in zip(legends, legend_heights, strict=True):
+        anchor = ax.transData.inverted().transform(artist.get_bbox_to_anchor().get_points())[0]
+        artist.set_bbox_to_anchor((anchor[0], cursor - height / 2), transform=ax.transData)
+        cursor -= height + 0.06
+    if title is not None:
+        title.set_y(title.get_position()[1] + extra_height)
+    fig.canvas.draw()
+    return fitted_base, fitted_height
 
 
 def _series_styles(
@@ -550,7 +623,9 @@ def forest(
     arrow_lab : tuple of str, optional
         Left and right direction labels below the first active CI column.
     theme : ForestTheme, optional
-        Colors, font size, optional table borders, grid, and guide-line styles.
+        Colors, font size, table rules, optional full borders, and guide-line
+        styles. The default table has rules above and below its column
+        headers and at its bottom.
     title : str, optional
         In-figure title.
     figure_width : float, default 12
@@ -563,7 +638,9 @@ def forest(
     legend : ForestLegendSpec, optional
         Series legend placed in one column header or in the bottom region.
     table_layout : ForestTableLayoutSpec, optional
-        Automatic column width, header wrapping, and edge-padding rules.
+        Automatic column width, header wrapping, and padding rules. Header
+        height adapts to measured text and header legends independently of
+        the body-row height.
     reference_legend : ForestReferenceLegendSpec, optional
         Reference/ideal-line legend. It uses the same placement semantics as
         the series legend. When both exist, they stack with the series legend
@@ -752,10 +829,8 @@ def forest(
 
     row_centers, row_bounds, row_scales = _compute_row_geometry(len(table.plot_rows))
     total_rows = float(len(table.plot_rows))
-    max_header_lines = max(
-        (len(column.header.splitlines()) for column in resolved_columns), default=1
-    )
-    base_header_height = max(0.86, 0.46 + 0.20 * max_header_lines)
+    # Start with one compact header slot; actual text height is measured below.
+    base_header_height = 0.86
     header_specs: list[tuple[str, int, int]] = []
     bottom_specs: list[tuple[str, int, int]] = []
     if legend is not None:
@@ -795,16 +870,16 @@ def forest(
     usable_width_pt = final_figure_width * 72.0 - 2.0 * table_spec.edge_padding_pt
     cell_padding = table_spec.column_padding_pt / usable_width_pt
 
-    ax.add_patch(
-        Rectangle(
-            (0, total_rows),
-            1,
-            header_height,
-            facecolor=style.header_fill,
-            edgecolor="none",
-            zorder=0,
-        )
+    header_background = Rectangle(
+        (0, total_rows),
+        1,
+        header_height,
+        facecolor=style.header_fill,
+        edgecolor="none",
+        zorder=0,
+        gid="table-header",
     )
+    ax.add_patch(header_background)
     for index, row in enumerate(table.plot_rows):
         bottom, top = row_bounds[index]
         ax.add_patch(
@@ -835,9 +910,20 @@ def forest(
             )
         )
 
+    header_edges: list[Line2D] = []
+    for name, y, linewidth in (
+        ("top", total_rows + header_height, 0.9),
+        ("header-separator", total_rows, 0.6),
+        ("bottom", 0.0, 0.9),
+    ):
+        rule = ax.plot([0, 1], [y, y], color=style.grid_color, linewidth=linewidth, zorder=2)[0]
+        rule.set_gid(f"table-border:{name}")
+        if name == "top":
+            header_edges.append(rule)
+
     if style.show_table_border:
         # Horizontal separators stop at supported merged display cells.
-        for row_index, (bottom, _) in enumerate(row_bounds):
+        for row_index, (bottom, _) in enumerate(row_bounds[:-1]):
             blocked = sorted(
                 (
                     by_key[span.column_key].left,
@@ -870,19 +956,6 @@ def forest(
                 )[0]
                 artist.set_gid(f"table-border:row:{row_index}:segment:{segment_index}")
 
-        for name, y, linewidth in (
-            ("header-separator", total_rows, 0.9),
-            ("top", total_rows + header_height, 0.8),
-        ):
-            artist = ax.plot(
-                [0, 1],
-                [y, y],
-                color=style.grid_color,
-                linewidth=linewidth,
-                zorder=2,
-            )[0]
-            artist.set_gid(f"table-border:{name}")
-
         if not style.show_vertical_grid:
             for name, x in (("left", 0.0), ("right", 1.0)):
                 artist = ax.plot(
@@ -893,6 +966,7 @@ def forest(
                     zorder=1,
                 )[0]
                 artist.set_gid(f"table-border:{name}")
+                header_edges.append(artist)
 
     if style.show_vertical_grid:
         for item in geometry:
@@ -904,6 +978,7 @@ def forest(
                 zorder=1,
             )[0]
             artist.set_gid(f"table-grid:column:{item.key}")
+            header_edges.append(artist)
         artist = ax.plot(
             [1, 1],
             [0, total_rows + header_height],
@@ -912,9 +987,10 @@ def forest(
             zorder=1,
         )[0]
         artist.set_gid("table-grid:right")
+        header_edges.append(artist)
 
     header_text_y = total_rows + header_height - base_header_height / 2.0
-    header_artists: list[tuple[str, Any, ColumnGeometry]] = []
+    header_artists: list[tuple[str, Text, ColumnGeometry]] = []
     for column, cell in zip(resolved_columns, geometry, strict=True):
         x = (cell.left + cell.right) / 2.0
         if column.alignment == "left":
@@ -931,6 +1007,7 @@ def forest(
             fontweight="bold",
             color=style.text_color,
             linespacing=1.15,
+            gid=f"column-header:{column.key}",
         )
         header_artists.append((column.key, header_artist, cell))
 
@@ -1098,7 +1175,7 @@ def forest(
             arrowprops={"arrowstyle": "-|>", "color": style.muted_color, "lw": 0.7},
         )
 
-    legend_artists: list[tuple[str, Any, float, float]] = []
+    legend_artists: list[tuple[str, Legend, float, float]] = []
     header_cursor = total_rows + header_height - base_header_height
     if legend is not None:
         handles = [
@@ -1188,8 +1265,9 @@ def forest(
         ax.add_artist(reference_legend_artist)
         legend_artists.append(("reference", reference_legend_artist, left, right))
 
+    title_artist = None
     if title:
-        ax.text(
+        title_artist = ax.text(
             0,
             total_rows + header_height + 0.12,
             title,
@@ -1201,20 +1279,42 @@ def forest(
         )
 
     fig.canvas.draw()
+    header_legend_slots = {kind: _legend_height(count, ncol) for kind, count, ncol in header_specs}
+    base_header_height, header_height = _fit_header_height(
+        fig,
+        ax,
+        background=header_background,
+        edges=header_edges,
+        texts=[artist for _, artist, _ in header_artists],
+        legends=[
+            (artist, header_legend_slots[kind])
+            for kind, artist, _, _ in legend_artists
+            if kind in header_legend_slots
+        ],
+        title=title_artist,
+        base_height=base_header_height,
+        padding_pt=table_spec.header_padding_pt,
+    )
     renderer = cast(Any, fig.canvas).get_renderer()
     figure_bbox = fig.bbox
     overflow_columns: list[str] = []
-    for key, artist, cell in header_artists:
-        if not artist.get_text():
+    for key, header_text, cell in header_artists:
+        if not header_text.get_text():
             continue
-        bbox = artist.get_window_extent(renderer=renderer)
+        bbox = header_text.get_window_extent(renderer=renderer)
         left_px = ax.transData.transform((cell.left, 0))[0]
         right_px = ax.transData.transform((cell.right, 0))[0]
+        bottom_px = ax.transData.transform((0, total_rows + header_height - base_header_height))[1]
+        top_px = ax.transData.transform((0, total_rows + header_height))[1]
         if (
             bbox.x0 < left_px - 0.5
             or bbox.x1 > right_px + 0.5
             or bbox.x0 < figure_bbox.x0
             or bbox.x1 > figure_bbox.x1
+            or bbox.y0 < bottom_px - 0.5
+            or bbox.y1 > top_px + 0.5
+            or bbox.y0 < figure_bbox.y0
+            or bbox.y1 > figure_bbox.y1
         ):
             overflow_columns.append(key)
     if overflow_columns:
@@ -1222,8 +1322,8 @@ def forest(
         raise ValueError(f"Forest header layout overflow in columns: {', '.join(overflow_columns)}")
 
     legend_bounds: list[tuple[str, float, float, float, float]] = []
-    for kind, artist, target_left, target_right in legend_artists:
-        bbox = artist.get_window_extent(renderer=renderer)
+    for kind, legend_artist, target_left, target_right in legend_artists:
+        bbox = legend_artist.get_window_extent(renderer=renderer)
         (left, bottom), (right, top) = ax.transData.inverted().transform(
             [[bbox.x0, bbox.y0], [bbox.x1, bbox.y1]]
         )

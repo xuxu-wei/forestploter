@@ -49,10 +49,11 @@ class ForestTheme:
     ideal_line_style : str, default ":"
         Matplotlib line style for the ideal line.
     show_table_border : bool, default False
-        Whether to draw the table outline, header separator, and horizontal
-        row separators. This is disabled by default for a conventional
-        borderless forest-plot layout. Set ``show_vertical_grid=True`` as well
-        when a fully boxed table is desired.
+        Whether to add side borders and internal horizontal row separators.
+        The default is a three-rule table: a rule above and below the column
+        headers, plus a bottom rule, with no internal row separators or side
+        borders. These three rules remain visible with either setting. Set
+        ``show_vertical_grid=True`` as well for a fully boxed table.
 
     Notes
     -----

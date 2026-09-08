@@ -7,15 +7,26 @@ compatibility follows the policy described in `ROADMAP.md`.
 
 ### Added
 
-- ``ForestTheme.show_table_border`` for optionally drawing the table outline,
-  header separator, and horizontal row separators. The default is a
-  borderless forest-plot table; vertical column separators remain controlled
-  independently by ``show_vertical_grid``.
+- `ForestTheme.show_table_border` for optional side borders and internal row
+  separators; vertical column separators remain independently controlled by
+  `show_vertical_grid`.
+- Automatic column-header height based on rendered text and header legends,
+  with configurable `ForestTableLayoutSpec.header_padding_pt` (default 4
+  points per side). Header growth preserves body-row spacing.
 
 ### Changed
 
-- Regenerated all thirteen gallery PNGs with the current border behavior; the
-  Unicode custom-theme example explicitly demonstrates a fully bordered table.
+- The default table uses three horizontal rules: above and below the column
+  headers and at the table bottom. Other row separators and side borders are
+  hidden unless requested.
+- Regenerated all thirteen gallery PNGs; the Unicode custom-theme example
+  demonstrates a fully bordered table and the other twelve use three rules.
+
+### Fixed
+
+- Multiline, multilingual, large-font, and mathematical column headings no
+  longer overflow the header vertically. Header diagnostics now check both
+  horizontal and vertical boundaries, including layouts with header legends.
 
 ## 0.1.0rc1 - 2026-08-29
 

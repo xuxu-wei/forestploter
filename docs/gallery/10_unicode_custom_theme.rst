@@ -3,8 +3,9 @@
 
 Chinese, English, Greek, mathematical symbols, custom fills, guide colors, an
 explicitly enabled full table border, and font fallback behavior are exercised
-together. Other gallery cases retain the borderless default unless they opt
-into independent vertical column separators.
+together. Other gallery cases use the default three-rule table with no
+internal row separators or vertical column separators. Column-header height
+automatically adjusts to keep the labels inside their boundaries.
 
 :download:`XLSX <../../tests/data/10_unicode_custom_theme.xlsx>` ·
 :download:`CSV <../../tests/data/10_unicode_custom_theme.csv>` ·

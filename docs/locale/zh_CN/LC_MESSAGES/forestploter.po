@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: forestploter development\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-09 03:26+0800\n"
+"POT-Creation-Date: 2026-09-09 05:07+0800\n"
 "PO-Revision-Date: 2026-08-18 16:24+0000\n"
 "Last-Translator: forestploter documentation maintainers\n"
 "Language: zh_CN\n"
@@ -371,10 +371,10 @@ msgstr "**end_record**"
 msgid "Zero-based inclusive index of the final source record in the merge."
 msgstr "合并中最终源记录的零基包含索引。"
 
-#: forestploter.core.forest:93 forestploter.data.ForestCellSpan:27
+#: forestploter.core.forest:97 forestploter.data.ForestCellSpan:27
 #: forestploter.data.ForestData:43 forestploter.data.ForestDataMapping:49
-#: forestploter.data.read_forest_data:56 forestploter.layout.ForestColumn:36
-#: forestploter.layout.ForestSeriesStyle:31 forestploter.theme.ForestTheme:70
+#: forestploter.data.read_forest_data:56 forestploter.layout.ForestColumn:37
+#: forestploter.layout.ForestSeriesStyle:31 forestploter.theme.ForestTheme:71
 #: of
 msgid "Notes"
 msgstr "说明"
@@ -424,10 +424,12 @@ msgid "**header**"
 msgstr "**header**"
 
 #: forestploter.layout.ForestColumn:13 of
-msgid "Header text. Newline characters are allowed."
-msgstr "标题文本。允许使用换行符。"
+msgid ""
+"Header text. Newline characters are allowed. The column-header row "
+"automatically grows to fit the rendered text with vertical padding."
+msgstr "列标题文字，允许使用换行符。列标题行会根据实际渲染的文字高度自动扩展，并保留上下留白。"
 
-#: forestploter.layout.ForestColumn:15 of
+#: forestploter.layout.ForestColumn:16 of
 msgid "**role**"
 msgstr "**role**"
 
@@ -436,21 +438,21 @@ msgstr "**role**"
 msgid "{\"text\", \"numeric\", \"ci\"}"
 msgstr "{\"text\", \"numeric\", \"ci\"}"
 
-#: forestploter.layout.ForestColumn:16 of
+#: forestploter.layout.ForestColumn:17 of
 msgid ""
 "Rendering role. The first two draw cell text; ``\"ci\"`` draws point "
 "estimates and intervals."
 msgstr "渲染角色。前两个绘制单元格文本； ``\"ci\"`` 绘制点估计和区间。"
 
-#: forestploter.layout.ForestColumn:19 of
+#: forestploter.layout.ForestColumn:20 of
 msgid "**width**"
 msgstr "**width**"
 
-#: forestploter.layout.ForestColumn:20 of
+#: forestploter.layout.ForestColumn:21 of
 msgid "Finite positive relative column width."
 msgstr "有限正相对列宽。"
 
-#: forestploter.layout.ForestColumn:22 of
+#: forestploter.layout.ForestColumn:23 of
 msgid "**alignment**"
 msgstr "**alignment**"
 
@@ -459,11 +461,11 @@ msgstr "**alignment**"
 msgid "{\"left\", \"center\", \"right\"}, default \"left\""
 msgstr "{\"left\", \"center\", \"right\"}，默认值为 \"left\""
 
-#: forestploter.layout.ForestColumn:23 of
+#: forestploter.layout.ForestColumn:24 of
 msgid "Horizontal alignment for the header and body cells."
 msgstr "标题和正文单元格的水平对齐。"
 
-#: forestploter.layout.ForestColumn:37 of
+#: forestploter.layout.ForestColumn:38 of
 msgid ""
 "Display fields may use supported vertical XLSX merges. A CI column is a "
 "layout slot and does not need to be a physical file field; records target"
@@ -920,10 +922,12 @@ msgid "**header_overflow_count**"
 msgstr "**header_overflow_count**"
 
 #: forestploter.layout.ForestLayoutDiagnostics:24 of
-msgid "Number of headers overflowing their column or Figure boundary."
-msgstr "溢出其列或图边界的标题数量。"
+msgid ""
+"Number of headers overflowing their column width, header-row height, or "
+"Figure boundary."
+msgstr "超出列宽、列标题行高度或图像边界的列标题数量。"
 
-#: forestploter.layout.ForestLayoutDiagnostics:26 of
+#: forestploter.layout.ForestLayoutDiagnostics:27 of
 msgid "**plot_row_ids**"
 msgstr "**plot_row_ids**"
 
@@ -931,13 +935,13 @@ msgstr "**plot_row_ids**"
 msgid "tuple"
 msgstr "元组"
 
-#: forestploter.layout.ForestLayoutDiagnostics:27 of
+#: forestploter.layout.ForestLayoutDiagnostics:28 of
 msgid ""
 "Visual-row identifiers in the same order as ``row_bounds`` and the "
 "result's ``row_centers``."
 msgstr "视觉行标识符的顺序与 ``row_bounds`` 和结果的 ``row_centers`` 相同。"
 
-#: forestploter.layout.ForestLayoutDiagnostics:30 of
+#: forestploter.layout.ForestLayoutDiagnostics:31 of
 msgid "**observation_positions**"
 msgstr "**observation_positions**"
 
@@ -945,27 +949,27 @@ msgstr "**observation_positions**"
 msgid "tuple of tuple"
 msgstr "元组的元组"
 
-#: forestploter.layout.ForestLayoutDiagnostics:31 of
+#: forestploter.layout.ForestLayoutDiagnostics:32 of
 msgid "``(plot_row, series, ci_column, y)`` for every drawable observation."
 msgstr ""
 "``(plot_row, series, ci_column, y)`` 适用于每个可绘制观察值。\n"
 "每个已解析的合并单元格范围的"
 
-#: forestploter.layout.ForestLayoutDiagnostics:33 of
+#: forestploter.layout.ForestLayoutDiagnostics:34 of
 msgid "**resolved_spans**"
 msgstr "**resolved_spans**"
 
-#: forestploter.layout.ForestLayoutDiagnostics:34 of
+#: forestploter.layout.ForestLayoutDiagnostics:35 of
 msgid ""
 "``(column_key, start_plot_row, end_plot_row, bottom, top)`` for each "
 "resolved merged-cell span."
 msgstr "``(column_key, start_plot_row, end_plot_row, bottom, top)``。"
 
-#: forestploter.layout.ForestLayoutDiagnostics:37 of
+#: forestploter.layout.ForestLayoutDiagnostics:38 of
 msgid "**legend_bounds**"
 msgstr "**legend_bounds**"
 
-#: forestploter.layout.ForestLayoutDiagnostics:38 of
+#: forestploter.layout.ForestLayoutDiagnostics:39 of
 msgid ""
 "``(kind, left, bottom, right, top)`` bounds for every legend in data "
 "coordinates."
@@ -1455,6 +1459,19 @@ msgstr "float，默认值为 16"
 msgid "Maximum automatically expanded Figure width in inches."
 msgstr "自动扩展的最大图形宽度（以英寸为单位）。"
 
+#: forestploter.layout.ForestTableLayoutSpec:25 of
+msgid "**header_padding_pt**"
+msgstr "**header_padding_pt**"
+
+#: forestploter.layout.ForestTableLayoutSpec:26 of
+msgid ""
+"Minimum top and bottom padding for column-header text and each header "
+"legend, in points. Must be finite and nonnegative. Header height always "
+"adapts to the rendered content, including explicit newlines, even when "
+"automatic widths or wrapping are disabled. Extra header space increases "
+"Figure height without compressing the body rows."
+msgstr "列标题文字及每个表头图例的最小上下留白，以磅为单位。必须为有限非负数。即使关闭自动列宽或自动换行，表头高度仍会根据实际渲染内容（包括显式换行）自动调整。增加表头空间会扩展图像高度，不会挤压数据行。"
+
 #: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:21:<autosummary>:1
 msgid ""
 ":py:obj:`__init__ <forestploter.ForestTableLayoutSpec.__init__>`\\ "
@@ -1463,11 +1480,11 @@ msgstr ""
 ":py:obj:`__init__ <forestploter.ForestTableLayoutSpec.__init__>`\\ "
 "\\(\\[auto\\_width\\, auto\\_wrap\\_headers\\, ...\\]\\)"
 
-#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:32:<autosummary>:1
 msgid ":py:obj:`auto_width <forestploter.ForestTableLayoutSpec.auto_width>`\\"
 msgstr ":py:obj:`auto_width <forestploter.ForestTableLayoutSpec.auto_width>`\\"
 
-#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:32:<autosummary>:1
 msgid ""
 ":py:obj:`auto_wrap_headers "
 "<forestploter.ForestTableLayoutSpec.auto_wrap_headers>`\\"
@@ -1475,7 +1492,7 @@ msgstr ""
 ":py:obj:`auto_wrap_headers "
 "<forestploter.ForestTableLayoutSpec.auto_wrap_headers>`\\"
 
-#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:32:<autosummary>:1
 msgid ""
 ":py:obj:`column_padding_pt "
 "<forestploter.ForestTableLayoutSpec.column_padding_pt>`\\"
@@ -1483,7 +1500,7 @@ msgstr ""
 ":py:obj:`column_padding_pt "
 "<forestploter.ForestTableLayoutSpec.column_padding_pt>`\\"
 
-#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:32:<autosummary>:1
 msgid ""
 ":py:obj:`edge_padding_pt "
 "<forestploter.ForestTableLayoutSpec.edge_padding_pt>`\\"
@@ -1491,7 +1508,15 @@ msgstr ""
 ":py:obj:`edge_padding_pt "
 "<forestploter.ForestTableLayoutSpec.edge_padding_pt>`\\"
 
-#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:32:<autosummary>:1
+msgid ""
+":py:obj:`header_padding_pt "
+"<forestploter.ForestTableLayoutSpec.header_padding_pt>`\\"
+msgstr ""
+":py:obj:`header_padding_pt "
+"<forestploter.ForestTableLayoutSpec.header_padding_pt>`\\"
+
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:32:<autosummary>:1
 msgid ""
 ":py:obj:`max_figure_width "
 "<forestploter.ForestTableLayoutSpec.max_figure_width>`\\"
@@ -1499,7 +1524,7 @@ msgstr ""
 ":py:obj:`max_figure_width "
 "<forestploter.ForestTableLayoutSpec.max_figure_width>`\\"
 
-#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:31:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTableLayoutSpec.rst:32:<autosummary>:1
 msgid ""
 ":py:obj:`max_header_lines "
 "<forestploter.ForestTableLayoutSpec.max_header_lines>`\\"
@@ -1693,15 +1718,14 @@ msgstr "**show_table_border**"
 
 #: forestploter.theme.ForestTheme:54 of
 msgid ""
-"Whether to draw the table outline, header separator, and horizontal row "
-"separators. This is disabled by default for a conventional borderless "
-"forest-plot layout. Set ``show_vertical_grid=True`` as well when a fully "
-"boxed table is desired."
-msgstr ""
-"是否绘制表格外框、表头分隔线和横向行分隔线。为符合常规无框森林图布局，此选项默认关闭；需要完整方格表时，同时设置 "
-"``show_vertical_grid=True``。"
+"Whether to add side borders and internal horizontal row separators. The "
+"default is a three-rule table: a rule above and below the column headers,"
+" plus a bottom rule, with no internal row separators or side borders. "
+"These three rules remain visible with either setting. Set "
+"``show_vertical_grid=True`` as well for a fully boxed table."
+msgstr "是否增加左右边框和数据行间横线。默认采用三线表：列标题上方和下方各一条横线，表格底部一条横线，不显示数据行间横线或左右边框。无论此开关取何值，这三条横线始终显示。如需完整方格，同时设置 ``show_vertical_grid=True``。"
 
-#: forestploter.theme.ForestTheme:71 of
+#: forestploter.theme.ForestTheme:72 of
 msgid ""
 "Theme objects are frozen data classes and can be reused safely. Create a "
 "new instance for per-call changes instead of mutating during rendering."
@@ -1814,7 +1838,7 @@ msgstr "边界与输入序列一一对应。"
 msgid "Raises"
 msgstr "异常"
 
-#: forestploter.core.forest:85 forestploter.data.read_forest_data:45
+#: forestploter.core.forest:89 forestploter.data.read_forest_data:45
 #: forestploter.layout.compute_column_geometry:22 of
 msgid "ValueError"
 msgstr "ValueError"
@@ -1947,10 +1971,13 @@ msgid "ForestTheme, optional"
 msgstr "ForestTheme，可选"
 
 #: forestploter.core.forest:43 of
-msgid "Colors, font size, optional table borders, grid, and guide-line styles."
-msgstr "颜色、字体大小、可选表格边框、网格和引导线样式。"
+msgid ""
+"Colors, font size, table rules, optional full borders, and guide-line "
+"styles. The default table has rules above and below its column headers "
+"and at its bottom."
+msgstr "颜色、字号、表格横线、可选完整边框及辅助线样式。默认在列标题上方、列标题下方和表格底部绘制横线。"
 
-#: forestploter.core.forest:45 of
+#: forestploter.core.forest:47 of
 msgid "**title**"
 msgstr "**title**"
 
@@ -1958,11 +1985,11 @@ msgstr "**title**"
 msgid "str, optional"
 msgstr "str，可选"
 
-#: forestploter.core.forest:46 of
+#: forestploter.core.forest:48 of
 msgid "In-figure title."
 msgstr "图标题。"
 
-#: forestploter.core.forest:48 of
+#: forestploter.core.forest:50 of
 msgid "**figure_width**"
 msgstr "**figure_width**"
 
@@ -1970,11 +1997,11 @@ msgstr "**figure_width**"
 msgid "float, default 12"
 msgstr "float，默认值为 12"
 
-#: forestploter.core.forest:49 of
+#: forestploter.core.forest:51 of
 msgid "Minimum Figure width in inches."
 msgstr "最小图形宽度（以英寸为单位）。"
 
-#: forestploter.core.forest:51 of
+#: forestploter.core.forest:53 of
 msgid "**row_height**"
 msgstr "**row_height**"
 
@@ -1982,11 +2009,11 @@ msgstr "**row_height**"
 msgid "float, default 0.36"
 msgstr "float，默认值为 0.36"
 
-#: forestploter.core.forest:52 of
+#: forestploter.core.forest:54 of
 msgid "Physical height of each unique ``_plot_row`` in inches."
 msgstr "每个唯一 ``_plot_row`` 的物理高度（以英寸为单位）。"
 
-#: forestploter.core.forest:54 of
+#: forestploter.core.forest:56 of
 msgid "**series_styles**"
 msgstr "**series_styles**"
 
@@ -1994,13 +2021,13 @@ msgstr "**series_styles**"
 msgid "mapping of str to ForestSeriesStyle, optional"
 msgstr "从 str 到 ForestSeriesStyle 的映射，可选"
 
-#: forestploter.core.forest:55 of
+#: forestploter.core.forest:57 of
 msgid ""
 "Mapping keyed by ``_series`` values. Supplied keys must exactly match "
 "observed series. Defaults follow first-appearance order."
 msgstr "以 ``_series`` 值为键的映射。提供的键必须与数据中出现的系列完全匹配。默认样式按系列首次出现的顺序分配。"
 
-#: forestploter.core.forest:58 of
+#: forestploter.core.forest:60 of
 msgid "**legend**"
 msgstr "**legend**"
 
@@ -2008,11 +2035,11 @@ msgstr "**legend**"
 msgid "ForestLegendSpec, optional"
 msgstr "ForestLegendSpec，可选"
 
-#: forestploter.core.forest:59 of
+#: forestploter.core.forest:61 of
 msgid "Series legend placed in one column header or in the bottom region."
 msgstr "将系列图例放在某一列的表头或图像底部区域。"
 
-#: forestploter.core.forest:61 of
+#: forestploter.core.forest:63 of
 msgid "**table_layout**"
 msgstr "**table_layout**"
 
@@ -2020,11 +2047,14 @@ msgstr "**table_layout**"
 msgid "ForestTableLayoutSpec, optional"
 msgstr "ForestTableLayoutSpec，可选"
 
-#: forestploter.core.forest:62 of
-msgid "Automatic column width, header wrapping, and edge-padding rules."
-msgstr "自动列宽、表头换行和边缘留白规则。"
-
 #: forestploter.core.forest:64 of
+msgid ""
+"Automatic column width, header wrapping, and padding rules. Header height"
+" adapts to measured text and header legends independently of the body-row"
+" height."
+msgstr "自动列宽、列标题换行和留白规则。表头高度根据测量得到的文字及表头图例高度自动调整，不影响数据行高度。"
+
+#: forestploter.core.forest:68 of
 msgid "**reference_legend**"
 msgstr "**reference_legend**"
 
@@ -2032,37 +2062,37 @@ msgstr "**reference_legend**"
 msgid "ForestReferenceLegendSpec, optional"
 msgstr "ForestReferenceLegendSpec，可选"
 
-#: forestploter.core.forest:65 of
+#: forestploter.core.forest:69 of
 msgid ""
 "Reference/ideal-line legend. It uses the same placement semantics as the "
 "series legend. When both exist, they stack with the series legend first."
 msgstr "参考线与理想值线的图例。其放置规则与系列图例相同；两者同时存在时，系列图例排在前面。"
 
-#: forestploter.core.forest:73 of
+#: forestploter.core.forest:77 of
 msgid "ForestPlotResult"
 msgstr "ForestPlotResult"
 
-#: forestploter.core.forest:74 of
+#: forestploter.core.forest:78 of
 msgid ""
 "Figure, Axes, column boundaries, visual-row centers, clipping count, and "
 "layout diagnostics."
 msgstr "图形、轴、列边界、视觉行中心、截断计数和布局诊断。"
 
-#: forestploter.core.forest:82 forestploter.data.read_forest_data:41 of
+#: forestploter.core.forest:86 forestploter.data.read_forest_data:41 of
 msgid "TypeError"
 msgstr "TypeError"
 
-#: forestploter.core.forest:83 of
+#: forestploter.core.forest:87 of
 msgid "Raised for invalid ``data`` or series-style types."
 msgstr "由于无效的 ``data`` 或系列样式类型而引发。"
 
-#: forestploter.core.forest:86 of
+#: forestploter.core.forest:90 of
 msgid ""
 "Raised when the long table, intervals, styles, coordinates, legends, "
 "columns, or layout settings are invalid."
 msgstr "当长表、区间、样式、坐标、图例、列或布局设置无效时引发。"
 
-#: forestploter.core.forest:94 of
+#: forestploter.core.forest:98 of
 msgid ""
 "Prefer :func:`read_forest_data` for XLSX. For three series under one "
 "outcome, the recommended hierarchy uses one ``header`` row for the shared"
@@ -2080,7 +2110,7 @@ msgstr ""
 "``_series``、``_ci_column`` 和 ``estimate/lower/upper`` 应留空，并使用 "
 "``_row_type=\"header\"``、``_indent=0`` 与 ``_is_summary=False``。"
 
-#: forestploter.core.forest:103 of
+#: forestploter.core.forest:107 of
 msgid ""
 "To show one series in several CI columns, duplicate the record, retain "
 "the same ``_plot_row``, and change only ``_ci_column``. CSV uses the same"
@@ -2090,7 +2120,7 @@ msgstr ""
 "若要在多个 CI 列中显示同一系列，请复制该记录，保留相同的 ``_plot_row``，只修改 ``_ci_column``。CSV "
 "使用相同的逻辑字段，但没有合并元数据；绝不会推断或向前填充空白值。"
 
-#: forestploter.core.forest:108 of
+#: forestploter.core.forest:112 of
 msgid ""
 "A readable file-header order is recommended but does not control output. "
 "Place display fields before the first CI, then ``estimate/lower/upper`` "
@@ -2104,7 +2134,7 @@ msgstr ""
 "``_plot_row``、``_series``、``_ci_column``、``_row_type``、``_indent`` 和 "
 "``_is_summary``。实际渲染顺序仍仅由 ``columns`` 决定。"
 
-#: forestploter.core.forest:115 of
+#: forestploter.core.forest:119 of
 msgid ""
 "``_row_type`` controls row semantics. ``_is_summary`` must be boolean and"
 " controls marker shape only. A fully blank triple skips an interval; a "
@@ -2115,7 +2145,7 @@ msgstr ""
 "``_row_type`` 控制行语义。``_is_summary`` "
 "必须是布尔值，且只控制标记形态。三元组全部留空时跳过该区间，部分留空则无效。区间越过坐标范围时，箭头取代相应一侧的竖向端帽；完全越界的区间只显示最近的向外箭头。"
 
-#: forestploter.core.forest:121 of
+#: forestploter.core.forest:125 of
 msgid ""
 "This function uses one global linear axis configuration. It performs no "
 "logarithmic transformation and computes no effect size, confidence "
@@ -2126,7 +2156,7 @@ msgstr ""
 "本函数使用一套全局线性坐标配置，不执行对数变换，也不计算效应量、置信区间或荟萃分析统计量。``ideal_line_columns`` "
 "只控制额外线是否可见；所有 CI 列仍共享同一参考值、范围和刻度。"
 
-#: forestploter.core.forest:129 forestploter.data.read_forest_data:101 of
+#: forestploter.core.forest:133 forestploter.data.read_forest_data:101 of
 msgid "Examples"
 msgstr "示例"
 
@@ -3383,7 +3413,7 @@ msgstr "单系列森林图，CI 列后带有效应文本"
 #: ../../gallery/07_four_series_dense.rst:16
 #: ../../gallery/08_two_by_two_ci_columns.rst:18
 #: ../../gallery/09_deep_hierarchy_many_rows.rst:16
-#: ../../gallery/10_unicode_custom_theme.rst:18
+#: ../../gallery/10_unicode_custom_theme.rst:19
 #: ../../gallery/11_boundary_precision.rst:16
 #: ../../gallery/12_multi_series_ci_text_rows.rst:17
 #: ../../gallery/13_comprehensive_showcase.rst:27
@@ -3397,7 +3427,7 @@ msgstr "运行示例"
 #: ../../gallery/07_four_series_dense.rst:28
 #: ../../gallery/08_two_by_two_ci_columns.rst:30
 #: ../../gallery/09_deep_hierarchy_many_rows.rst:28
-#: ../../gallery/10_unicode_custom_theme.rst:30
+#: ../../gallery/10_unicode_custom_theme.rst:31
 #: ../../gallery/11_boundary_precision.rst:28
 #: ../../gallery/12_multi_series_ci_text_rows.rst:29
 #: ../../gallery/13_comprehensive_showcase.rst:39
@@ -3615,13 +3645,13 @@ msgstr "10 · Unicode 标签和自定义主题"
 msgid ""
 "Chinese, English, Greek, mathematical symbols, custom fills, guide "
 "colors, an explicitly enabled full table border, and font fallback "
-"behavior are exercised together. Other gallery cases retain the "
-"borderless default unless they opt into independent vertical column "
-"separators."
-msgstr ""
-"同时测试中文、英文、希腊语、数学符号、自定义填充、辅助线颜色、显式开启的完整表格边框以及字体回退行为。其他图库用例保留无框默认样式，除非显式启用独立的纵向列分隔线。"
+"behavior are exercised together. Other gallery cases use the default "
+"three-rule table with no internal row separators or vertical column "
+"separators. Column-header height automatically adjusts to keep the labels"
+" inside their boundaries."
+msgstr "同时测试中文、英文、希腊语、数学符号、自定义填充、辅助线颜色、显式开启的完整表格边框以及字体回退行为。其他图库用例采用默认三线表，不显示数据行间横线或纵向列分隔线。列标题行高度自动调整，确保文字位于边界以内。"
 
-#: ../../gallery/10_unicode_custom_theme.rst:9
+#: ../../gallery/10_unicode_custom_theme.rst:10
 msgid ""
 ":download:`XLSX <../../tests/data/10_unicode_custom_theme.xlsx>` · "
 ":download:`CSV <../../tests/data/10_unicode_custom_theme.csv>` · "
@@ -3631,7 +3661,7 @@ msgstr ""
 ":download:`CSV <../../tests/data/10_unicode_custom_theme.csv>` · "
 ":download:`PNG <../../tests/artifacts/10_unicode_custom_theme.png>`"
 
-#: ../../gallery/10_unicode_custom_theme.rst:13
+#: ../../gallery/10_unicode_custom_theme.rst:14
 msgid "Unicode forest plot with a custom theme"
 msgstr "带有自定义主题的 Unicode 森林图"
 
@@ -3810,41 +3840,54 @@ msgstr "表格边框"
 
 #: ../../getting_started.rst:99
 msgid ""
-"The table outline and horizontal row separators are hidden by default. "
-"Pass ``theme=ForestTheme(show_table_border=True)`` to "
-":func:`forestploter.forest` to display them. Set "
+"The default is a three-rule table: one rule above the column headers, one"
+" below them, and one at the table bottom. Data rows have no internal "
+"separators or side borders. Pass "
+"``theme=ForestTheme(show_table_border=True)`` to "
+":func:`forestploter.forest` to add those borders. Set "
 "``show_vertical_grid=True`` on the same theme when vertical column "
 "separators are also needed."
 msgstr ""
-"表格外框和横向行分隔线默认隐藏。向 :func:`forestploter.forest` 传入 "
-"``theme=ForestTheme(show_table_border=True)`` 即可显示；如还需要纵向列分隔线，请在同一主题中设置 "
+"默认采用三线表：列标题上方、列标题下方和表格底部各一条横线。数据行之间不画横线，也不显示左右边框。向 :func:`forestploter.forest` 传入 "
+"``theme=ForestTheme(show_table_border=True)`` 可增加这些边框；如还需要纵向列分隔线，请在同一主题中设置 "
 "``show_vertical_grid=True``。"
 
 #: ../../getting_started.rst:105
+msgid ""
+"Column-header height automatically adapts to the rendered text and header"
+" legends, including multiline text, mathematical expressions, and larger "
+"fonts. Only the header grows; body rows keep their spacing. This also "
+"works with ``auto_width=False`` or ``auto_wrap_headers=False``. Use "
+"``table_layout=ForestTableLayoutSpec(header_padding_pt=4)`` to set the "
+"minimum top and bottom padding in points. Explicit newline characters "
+"remain useful for choosing where a heading breaks."
+msgstr "列标题行高度会根据实际渲染的文字和表头图例自动调整，适用于多行文字、数学公式和较大字体。扩展仅作用于表头，数据行间距保持不变。设置 ``auto_width=False`` 或 ``auto_wrap_headers=False`` 时同样有效。使用 ``table_layout=ForestTableLayoutSpec(header_padding_pt=4)`` 可设置最小上下留白（以磅为单位）。仍可通过显式换行符指定列标题的换行位置。"
+
+#: ../../getting_started.rst:114
 msgid "Save the result"
 msgstr "保存结果"
 
-#: ../../getting_started.rst:112
+#: ../../getting_started.rst:121
 msgid "Close the Figure after batch rendering:"
 msgstr "批量渲染后关闭图："
 
-#: ../../getting_started.rst:120
+#: ../../getting_started.rst:129
 msgid "Next steps"
 msgstr "后续步骤"
 
-#: ../../getting_started.rst:122
+#: ../../getting_started.rst:131
 msgid ""
 "Read :doc:`data_contract` for XLSX merges, row recipes, and multi-CI "
 "alignment."
 msgstr "查阅 :doc:`data_contract`，了解 XLSX 合并、行填写模板和多 CI 对齐。"
 
-#: ../../getting_started.rst:124
+#: ../../getting_started.rst:133
 msgid ""
 "Browse :doc:`gallery` for thirteen downloadable XLSX/CSV/PNG cases with "
 "the exact plotting code."
 msgstr "浏览 :doc:`gallery`，获取 13 个可下载的 XLSX/CSV/PNG 案例及其准确绘图代码。"
 
-#: ../../getting_started.rst:126
+#: ../../getting_started.rst:135
 msgid ""
 "Consult :func:`forestploter.read_forest_data` and "
 ":func:`forestploter.forest` for API details."
@@ -3903,9 +3946,9 @@ msgstr "普通估计、汇总菱形、截断箭头、引导线和图例；"
 
 #: ../../index.rst:20
 msgid ""
-"borderless tables by default with optional outlines, row separators, and "
-"vertical column separators;"
-msgstr "表格默认无框，并可选显示外框、行分隔线和纵向列分隔线；"
+"three-rule tables by default with optional side borders, internal row "
+"separators, and vertical column separators;"
+msgstr "默认采用三线表，可选显示左右边框、数据行间横线和纵向列分隔线；"
 
 #: ../../index.rst:22
 msgid "independently editable per-series CI text aligned with each plotted row;"
@@ -3919,9 +3962,9 @@ msgstr "纵向合并显示单元，文本居中并抑制内部规则；"
 
 #: ../../index.rst:25
 msgid ""
-"header wrapping, automatic width growth, hierarchical indentation, "
-"themes, and layout diagnostics;"
-msgstr "标头换行、自动宽度增长、分层缩进、主题和布局诊断；"
+"header wrapping, automatic header height and width growth, hierarchical "
+"indentation, themes, and layout diagnostics;"
+msgstr "列标题换行、自动表头高度与列宽扩展、层级缩进、主题和布局诊断；"
 
 #: ../../index.rst:27
 msgid "PNG, SVG, and other Matplotlib-supported static exports."
@@ -4004,3 +4047,24 @@ msgstr ":ref:`search`"
 #~ "Whether to draw each column's left "
 #~ "boundary and the table's right boundary."
 #~ msgstr "是否绘制每列的左边界和表格的右边界。"
+
+#~ msgid "Header text. Newline characters are allowed."
+#~ msgstr "标题文本。允许使用换行符。"
+
+#~ msgid ""
+#~ "Whether to draw the table outline, "
+#~ "header separator, and horizontal row "
+#~ "separators. This is disabled by default"
+#~ " for a conventional borderless forest-"
+#~ "plot layout. Set ``show_vertical_grid=True`` "
+#~ "as well when a fully boxed table"
+#~ " is desired."
+#~ msgstr ""
+#~ "是否绘制表格外框、表头分隔线和横向行分隔线。为符合常规无框森林图布局，此选项默认关闭；需要完整方格表时，同时设置 "
+#~ "``show_vertical_grid=True``。"
+
+#~ msgid "Colors, font size, optional table borders, grid, and guide-line styles."
+#~ msgstr "颜色、字体大小、可选表格边框、网格和引导线样式。"
+
+#~ msgid "Automatic column width, header wrapping, and edge-padding rules."
+#~ msgstr "自动列宽、表头换行和边缘留白规则。"

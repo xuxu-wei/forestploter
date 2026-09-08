@@ -26,7 +26,8 @@ class ForestColumn:
         must name a display field in the long table. For ``role="ci"``, it
         must match values in the record-level ``_ci_column`` field.
     header : str
-        Header text. Newline characters are allowed.
+        Header text. Newline characters are allowed. The column-header row
+        automatically grows to fit the rendered text with vertical padding.
     role : {"text", "numeric", "ci"}
         Rendering role. The first two draw cell text; ``"ci"`` draws point
         estimates and intervals.
@@ -137,6 +138,13 @@ class ForestTableLayoutSpec:
         Maximum line count for one header.
     max_figure_width : float, default 16
         Maximum automatically expanded Figure width in inches.
+    header_padding_pt : float, default 4
+        Minimum top and bottom padding for column-header text and each
+        header legend, in points. Must be finite and nonnegative. Header
+        height always adapts to the rendered content, including explicit
+        newlines, even when automatic widths or wrapping are disabled.
+        Extra header space increases Figure height without compressing the
+        body rows.
     """
 
     auto_width: bool = True
@@ -145,6 +153,7 @@ class ForestTableLayoutSpec:
     edge_padding_pt: float = 4.0
     max_header_lines: int = 3
     max_figure_width: float = 16.0
+    header_padding_pt: float = 4.0
 
 
 @dataclass(frozen=True)
@@ -190,7 +199,8 @@ class ForestLayoutDiagnostics:
     final_figure_width : float
         Final Figure width in inches.
     header_overflow_count : int
-        Number of headers overflowing their column or Figure boundary.
+        Number of headers overflowing their column width, header-row height,
+        or Figure boundary.
     plot_row_ids : tuple
         Visual-row identifiers in the same order as ``row_bounds`` and the
         result's ``row_centers``.

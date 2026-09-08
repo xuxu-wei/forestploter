@@ -17,13 +17,13 @@ Current capabilities
 * explicit cross-column alignment through ``_plot_row``;
 * ordinary estimates, summary diamonds, clipping arrows, guide lines, and
   legends;
-* borderless tables by default with optional outlines, row separators, and
-  vertical column separators;
+* three-rule tables by default with optional side borders, internal row
+  separators, and vertical column separators;
 * independently editable per-series CI text aligned with each plotted row;
 * vertically merged display cells with centered text and suppressed internal
   rules;
-* header wrapping, automatic width growth, hierarchical indentation, themes,
-  and layout diagnostics;
+* header wrapping, automatic header height and width growth, hierarchical
+  indentation, themes, and layout diagnostics;
 * PNG, SVG, and other Matplotlib-supported static exports.
 
 Start with :doc:`getting_started`, use :doc:`data_contract` when preparing

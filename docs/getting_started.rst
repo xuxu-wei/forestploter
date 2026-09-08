@@ -96,10 +96,19 @@ by ``columns``.
 Table borders
 -------------
 
-The table outline and horizontal row separators are hidden by default. Pass
-``theme=ForestTheme(show_table_border=True)`` to :func:`forestploter.forest`
-to display them. Set ``show_vertical_grid=True`` on the same theme when
-vertical column separators are also needed.
+The default is a three-rule table: one rule above the column headers, one below
+them, and one at the table bottom. Data rows have no internal separators or
+side borders. Pass ``theme=ForestTheme(show_table_border=True)`` to
+:func:`forestploter.forest` to add those borders. Set ``show_vertical_grid=True``
+on the same theme when vertical column separators are also needed.
+
+Column-header height automatically adapts to the rendered text and header
+legends, including multiline text, mathematical expressions, and larger
+fonts. Only the header grows; body rows keep their spacing. This also works
+with ``auto_width=False`` or ``auto_wrap_headers=False``. Use
+``table_layout=ForestTableLayoutSpec(header_padding_pt=4)`` to set the minimum
+top and bottom padding in points. Explicit newline characters remain useful
+for choosing where a heading breaks.
 
 Save the result
 ---------------

@@ -8,6 +8,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import pytest
 from openpyxl import Workbook, load_workbook
 from PIL import Image
@@ -21,6 +22,7 @@ from forestploter import (
     ForestLegendSpec,
     ForestReferenceLegendSpec,
     ForestSeriesStyle,
+    ForestTableLayoutSpec,
     ForestTheme,
     compute_column_geometry,
     forest,
@@ -161,7 +163,18 @@ def test_xlsx_visual_case_renders_with_valid_layout(case_name: str) -> None:
             for line in result.axes.lines
             if (line.get_gid() or "").startswith("table-border:")
         }
-        assert bool(table_border_gids) is (case_name == "unicode_custom_theme")
+        three_rules = {
+            "table-border:top",
+            "table-border:header-separator",
+            "table-border:bottom",
+        }
+        if case_name == "unicode_custom_theme":
+            assert three_rules < table_border_gids
+        else:
+            assert table_border_gids == three_rules
+            assert not any(
+                (line.get_gid() or "").startswith("table-grid:") for line in result.axes.lines
+            )
     finally:
         plt.close(result.figure)
 
@@ -446,7 +459,10 @@ def test_comprehensive_showcase_combines_hierarchy_alignment_clipping_and_legend
         )
         assert len(data.frame) == 35
         assert len(result.row_centers) == 20
-        assert 6.7 < result.figure.get_size_inches()[1] < 7.0
+        # Header height is content-dependent; the body should remain compact.
+        row_start, row_end = result.axes.transData.transform([(0, 0), (0, 1)])
+        physical_row_height = (row_end[1] - row_start[1]) / result.figure.dpi
+        assert 0.25 < physical_row_height < 0.30
         assert set(data.frame["_series"].dropna()) == {
             "Integrated care",
             "Digital support",
@@ -976,7 +992,7 @@ def test_theme_values_are_validated(theme: ForestTheme, match: str) -> None:
         forest(data, columns=columns, xlim=(-1, 1), theme=theme)
 
 
-def test_table_border_is_hidden_by_default_and_can_be_enabled() -> None:
+def test_table_defaults_to_three_rules_and_full_borders_remain_optional() -> None:
     data = load_case_data("single_series")
     columns = (
         ForestColumn("label", "Label", "text", 2),
@@ -1002,11 +1018,27 @@ def test_table_border_is_hidden_by_default_and_can_be_enabled() -> None:
         bordered_gids = {line.get_gid() for line in bordered_result.axes.lines if line.get_gid()}
         full_grid_gids = {line.get_gid() for line in full_grid_result.axes.lines if line.get_gid()}
 
-        assert not {
+        assert {
             gid
             for gid in default_gids
             if gid.startswith("table-border:") or gid.startswith("table-grid:")
+        } == {
+            "table-border:top",
+            "table-border:header-separator",
+            "table-border:bottom",
         }
+        horizontal_rules = [
+            line
+            for line in default_result.axes.lines
+            if (line.get_gid() or "") in default_gids
+            and (line.get_gid() or "").startswith("table-border:")
+        ]
+        rule_heights = sorted(float(line.get_ydata()[0]) for line in horizontal_rules)
+        assert rule_heights[:2] == [0.0, float(len(default_result.row_centers))]
+        assert rule_heights[2] > rule_heights[1]
+        for line in horizontal_rules:
+            assert list(line.get_xdata()) == [0, 1]
+            assert line.get_ydata()[0] == line.get_ydata()[1]
         assert {
             "table-border:top",
             "table-border:header-separator",
@@ -1027,6 +1059,124 @@ def test_table_border_is_hidden_by_default_and_can_be_enabled() -> None:
         plt.close(default_result.figure)
         plt.close(bordered_result.figure)
         plt.close(full_grid_result.figure)
+
+
+@pytest.mark.parametrize(
+    ("font_size", "row_height", "header", "auto_width"),
+    (
+        (8.5, 0.16, "Treatment effect\nRisk ratio\n95% confidence interval\nFollow-up", True),
+        (16.0, 0.32, "治疗效应 / Effect\n95% CI", True),
+        (10.0, 0.18, "Effect\n$\\frac{a}{b}$\n95% CI", False),
+    ),
+)
+def test_header_grows_to_fit_rendered_text_in_png_and_svg(
+    font_size: float, row_height: float, header: str, auto_width: bool, tmp_path: Path
+) -> None:
+    data = pd.DataFrame(
+        {
+            "label": [f"Study {index}" for index in range(30)],
+            "estimate": [0.8] * 30,
+            "lower": [0.6] * 30,
+            "upper": [1.0] * 30,
+            "_plot_row": list(range(30)),
+            "_series": ["A"] * 30,
+            "_ci_column": ["ci"] * 30,
+            "_row_type": ["estimate"] * 30,
+            "_indent": [0] * 30,
+            "_is_summary": [False] * 30,
+        }
+    )
+    result = forest(
+        data,
+        columns=(ForestColumn("label", "Study", "text", 2), ForestColumn("ci", header, "ci", 4)),
+        xlim=(0.4, 1.2),
+        row_height=row_height,
+        theme=ForestTheme(base_font_size=font_size),
+        table_layout=ForestTableLayoutSpec(auto_width=auto_width, auto_wrap_headers=False),
+    )
+    try:
+        for dpi in (100, 180, 300):
+            result.figure.set_dpi(dpi)
+            result.figure.canvas.draw()
+            renderer = result.figure.canvas.get_renderer()
+            header_box = next(
+                patch for patch in result.axes.patches if patch.get_y() == len(result.row_centers)
+            ).get_window_extent(renderer)
+            for text in result.axes.texts:
+                if text.get_position()[1] <= len(result.row_centers):
+                    continue
+                bounds = text.get_window_extent(renderer)
+                assert bounds.y0 >= header_box.y0 + 2 * dpi / 72
+                assert bounds.y1 <= header_box.y1 - 2 * dpi / 72
+        png = result.save(tmp_path / "header.png", dpi=180)
+        svg = result.save(tmp_path / "header.svg")
+        assert png.stat().st_size > 10_000
+        assert 'id="table-border:top"' in svg.read_text(encoding="utf-8")
+        assert result.layout_diagnostics.header_overflow_count == 0
+    finally:
+        plt.close(result.figure)
+
+
+def test_header_growth_keeps_legends_separate_and_body_rows_compact() -> None:
+    data = load_case_data("multi_series")
+    columns = (
+        ForestColumn("outcome", "Outcome\nPopulation", "text", 3),
+        ForestColumn("participants", "N", "numeric", 0.8, "right"),
+        ForestColumn("ci", "Risk ratio\n95% CI", "ci", 5, "center"),
+    )
+    results = [
+        forest(
+            data,
+            columns=columns,
+            xlim=(0.4, 1.6),
+            ref_line=1.0,
+            row_height=0.20,
+            theme=ForestTheme(base_font_size=12),
+            legend=ForestLegendSpec(location="header", column_key="ci", ncol=1),
+            reference_legend=ForestReferenceLegendSpec(
+                reference_label="No effect", location="header", column_key="ci", ncol=1
+            ),
+            table_layout=ForestTableLayoutSpec(header_padding_pt=padding),
+        )
+        for padding in (4.0, 12.0)
+    ]
+    try:
+        row_sizes = []
+        for result in results:
+            renderer = result.figure.canvas.get_renderer()
+            header_bottom = min(
+                text.get_window_extent(renderer).y0
+                for text in result.axes.texts
+                if text.get_position()[1] > len(result.row_centers)
+            )
+            bounds = result.layout_diagnostics.legend_bounds
+            assert [item[0] for item in bounds] == ["series", "reference"]
+            series_top = result.axes.transData.transform((0, bounds[0][4]))[1]
+            assert header_bottom > series_top
+            assert bounds[0][2] > bounds[1][4]
+            assert bounds[1][2] > len(result.row_centers)
+            coords = result.axes.transData.transform([[0, 0], [0, 1]])
+            row_sizes.append((coords[1, 1] - coords[0, 1]) / result.figure.dpi)
+        assert row_sizes[0] == pytest.approx(row_sizes[1])
+        assert results[1].figure.get_figheight() > results[0].figure.get_figheight()
+    finally:
+        for result in results:
+            plt.close(result.figure)
+
+
+@pytest.mark.parametrize("padding", (-1, np.nan, np.inf, True, "wide"))
+def test_header_padding_requires_a_nonnegative_finite_number(padding: object) -> None:
+    data = load_case_data("single_series")
+    with pytest.raises(ValueError, match="header_padding_pt.*nonnegative finite"):
+        forest(
+            data,
+            columns=(
+                ForestColumn("label", "Study", "text", 2),
+                ForestColumn("ci", "Effect", "ci", 3),
+            ),
+            xlim=(-1, 1),
+            table_layout=ForestTableLayoutSpec(header_padding_pt=padding),  # type: ignore[arg-type]
+        )
 
 
 @pytest.mark.parametrize(
