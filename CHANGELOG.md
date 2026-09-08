@@ -5,6 +5,18 @@ compatibility follows the policy described in `ROADMAP.md`.
 
 ## Unreleased
 
+### Added
+
+- ``ForestTheme.show_table_border`` for optionally drawing the table outline,
+  header separator, and horizontal row separators. The default is a
+  borderless forest-plot table; vertical column separators remain controlled
+  independently by ``show_vertical_grid``.
+
+### Changed
+
+- Regenerated all thirteen gallery PNGs with the current border behavior; the
+  Unicode custom-theme example explicitly demonstrates a fully bordered table.
+
 ## 0.1.0rc1 - 2026-08-29
 
 ### Added

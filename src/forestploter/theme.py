@@ -42,12 +42,17 @@ class ForestTheme:
     ideal_color : str, default "#C69C3C"
         Color for ``ideal_line`` and its legend entry.
     show_vertical_grid : bool, default False
-        Whether to draw each column's left boundary and the table's right
-        boundary.
+        Whether to draw vertical column separators. This setting is
+        independent of ``show_table_border``.
     reference_line_style : str, default "--"
         Matplotlib line style for the reference line.
     ideal_line_style : str, default ":"
         Matplotlib line style for the ideal line.
+    show_table_border : bool, default False
+        Whether to draw the table outline, header separator, and horizontal
+        row separators. This is disabled by default for a conventional
+        borderless forest-plot layout. Set ``show_vertical_grid=True`` as well
+        when a fully boxed table is desired.
 
     Notes
     -----
@@ -69,6 +74,7 @@ class ForestTheme:
     show_vertical_grid: bool = False
     reference_line_style: str = "--"
     ideal_line_style: str = ":"
+    show_table_border: bool = False
 
 
 __all__ = ["ForestTheme"]

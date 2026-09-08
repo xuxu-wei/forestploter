@@ -3,6 +3,9 @@
 每个用例有同主文件名的 XLSX 主数据、CSV 伴随数据和 PNG 输出。XLSX 验证纵向
 合并结构；CSV 验证不依赖合并信息的逻辑长表语义。
 
+全部图片按当前边框规则生成：表格外框和横向行分隔线默认隐藏；用例 10 显式开启
+完整边框，用于回归检查边框开关和纵向列分隔线的组合。
+
 | 编号 | 主数据 | 输出图片 | 主要检查内容 |
 |---:|---|---|---|
 | 01 | `data/01_single_series.xlsx` | `artifacts/01_single_series.png` | “文本 → CI → 效应文本”、分组、汇总与参考图例 |
@@ -14,7 +17,7 @@
 | 07 | `data/07_four_series_dense.xlsx` | `artifacts/07_four_series_dense.png` | 四系列显式视觉行和底部系列图例 |
 | 08 | `data/08_two_by_two_ci_columns.xlsx` | `artifacts/08_two_by_two_ci_columns.png` | 双系列 × 双 CI、尾部文本列与该列表头图例 |
 | 09 | `data/09_deep_hierarchy_many_rows.xlsx` | `artifacts/09_deep_hierarchy_many_rows.png` | 多地区、两级缩进、多个小计与长表 |
-| 10 | `data/10_unicode_custom_theme.xlsx` | `artifacts/10_unicode_custom_theme.png` | 中文、英文、希腊文和自定义主题 |
+| 10 | `data/10_unicode_custom_theme.xlsx` | `artifacts/10_unicode_custom_theme.png` | 中文、英文、希腊文、自定义主题和显式完整表格边框 |
 | 11 | `data/11_boundary_precision.xlsx` | `artifacts/11_boundary_precision.png` | 精确边界、零宽区间与微量越界 |
 | 12 | `data/12_multi_series_ci_text_rows.xlsx` | `artifacts/12_multi_series_ci_text_rows.png` | CI 后每系列一条文本、一条 CI 线、同一 y |
 | 13 | `data/13_comprehensive_showcase.xlsx` | `artifacts/13_comprehensive_showcase.png` | 双 CI 与对应文本、父标题行与缩进系列子行（零合并）、紧凑行距、高对比度配色、双侧截断、共有无效应线、单列额外目标线、方向指示和底部图例 |

@@ -28,4 +28,5 @@
 - `08_two_by_two_ci_columns.png`：每个 Cohort 的 crude/adjusted 点严格共线，Cohort 文本和图例位于 CI 后。
 - `12_multi_series_ci_text_rows.png`：CI 后每条文本、点和区间线严格共线，共享结局名称居中。
 - `13_comprehensive_showcase.png`：双 CI 列和对应文本逐系列共线，同时核对紧凑行距、高对比度配色、父标题行与缩进系列子行（零合并）、上下界箭头、共有无效应线、仅校正模型面板额外目标线、方向指示与底部图例。
-- `10_unicode_custom_theme.png`：默认回归环境使用 Microsoft YaHei 渲染中英文。
+- `10_unicode_custom_theme.png`：默认回归环境使用 Microsoft YaHei 渲染中英文，并显式开启表格外框、横向行分隔线和纵向列分隔线。
+- 其余图片默认不绘制表格外框和横向行分隔线；明确配置的纵向列分隔线独立保留。

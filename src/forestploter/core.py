@@ -442,6 +442,8 @@ def _series_styles(
 def _validate_theme(theme: ForestTheme) -> None:
     if not np.isfinite(theme.base_font_size) or theme.base_font_size <= 0:
         raise ValueError("ForestTheme.base_font_size must be a positive finite number.")
+    if not isinstance(theme.show_table_border, (bool, np.bool_)):
+        raise ValueError("ForestTheme.show_table_border must be boolean.")
     if not isinstance(theme.show_vertical_grid, (bool, np.bool_)):
         raise ValueError("ForestTheme.show_vertical_grid must be boolean.")
     color_fields = {
@@ -548,7 +550,7 @@ def forest(
     arrow_lab : tuple of str, optional
         Left and right direction labels below the first active CI column.
     theme : ForestTheme, optional
-        Colors, font size, grid, and guide-line styles.
+        Colors, font size, optional table borders, grid, and guide-line styles.
     title : str, optional
         In-figure title.
     figure_width : float, default 12
@@ -799,8 +801,7 @@ def forest(
             1,
             header_height,
             facecolor=style.header_fill,
-            edgecolor=style.grid_color,
-            linewidth=0.8,
+            edgecolor="none",
             zorder=0,
         )
     )
@@ -834,48 +835,83 @@ def forest(
             )
         )
 
-    # 分界线在合并单元格内部断开，其他列仍保持表格结构。
-    for row_index, (bottom, _) in enumerate(row_bounds):
-        blocked = sorted(
-            (
-                by_key[span.column_key].left,
-                by_key[span.column_key].right,
+    if style.show_table_border:
+        # Horizontal separators stop at supported merged display cells.
+        for row_index, (bottom, _) in enumerate(row_bounds):
+            blocked = sorted(
+                (
+                    by_key[span.column_key].left,
+                    by_key[span.column_key].right,
+                )
+                for span in table.spans
+                if span.start_row <= row_index < span.end_row
             )
-            for span in table.spans
-            if span.start_row <= row_index < span.end_row
-        )
-        cursor = 0.0
-        for left, right in blocked:
-            if left > cursor:
-                ax.plot(
-                    [cursor, left],
+            cursor = 0.0
+            segment_index = 0
+            for left, right in blocked:
+                if left > cursor:
+                    artist = ax.plot(
+                        [cursor, left],
+                        [bottom, bottom],
+                        color=style.grid_color,
+                        linewidth=0.35,
+                        zorder=1,
+                    )[0]
+                    artist.set_gid(f"table-border:row:{row_index}:segment:{segment_index}")
+                    segment_index += 1
+                cursor = max(cursor, right)
+            if cursor < 1.0:
+                artist = ax.plot(
+                    [cursor, 1.0],
                     [bottom, bottom],
                     color=style.grid_color,
                     linewidth=0.35,
                     zorder=1,
-                )
-            cursor = max(cursor, right)
-        if cursor < 1.0:
-            ax.plot(
-                [cursor, 1.0], [bottom, bottom], color=style.grid_color, linewidth=0.35, zorder=1
-            )
+                )[0]
+                artist.set_gid(f"table-border:row:{row_index}:segment:{segment_index}")
+
+        for name, y, linewidth in (
+            ("header-separator", total_rows, 0.9),
+            ("top", total_rows + header_height, 0.8),
+        ):
+            artist = ax.plot(
+                [0, 1],
+                [y, y],
+                color=style.grid_color,
+                linewidth=linewidth,
+                zorder=2,
+            )[0]
+            artist.set_gid(f"table-border:{name}")
+
+        if not style.show_vertical_grid:
+            for name, x in (("left", 0.0), ("right", 1.0)):
+                artist = ax.plot(
+                    [x, x],
+                    [0, total_rows + header_height],
+                    color=style.grid_color,
+                    linewidth=0.8,
+                    zorder=1,
+                )[0]
+                artist.set_gid(f"table-border:{name}")
+
     if style.show_vertical_grid:
         for item in geometry:
-            ax.plot(
+            artist = ax.plot(
                 [item.left, item.left],
                 [0, total_rows + header_height],
                 color=style.grid_color,
                 linewidth=0.45,
                 zorder=1,
-            )
-        ax.plot(
+            )[0]
+            artist.set_gid(f"table-grid:column:{item.key}")
+        artist = ax.plot(
             [1, 1],
             [0, total_rows + header_height],
             color=style.grid_color,
             linewidth=0.45,
             zorder=1,
-        )
-    ax.plot([0, 1], [total_rows, total_rows], color=style.grid_color, linewidth=0.9, zorder=2)
+        )[0]
+        artist.set_gid("table-grid:right")
 
     header_text_y = total_rows + header_height - base_header_height / 2.0
     header_artists: list[tuple[str, Any, ColumnGeometry]] = []
@@ -885,7 +921,7 @@ def forest(
             x = cell.left + cell_padding
         elif column.alignment == "right":
             x = cell.right - cell_padding
-        artist = ax.text(
+        header_artist = ax.text(
             x,
             header_text_y,
             column.header,
@@ -896,7 +932,7 @@ def forest(
             color=style.text_color,
             linespacing=1.15,
         )
-        header_artists.append((column.key, artist, cell))
+        header_artists.append((column.key, header_artist, cell))
 
     for ci_key in active_ci:
         cell = by_key[ci_key]

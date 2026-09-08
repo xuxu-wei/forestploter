@@ -93,6 +93,14 @@ by ``columns``.
    >>> result.layout_diagnostics.plot_row_ids
    ('study-a', 'study-b', 'pooled')
 
+Table borders
+-------------
+
+The table outline and horizontal row separators are hidden by default. Pass
+``theme=ForestTheme(show_table_border=True)`` to :func:`forestploter.forest`
+to display them. Set ``show_vertical_grid=True`` on the same theme when
+vertical column separators are also needed.
+
 Save the result
 ---------------
 

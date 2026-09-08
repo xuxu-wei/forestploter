@@ -41,7 +41,8 @@ the renderer and regression tests. On every detail page, ``df`` means the
       Thirty visual rows, two indentation levels, subtotals, and spacers.
 
    :doc:`gallery/10_unicode_custom_theme`
-      Chinese, English, Greek, mathematical symbols, and a custom theme.
+      Chinese, English, Greek, mathematical symbols, a custom theme, and the
+      optional full table border.
 
    :doc:`gallery/11_boundary_precision`
       Exact limits, zero-width intervals, narrow intervals, and tiny overflows.

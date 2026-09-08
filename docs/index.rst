@@ -17,6 +17,8 @@ Current capabilities
 * explicit cross-column alignment through ``_plot_row``;
 * ordinary estimates, summary diamonds, clipping arrows, guide lines, and
   legends;
+* borderless tables by default with optional outlines, row separators, and
+  vertical column separators;
 * independently editable per-series CI text aligned with each plotted row;
 * vertically merged display cells with centered text and suppressed internal
   rules;

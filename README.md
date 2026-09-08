@@ -48,6 +48,9 @@ labels, summary diamonds, and bottom legends. Synthetic demonstration data.
 - Render summary diamonds, clipped-interval arrows, shared reference lines,
   additional target lines restricted to selected CI columns, series styles,
   configurable themes, and legends in a header or below the figure.
+- Keep table borders hidden by default, or enable the outline and horizontal
+  separators with `ForestTheme(show_table_border=True)`; vertical column
+  separators remain independently configurable.
 - Use automatic sizing and layout diagnostics to make dense tables, long text,
   Unicode labels, and PNG/SVG export easier to review.
 
@@ -95,6 +98,11 @@ result.save("forest.png", dpi=300)
 The `columns` sequence alone controls the rendered left-to-right order, so
 ordinary display columns can appear before or after any CI plotting column
 regardless of the physical XLSX/CSV header order.
+
+Table borders are hidden by default. Use
+`ForestTheme(show_table_border=True)` for an outline with horizontal row
+separators, and add `show_vertical_grid=True` when a fully boxed grid is
+needed.
 
 ## Input model at a glance
 

@@ -156,6 +156,12 @@ def test_xlsx_visual_case_renders_with_valid_layout(case_name: str) -> None:
         assert result.geometry[-1].right == pytest.approx(1.0)
         assert all(item.left < item.right for item in result.geometry)
         assert len(diagnostics.observation_positions) == sum(data.frame["estimate"].notna())
+        table_border_gids = {
+            line.get_gid()
+            for line in result.axes.lines
+            if (line.get_gid() or "").startswith("table-border:")
+        }
+        assert bool(table_border_gids) is (case_name == "unicode_custom_theme")
     finally:
         plt.close(result.figure)
 
@@ -727,7 +733,19 @@ def test_bottom_legend_without_column_spans_all_active_ci_columns() -> None:
 
 
 def test_merged_display_cell_is_centered_and_internal_dividers_are_suppressed() -> None:
-    result = build_case("multi_series_ci_text_rows")
+    data = load_case_data("multi_series_ci_text_rows")
+    result = forest(
+        data,
+        columns=(
+            ForestColumn("outcome", "Outcome", "text", 2.5),
+            ForestColumn("participants", "Participants", "numeric", 0.8, "right"),
+            ForestColumn("ci", "CI", "ci", 4.8, "center"),
+            ForestColumn("series_ci_text", "Series estimate [95% CI]", "numeric", 2.8, "right"),
+        ),
+        ref_line=1.0,
+        xlim=(0.4, 1.6),
+        theme=ForestTheme(show_table_border=True),
+    )
     try:
         first_span = next(
             item for item in result.layout_diagnostics.resolved_spans if item[0] == "outcome"
@@ -941,6 +959,7 @@ def test_column_role_and_alignment_are_validated(column: ForestColumn) -> None:
 @pytest.mark.parametrize(
     ("theme", "match"),
     (
+        (ForestTheme(show_table_border="yes"), "show_table_border"),  # type: ignore[arg-type]
         (ForestTheme(show_vertical_grid="yes"), "show_vertical_grid"),  # type: ignore[arg-type]
         (ForestTheme(header_fill="not-a-color"), "invalid colors"),
     ),
@@ -955,6 +974,59 @@ def test_theme_values_are_validated(theme: ForestTheme, match: str) -> None:
     )
     with pytest.raises(ValueError, match=match):
         forest(data, columns=columns, xlim=(-1, 1), theme=theme)
+
+
+def test_table_border_is_hidden_by_default_and_can_be_enabled() -> None:
+    data = load_case_data("single_series")
+    columns = (
+        ForestColumn("label", "Label", "text", 2),
+        ForestColumn("n", "N", "numeric", 1, "right"),
+        ForestColumn("effect_display", "Effect", "numeric", 2, "right"),
+        ForestColumn("ci", "CI", "ci", 3),
+    )
+    default_result = forest(data, columns=columns, xlim=(-1, 1))
+    bordered_result = forest(
+        data,
+        columns=columns,
+        xlim=(-1, 1),
+        theme=ForestTheme(show_table_border=True),
+    )
+    full_grid_result = forest(
+        data,
+        columns=columns,
+        xlim=(-1, 1),
+        theme=ForestTheme(show_table_border=True, show_vertical_grid=True),
+    )
+    try:
+        default_gids = {line.get_gid() for line in default_result.axes.lines if line.get_gid()}
+        bordered_gids = {line.get_gid() for line in bordered_result.axes.lines if line.get_gid()}
+        full_grid_gids = {line.get_gid() for line in full_grid_result.axes.lines if line.get_gid()}
+
+        assert not {
+            gid
+            for gid in default_gids
+            if gid.startswith("table-border:") or gid.startswith("table-grid:")
+        }
+        assert {
+            "table-border:top",
+            "table-border:header-separator",
+            "table-border:left",
+            "table-border:right",
+        } <= bordered_gids
+        assert any(gid.startswith("table-border:row:") for gid in bordered_gids)
+        assert not any(gid.startswith("table-grid:") for gid in bordered_gids)
+        assert {"table-border:top", "table-border:header-separator"} <= full_grid_gids
+        assert {
+            "table-grid:column:label",
+            "table-grid:column:n",
+            "table-grid:column:effect_display",
+            "table-grid:column:ci",
+            "table-grid:right",
+        } <= full_grid_gids
+    finally:
+        plt.close(default_result.figure)
+        plt.close(bordered_result.figure)
+        plt.close(full_grid_result.figure)
 
 
 @pytest.mark.parametrize(

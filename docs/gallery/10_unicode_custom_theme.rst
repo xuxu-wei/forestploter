@@ -1,8 +1,10 @@
 10 · Unicode labels and a custom theme
 ======================================
 
-Chinese, English, Greek, mathematical symbols, custom fills, guide colors, and
-font fallback behavior are exercised together.
+Chinese, English, Greek, mathematical symbols, custom fills, guide colors, an
+explicitly enabled full table border, and font fallback behavior are exercised
+together. Other gallery cases retain the borderless default unless they opt
+into independent vertical column separators.
 
 :download:`XLSX <../../tests/data/10_unicode_custom_theme.xlsx>` ·
 :download:`CSV <../../tests/data/10_unicode_custom_theme.csv>` ·

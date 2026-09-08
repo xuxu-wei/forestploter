@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: forestploter development\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-29 04:22+0800\n"
+"POT-Creation-Date: 2026-09-09 03:26+0800\n"
 "PO-Revision-Date: 2026-08-18 16:24+0000\n"
 "Last-Translator: forestploter documentation maintainers\n"
 "Language: zh_CN\n"
@@ -374,7 +374,7 @@ msgstr "合并中最终源记录的零基包含索引。"
 #: forestploter.core.forest:93 forestploter.data.ForestCellSpan:27
 #: forestploter.data.ForestData:43 forestploter.data.ForestDataMapping:49
 #: forestploter.data.read_forest_data:56 forestploter.layout.ForestColumn:36
-#: forestploter.layout.ForestSeriesStyle:31 forestploter.theme.ForestTheme:64
+#: forestploter.layout.ForestSeriesStyle:31 forestploter.theme.ForestTheme:70
 #: of
 msgid "Notes"
 msgstr "说明"
@@ -610,7 +610,13 @@ msgid ""
 "several CI columns, duplicate its record, keep the same ``_plot_row``, "
 "and change ``_ci_column``; all CI columns then share the same vertical "
 "coordinate."
-msgstr "XLSX 的“所见即所输入”适用于值、记录顺序和受支持的纵向合并；绘图不会复制 Excel 的字体、填充、边框、列宽或行高。常规父子层级应把共享值放在 ``header`` 行，并为每个系列设置缩进的子 ``_plot_row``，无需合并。标题记录中的 ``_series``、``_ci_column`` 和 ``estimate/lower/upper`` 应留空，并使用 ``_indent=0`` 与 ``_is_summary=False``。若要在多个 CI 列中显示同一系列，请复制其记录，保留相同的 ``_plot_row``，并修改 ``_ci_column``；所有 CI 列将共享同一纵向坐标。"
+msgstr ""
+"XLSX 的“所见即所输入”适用于值、记录顺序和受支持的纵向合并；绘图不会复制 Excel "
+"的字体、填充、边框、列宽或行高。常规父子层级应把共享值放在 ``header`` 行，并为每个系列设置缩进的子 "
+"``_plot_row``，无需合并。标题记录中的 ``_series``、``_ci_column`` 和 "
+"``estimate/lower/upper`` 应留空，并使用 ``_indent=0`` 与 "
+"``_is_summary=False``。若要在多个 CI 列中显示同一系列，请复制其记录，保留相同的 ``_plot_row``，并修改 "
+"``_ci_column``；所有 CI 列将共享同一纵向坐标。"
 
 #: ../../api/generated/forestploter.ForestData.rst:22:<autosummary>:1
 msgid ""
@@ -1653,9 +1659,9 @@ msgstr "bool，默认值为 False"
 
 #: forestploter.theme.ForestTheme:44 of
 msgid ""
-"Whether to draw each column's left boundary and the table's right "
-"boundary."
-msgstr "是否绘制每列的左边界和表格的右边界。"
+"Whether to draw vertical column separators. This setting is independent "
+"of ``show_table_border``."
+msgstr "是否绘制纵向列分隔线。此设置独立于 ``show_table_border``。"
 
 #: forestploter.theme.ForestTheme:47 of
 msgid "**reference_line_style**"
@@ -1681,7 +1687,21 @@ msgstr "str，默认值为 \":\""
 msgid "Matplotlib line style for the ideal line."
 msgstr "Matplotlib 理想线条的线条样式。"
 
-#: forestploter.theme.ForestTheme:65 of
+#: forestploter.theme.ForestTheme:53 of
+msgid "**show_table_border**"
+msgstr "**show_table_border**"
+
+#: forestploter.theme.ForestTheme:54 of
+msgid ""
+"Whether to draw the table outline, header separator, and horizontal row "
+"separators. This is disabled by default for a conventional borderless "
+"forest-plot layout. Set ``show_vertical_grid=True`` as well when a fully "
+"boxed table is desired."
+msgstr ""
+"是否绘制表格外框、表头分隔线和横向行分隔线。为符合常规无框森林图布局，此选项默认关闭；需要完整方格表时，同时设置 "
+"``show_vertical_grid=True``。"
+
+#: forestploter.theme.ForestTheme:71 of
 msgid ""
 "Theme objects are frozen data classes and can be reused safely. Create a "
 "new instance for per-call changes instead of mutating during rendering."
@@ -1695,47 +1715,47 @@ msgstr ""
 ":py:obj:`__init__ <forestploter.ForestTheme.__init__>`\\ "
 "\\(\\[base\\_font\\_size\\, header\\_fill\\, ...\\]\\)"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`alternate_fill <forestploter.ForestTheme.alternate_fill>`\\"
 msgstr ":py:obj:`alternate_fill <forestploter.ForestTheme.alternate_fill>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`base_font_size <forestploter.ForestTheme.base_font_size>`\\"
 msgstr ":py:obj:`base_font_size <forestploter.ForestTheme.base_font_size>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`ci_colors <forestploter.ForestTheme.ci_colors>`\\"
 msgstr ":py:obj:`ci_colors <forestploter.ForestTheme.ci_colors>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`grid_color <forestploter.ForestTheme.grid_color>`\\"
 msgstr ":py:obj:`grid_color <forestploter.ForestTheme.grid_color>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`group_fill <forestploter.ForestTheme.group_fill>`\\"
 msgstr ":py:obj:`group_fill <forestploter.ForestTheme.group_fill>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`header_fill <forestploter.ForestTheme.header_fill>`\\"
 msgstr ":py:obj:`header_fill <forestploter.ForestTheme.header_fill>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`ideal_color <forestploter.ForestTheme.ideal_color>`\\"
 msgstr ":py:obj:`ideal_color <forestploter.ForestTheme.ideal_color>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`ideal_line_style <forestploter.ForestTheme.ideal_line_style>`\\"
 msgstr ":py:obj:`ideal_line_style <forestploter.ForestTheme.ideal_line_style>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`muted_color <forestploter.ForestTheme.muted_color>`\\"
 msgstr ":py:obj:`muted_color <forestploter.ForestTheme.muted_color>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`reference_color <forestploter.ForestTheme.reference_color>`\\"
 msgstr ":py:obj:`reference_color <forestploter.ForestTheme.reference_color>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ""
 ":py:obj:`reference_line_style "
 "<forestploter.ForestTheme.reference_line_style>`\\"
@@ -1743,7 +1763,11 @@ msgstr ""
 ":py:obj:`reference_line_style "
 "<forestploter.ForestTheme.reference_line_style>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
+msgid ":py:obj:`show_table_border <forestploter.ForestTheme.show_table_border>`\\"
+msgstr ":py:obj:`show_table_border <forestploter.ForestTheme.show_table_border>`\\"
+
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ""
 ":py:obj:`show_vertical_grid "
 "<forestploter.ForestTheme.show_vertical_grid>`\\"
@@ -1751,11 +1775,11 @@ msgstr ""
 ":py:obj:`show_vertical_grid "
 "<forestploter.ForestTheme.show_vertical_grid>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`summary_fill <forestploter.ForestTheme.summary_fill>`\\"
 msgstr ":py:obj:`summary_fill <forestploter.ForestTheme.summary_fill>`\\"
 
-#: ../../api/generated/forestploter.ForestTheme.rst:39:<autosummary>:1
+#: ../../api/generated/forestploter.ForestTheme.rst:40:<autosummary>:1
 msgid ":py:obj:`text_color <forestploter.ForestTheme.text_color>`\\"
 msgstr ":py:obj:`text_color <forestploter.ForestTheme.text_color>`\\"
 
@@ -1923,8 +1947,8 @@ msgid "ForestTheme, optional"
 msgstr "ForestTheme，可选"
 
 #: forestploter.core.forest:43 of
-msgid "Colors, font size, grid, and guide-line styles."
-msgstr "颜色、字体大小、网格和引导线样式。"
+msgid "Colors, font size, optional table borders, grid, and guide-line styles."
+msgstr "颜色、字体大小、可选表格边框、网格和引导线样式。"
 
 #: forestploter.core.forest:45 of
 msgid "**title**"
@@ -2049,7 +2073,12 @@ msgid ""
 "record, leave ``_series``, ``_ci_column``, and ``estimate/lower/upper`` "
 "blank; use ``_row_type=\"header\"``, ``_indent=0``, and "
 "``_is_summary=False``."
-msgstr "对于 XLSX，优先使用 :func:`read_forest_data`。当一个结局包含三个系列时，推荐使用一个 ``header`` 行保存共享的结局层级值，并为三个子行分别设置不同的 ``_plot_row`` 和 ``_indent=1``。在每个子行填写系列标签及其 CI 文本。这种常规布局不需要合并单元格；如有特殊显示需求，仍可使用受支持的 XLSX 纵向合并。标题记录中的 ``_series``、``_ci_column`` 和 ``estimate/lower/upper`` 应留空，并使用 ``_row_type=\"header\"``、``_indent=0`` 与 ``_is_summary=False``。"
+msgstr ""
+"对于 XLSX，优先使用 :func:`read_forest_data`。当一个结局包含三个系列时，推荐使用一个 ``header`` "
+"行保存共享的结局层级值，并为三个子行分别设置不同的 ``_plot_row`` 和 ``_indent=1``。在每个子行填写系列标签及其 CI "
+"文本。这种常规布局不需要合并单元格；如有特殊显示需求，仍可使用受支持的 XLSX 纵向合并。标题记录中的 "
+"``_series``、``_ci_column`` 和 ``estimate/lower/upper`` 应留空，并使用 "
+"``_row_type=\"header\"``、``_indent=0`` 与 ``_is_summary=False``。"
 
 #: forestploter.core.forest:103 of
 msgid ""
@@ -2234,7 +2263,13 @@ msgid ""
 "value is specifically desired. On the header record, leave ``_series``, "
 "``_ci_column``, and ``estimate/lower/upper`` blank; use "
 "``_row_type=\"header\"``, ``_indent=0``, and ``_is_summary=False``."
-msgstr "每条估计记录只填写一组统计三元数。当有三个系列时，推荐使用一个 ``header`` 记录保存共享的结局、样本量和其他组层级值，随后为三个系列各设一行，使用不同的 ``_plot_row`` 且令 ``_indent=1``。在对应子行填写系列标签和 CI 文本。该常规布局在 XLSX 与 CSV 中结构完全相同，不需要合并单元格。仅当确实需要让一个显示值跨多行居中时，才使用受支持的 XLSX 纵向合并。标题记录中的 ``_series``、``_ci_column`` 和 ``estimate/lower/upper`` 应留空，并使用 ``_row_type=\"header\"``、``_indent=0`` 与 ``_is_summary=False``。"
+msgstr ""
+"每条估计记录只填写一组统计三元数。当有三个系列时，推荐使用一个 ``header`` "
+"记录保存共享的结局、样本量和其他组层级值，随后为三个系列各设一行，使用不同的 ``_plot_row`` 且令 "
+"``_indent=1``。在对应子行填写系列标签和 CI 文本。该常规布局在 XLSX 与 CSV "
+"中结构完全相同，不需要合并单元格。仅当确实需要让一个显示值跨多行居中时，才使用受支持的 XLSX 纵向合并。标题记录中的 "
+"``_series``、``_ci_column`` 和 ``estimate/lower/upper`` 应留空，并使用 "
+"``_row_type=\"header\"``、``_indent=0`` 与 ``_is_summary=False``。"
 
 #: forestploter.data.read_forest_data:81 of
 msgid ""
@@ -2871,7 +2906,9 @@ msgid ""
 "once and leave the other cell blank, or repeat the same value in both "
 "records. The renderer aggregates non-conflicting values within that "
 "``_plot_row``; it does not forward-fill source data."
-msgstr "对于由这两条源记录共享的显示值，可以只填写一次并将另一个单元格留空，也可以在两条记录中重复相同值。渲染器会在该 ``_plot_row`` 内聚合互不冲突的值，不会向前填充源数据。"
+msgstr ""
+"对于由这两条源记录共享的显示值，可以只填写一次并将另一个单元格留空，也可以在两条记录中重复相同值。渲染器会在该 ``_plot_row`` "
+"内聚合互不冲突的值，不会向前填充源数据。"
 
 #: ../../data_contract.rst:294 ../../data_contract.rst:349
 msgid "outcome"
@@ -3273,32 +3310,34 @@ msgid ":doc:`gallery/10_unicode_custom_theme`"
 msgstr ":doc:`gallery/10_unicode_custom_theme`"
 
 #: ../../gallery.rst:44
-msgid "Chinese, English, Greek, mathematical symbols, and a custom theme."
-msgstr "中文、英文、希腊语、数学符号以及自定义主题。"
+msgid ""
+"Chinese, English, Greek, mathematical symbols, a custom theme, and the "
+"optional full table border."
+msgstr "中文、英文、希腊语、数学符号、自定义主题和可选的完整表格边框。"
 
-#: ../../gallery.rst:46
+#: ../../gallery.rst:47
 msgid ":doc:`gallery/11_boundary_precision`"
 msgstr ":doc:`gallery/11_boundary_precision`"
 
-#: ../../gallery.rst:47
+#: ../../gallery.rst:48
 msgid "Exact limits, zero-width intervals, narrow intervals, and tiny overflows."
 msgstr "精确限制、零宽度区间、窄区间和微小溢出。"
 
-#: ../../gallery.rst:49
+#: ../../gallery.rst:50
 msgid ":doc:`gallery/12_multi_series_ci_text_rows`"
 msgstr ":doc:`gallery/12_multi_series_ci_text_rows`"
 
-#: ../../gallery.rst:50
+#: ../../gallery.rst:51
 msgid ""
 "Three independent CI-text rows placed after the CI column and aligned "
 "one-to-one with the corresponding series graphics."
 msgstr "三个独立的 CI 文本行放置在 CI 列之后，并与相应的系列图形一对一对齐。"
 
-#: ../../gallery.rst:53
+#: ../../gallery.rst:54
 msgid ":doc:`gallery/13_comprehensive_showcase`"
 msgstr ":doc:`gallery/13_comprehensive_showcase`"
 
-#: ../../gallery.rst:54
+#: ../../gallery.rst:55
 msgid ""
 "Three series aligned across crude and adjusted CI columns with paired "
 "value-only CI text, compact outcome headers and indented series children,"
@@ -3344,7 +3383,7 @@ msgstr "单系列森林图，CI 列后带有效应文本"
 #: ../../gallery/07_four_series_dense.rst:16
 #: ../../gallery/08_two_by_two_ci_columns.rst:18
 #: ../../gallery/09_deep_hierarchy_many_rows.rst:16
-#: ../../gallery/10_unicode_custom_theme.rst:16
+#: ../../gallery/10_unicode_custom_theme.rst:18
 #: ../../gallery/11_boundary_precision.rst:16
 #: ../../gallery/12_multi_series_ci_text_rows.rst:17
 #: ../../gallery/13_comprehensive_showcase.rst:27
@@ -3358,7 +3397,7 @@ msgstr "运行示例"
 #: ../../gallery/07_four_series_dense.rst:28
 #: ../../gallery/08_two_by_two_ci_columns.rst:30
 #: ../../gallery/09_deep_hierarchy_many_rows.rst:28
-#: ../../gallery/10_unicode_custom_theme.rst:28
+#: ../../gallery/10_unicode_custom_theme.rst:30
 #: ../../gallery/11_boundary_precision.rst:28
 #: ../../gallery/12_multi_series_ci_text_rows.rst:29
 #: ../../gallery/13_comprehensive_showcase.rst:39
@@ -3575,10 +3614,14 @@ msgstr "10 · Unicode 标签和自定义主题"
 #: ../../gallery/10_unicode_custom_theme.rst:4
 msgid ""
 "Chinese, English, Greek, mathematical symbols, custom fills, guide "
-"colors, and font fallback behavior are exercised together."
-msgstr "同时测试中文、英文、希腊语、数学符号、自定义填充、辅助线颜色和字体回退行为。"
+"colors, an explicitly enabled full table border, and font fallback "
+"behavior are exercised together. Other gallery cases retain the "
+"borderless default unless they opt into independent vertical column "
+"separators."
+msgstr ""
+"同时测试中文、英文、希腊语、数学符号、自定义填充、辅助线颜色、显式开启的完整表格边框以及字体回退行为。其他图库用例保留无框默认样式，除非显式启用独立的纵向列分隔线。"
 
-#: ../../gallery/10_unicode_custom_theme.rst:7
+#: ../../gallery/10_unicode_custom_theme.rst:9
 msgid ""
 ":download:`XLSX <../../tests/data/10_unicode_custom_theme.xlsx>` · "
 ":download:`CSV <../../tests/data/10_unicode_custom_theme.csv>` · "
@@ -3588,7 +3631,7 @@ msgstr ""
 ":download:`CSV <../../tests/data/10_unicode_custom_theme.csv>` · "
 ":download:`PNG <../../tests/artifacts/10_unicode_custom_theme.png>`"
 
-#: ../../gallery/10_unicode_custom_theme.rst:11
+#: ../../gallery/10_unicode_custom_theme.rst:13
 msgid "Unicode forest plot with a custom theme"
 msgstr "带有自定义主题的 Unicode 森林图"
 
@@ -3762,30 +3805,46 @@ msgstr ""
 "``columns`` 控制。"
 
 #: ../../getting_started.rst:97
+msgid "Table borders"
+msgstr "表格边框"
+
+#: ../../getting_started.rst:99
+msgid ""
+"The table outline and horizontal row separators are hidden by default. "
+"Pass ``theme=ForestTheme(show_table_border=True)`` to "
+":func:`forestploter.forest` to display them. Set "
+"``show_vertical_grid=True`` on the same theme when vertical column "
+"separators are also needed."
+msgstr ""
+"表格外框和横向行分隔线默认隐藏。向 :func:`forestploter.forest` 传入 "
+"``theme=ForestTheme(show_table_border=True)`` 即可显示；如还需要纵向列分隔线，请在同一主题中设置 "
+"``show_vertical_grid=True``。"
+
+#: ../../getting_started.rst:105
 msgid "Save the result"
 msgstr "保存结果"
 
-#: ../../getting_started.rst:104
+#: ../../getting_started.rst:112
 msgid "Close the Figure after batch rendering:"
 msgstr "批量渲染后关闭图："
 
-#: ../../getting_started.rst:112
+#: ../../getting_started.rst:120
 msgid "Next steps"
 msgstr "后续步骤"
 
-#: ../../getting_started.rst:114
+#: ../../getting_started.rst:122
 msgid ""
 "Read :doc:`data_contract` for XLSX merges, row recipes, and multi-CI "
 "alignment."
 msgstr "查阅 :doc:`data_contract`，了解 XLSX 合并、行填写模板和多 CI 对齐。"
 
-#: ../../getting_started.rst:116
+#: ../../getting_started.rst:124
 msgid ""
 "Browse :doc:`gallery` for thirteen downloadable XLSX/CSV/PNG cases with "
 "the exact plotting code."
 msgstr "浏览 :doc:`gallery`，获取 13 个可下载的 XLSX/CSV/PNG 案例及其准确绘图代码。"
 
-#: ../../getting_started.rst:118
+#: ../../getting_started.rst:126
 msgid ""
 "Consult :func:`forestploter.read_forest_data` and "
 ":func:`forestploter.forest` for API details."
@@ -3793,11 +3852,11 @@ msgstr ""
 "有关 API 细节，请查阅 :func:`forestploter.read_forest_data` 和 "
 ":func:`forestploter.forest`。"
 
-#: ../../index.rst:36
+#: ../../index.rst:38
 msgid "User guide"
 msgstr "用户指南"
 
-#: ../../index.rst:44
+#: ../../index.rst:46
 msgid "Reference"
 msgstr "参考"
 
@@ -3843,26 +3902,32 @@ msgid ""
 msgstr "普通估计、汇总菱形、截断箭头、引导线和图例；"
 
 #: ../../index.rst:20
+msgid ""
+"borderless tables by default with optional outlines, row separators, and "
+"vertical column separators;"
+msgstr "表格默认无框，并可选显示外框、行分隔线和纵向列分隔线；"
+
+#: ../../index.rst:22
 msgid "independently editable per-series CI text aligned with each plotted row;"
 msgstr "独立可编辑的每系列 CI 文本与每个绘制的行对齐；"
 
-#: ../../index.rst:21
+#: ../../index.rst:23
 msgid ""
 "vertically merged display cells with centered text and suppressed "
 "internal rules;"
 msgstr "纵向合并显示单元，文本居中并抑制内部规则；"
 
-#: ../../index.rst:23
+#: ../../index.rst:25
 msgid ""
 "header wrapping, automatic width growth, hierarchical indentation, "
 "themes, and layout diagnostics;"
 msgstr "标头换行、自动宽度增长、分层缩进、主题和布局诊断；"
 
-#: ../../index.rst:25
+#: ../../index.rst:27
 msgid "PNG, SVG, and other Matplotlib-supported static exports."
 msgstr "PNG、SVG 和其他 Matplotlib 支持的静态导出。"
 
-#: ../../index.rst:27
+#: ../../index.rst:29
 msgid ""
 "Start with :doc:`getting_started`, use :doc:`data_contract` when "
 "preparing non-trivial workbooks, browse the :doc:`gallery`, and consult "
@@ -3871,21 +3936,21 @@ msgstr ""
 "从 :doc:`getting_started` 开始，在准备重要的工作簿时使用 :doc:`data_contract`，浏览 "
 ":doc:`gallery`，并查阅 :doc:`api` 以获取完整的签名和参数定义。"
 
-#: ../../index.rst:33
+#: ../../index.rst:35
 msgid ""
 "Version |release| is a quality-first public preview. All CI columns "
 "currently share one global linear coordinate configuration."
 msgstr "版本 |release| 是质量优先的公开预览。当前所有 CI 列共享一套全局线性坐标配置。"
 
-#: ../../index.rst:51
+#: ../../index.rst:53
 msgid "Indexes"
 msgstr "索引"
 
-#: ../../index.rst:53
+#: ../../index.rst:55
 msgid ":ref:`genindex`"
 msgstr ":ref:`genindex`"
 
-#: ../../index.rst:54
+#: ../../index.rst:56
 msgid ":ref:`search`"
 msgstr ":ref:`search`"
 
@@ -3934,3 +3999,8 @@ msgstr ":ref:`search`"
 
 #~ msgid "A 0.72 [0.58, 0.90]"
 #~ msgstr "A 0.72 [0.58, 0.90]"
+
+#~ msgid ""
+#~ "Whether to draw each column's left "
+#~ "boundary and the table's right boundary."
+#~ msgstr "是否绘制每列的左边界和表格的右边界。"

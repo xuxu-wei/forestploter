@@ -283,6 +283,7 @@ def plot_unicode_custom_theme(df: ForestInput) -> ForestPlotResult:
         summary_fill="#6B3FA0",
         reference_color="#374151",
         ideal_color="#C47F17",
+        show_table_border=True,
         show_vertical_grid=True,
     )
     return forest(
